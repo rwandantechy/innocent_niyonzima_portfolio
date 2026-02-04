@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaBars, FaTimes, FaMoon, FaSun, FaCode, FaRocket } from 'react-icons/fa';
+import { FaBars, FaTimes, FaMoon, FaSun, FaRocket, FaEnvelope } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeProvider';
 
 export default function Navbar(){
@@ -23,11 +23,10 @@ export default function Navbar(){
   }, [location]);
 
   const navLinks = [
-    { to: '/', label: 'Home', icon: '🏠' },
-    { to: '/projects', label: 'Projects', icon: '🚀' },
-    { to: '/blogs', label: 'Blog', icon: '✍️' },
-    { to: '/about', label: 'About', icon: '👤' },
-    { to: '/contact', label: 'Contact', icon: '💬' }
+    { to: '/', label: 'Home' },
+    { to: '/projects', label: 'Projects' },
+    { to: '/blogs', label: 'Blog' },
+    { to: '/about', label: 'About' }
   ];
 
   return (
@@ -41,18 +40,17 @@ export default function Navbar(){
       
       <div className="container">
         <div className="navbar-content-premium">
-          {/* Logo */}
+          {/* Logo / Branding */}
           <Link to="/" className="navbar-logo-premium">
             <motion.div 
               className="logo-wrapper"
-              whileHover={{ scale: 1.05, rotate: 5 }}
+              whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FaCode className="logo-icon" />
               <span className="logo-text">
-                <span className="gradient-text">Innocent</span>
-                <span className="logo-subtitle">Portfolio</span>
+                <span className="gradient-text" style={{ fontSize: '1.4rem', fontWeight: '900' }}>TECHYIE</span>
               </span>
+              <span className="logo-subtitle" style={{ fontSize: '0.7rem', fontWeight: '600' }}>by Innocent</span>
             </motion.div>
           </Link>
 
@@ -73,7 +71,6 @@ export default function Navbar(){
                     whileHover={{ y: -2 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <span className="link-icon">{link.icon}</span>
                     {link.label}
                   </motion.span>
                   {location.pathname === link.to && (
@@ -132,8 +129,8 @@ export default function Navbar(){
               whileTap={{ scale: 0.95 }}
             >
               <Link to="/contact" className="navbar-cta">
-                <FaRocket />
-                Let's Talk
+                <FaEnvelope style={{ marginRight: '6px' }} />
+                Get In Touch
               </Link>
             </motion.div>
 
@@ -195,7 +192,6 @@ export default function Navbar(){
                       to={link.to} 
                       className={`mobile-menu-link ${location.pathname === link.to ? 'active' : ''}`}
                     >
-                      <span className="mobile-link-icon">{link.icon}</span>
                       <span className="mobile-link-text">{link.label}</span>
                       {location.pathname === link.to && (
                         <motion.div 
@@ -216,7 +212,7 @@ export default function Navbar(){
                 transition={{ delay: 0.3 }}
               >
                 <Link to="/contact" className="mobile-cta-btn" onClick={() => setIsOpen(false)}>
-                  <FaRocket />
+                  <FaEnvelope />
                   Get In Touch
                 </Link>
               </motion.div>
