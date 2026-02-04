@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useApp } from '../../context/AppProvider';
 
 function Stat({title,value}){
   return (
@@ -13,6 +14,34 @@ export default function AdminDashboard(){
   const projects = 12;
   const users = 341;
   const messages = 7;
+  
+  // admin actions from App context
+  const { createProject, createBlog } = useApp();
+
+  const [pTitle, setPTitle] = useState('');
+  const [pDesc, setPDesc] = useState('');
+  const [blogTitle, setBlogTitle] = useState('');
+  const [blogContent, setBlogContent] = useState('');
+  const [msg, setMsg] = useState(null);
+
+  const submitProject = async (e) => {
+    e.preventDefault();
+    try {
+      await createProject({ title: pTitle, description: pDesc, tags: [] });
+      setMsg('Project created');
+      setPTitle(''); setPDesc('');
+    } catch (err) { setMsg('Create project failed'); }
+  };
+
+  const submitBlog = async (e) => {
+    e.preventDefault();
+    try {
+      await createBlog({ title: blogTitle, content: blogContent, tags: [] });
+      setMsg('Blog created');
+      setBlogTitle(''); setBlogContent('');
+    } catch (err) { setMsg('Create blog failed'); }
+  };
+
 
   return (
     <section className="container">
@@ -32,6 +61,28 @@ export default function AdminDashboard(){
           </ul>
         </div>
       </div>
+      
+      <div style={{marginTop:20, display:'grid', gridTemplateColumns:'1fr 1fr', gap:12}}>
+        <div className="card">
+          <h3>Create Project</h3>
+          <form onSubmit={submitProject}>
+            <input placeholder="Title" value={pTitle} onChange={e=>setPTitle(e.target.value)} />
+            <textarea placeholder="Description" value={pDesc} onChange={e=>setPDesc(e.target.value)} />
+            <button type="submit">Create</button>
+          </form>
+        </div>
+
+        <div className="card">
+          <h3>Create Blog</h3>
+          <form onSubmit={submitBlog}>
+            <input placeholder="Title" value={blogTitle} onChange={e=>setBlogTitle(e.target.value)} />
+            <textarea placeholder="Content" value={blogContent} onChange={e=>setBlogContent(e.target.value)} />
+            <button type="submit">Create</button>
+          </form>
+        </div>
+      </div>
+
+      {msg && <div style={{marginTop:12}} className="muted">{msg}</div>}
     </section>
   )
 }
