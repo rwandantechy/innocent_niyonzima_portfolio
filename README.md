@@ -1,4 +1,4 @@
-# Portfolio
+# Innocent Niyonzima (@Rwandantechy) - Portfolio
 
 A professional full-stack portfolio application built with React, Node.js, and Express.
 
