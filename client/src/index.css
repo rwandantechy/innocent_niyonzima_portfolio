@@ -676,7 +676,7 @@ nav a.active {
   border: 1px solid rgba(253, 150, 26, 0.2);
   border-radius: var(--radius-lg);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px) saturate(180%);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
