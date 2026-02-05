@@ -29,6 +29,7 @@
   --color-text-secondary: #e0e0e0;
   --color-muted: #a0a0a0;
   --color-border: #2a2a2a;
+  --logo-bg: #2a2a2a;
   
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #fd961a 0%, #ffc947 100%);
@@ -67,6 +68,7 @@
     --color-text-secondary: #1e293b;
     --color-muted: #5b6474;
     --color-border: #d9dee5;
+    --logo-bg: #f0f0f0;
     --gradient-primary: linear-gradient(135deg, #ffb347 0%, #fd961a 100%);
     --gradient-secondary: linear-gradient(135deg, #00b4ff 0%, #0085ff 100%);
     --gradient-accent: linear-gradient(135deg, #ff6b81 0%, #ff9e3d 100%);
@@ -3155,7 +3157,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-card);
+  background: var(--logo-bg);
   border: 2px solid var(--color-primary);
   border-radius: 12px;
   flex-shrink: 0;
@@ -3167,7 +3169,7 @@ section {
   border-radius: 12px;
   object-fit: contain;
   padding: 4px;
-  background: var(--color-card);
+  background: var(--logo-bg);
   border: 2px solid var(--color-primary);
   flex-shrink: 0;
   transition: all var(--transition);

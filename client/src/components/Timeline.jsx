@@ -71,7 +71,7 @@ export default function Timeline({ items }) {
                 borderRadius: 6,
                 objectFit: 'contain',
                 padding: 3,
-                backgroundColor: 'var(--color-card)',
+                backgroundColor: 'var(--logo-bg)',
                 border: '2px solid var(--color-primary)',
                 opacity: 0.95
               }}
