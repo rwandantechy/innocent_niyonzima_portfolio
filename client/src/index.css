@@ -3347,3 +3347,39 @@ section {
   }
 }
 
+/* ============================================
+   SKILLS WITH LOGOS (CDN)
+   ============================================ */
+.skill-tag-with-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.skill-logo {
+  width: 18px;
+  height: 18px;
+  display: block;
+  object-fit: contain;
+}
+
+.skill-tag {
+  margin: 0;
+}
+
+.skill-tag-with-logo:hover {
+  background: var(--color-card-hover);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(253, 150, 26, 0.15);
+}

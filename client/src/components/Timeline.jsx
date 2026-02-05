@@ -1,5 +1,26 @@
 import React from 'react';
 
+// Company logo mapping - using Simple Icons CDN
+const companyLogoMap = {
+  'The Catholic University of America': 'cua',
+  'Nkotanyi Driving School': 'car',
+  'Nishkaam Innovations LLP': 'briefcase'
+};
+
+const getCompanyLogo = (company) => {
+  const key = Object.keys(companyLogoMap).find(k => company.includes(k.split(' ')[0]) || company === k);
+  if (key) {
+    const iconName = companyLogoMap[key];
+    if (iconName === 'cua') {
+      // CUA doesn't have simple icon, use university generic
+      return 'https://cdn.simpleicons.org/googlescholar/fd961a';
+    }
+    return `https://cdn.simpleicons.org/${iconName}/fd961a`;
+  }
+  // Fallback to briefcase for unknown companies
+  return 'https://cdn.simpleicons.org/briefcase/fd961a';
+};
+
 export default function Timeline({ items }) {
   return (
     <div className="timeline" style={{position:'relative',paddingLeft:40,marginTop:24}}>
@@ -20,7 +41,7 @@ export default function Timeline({ items }) {
           paddingBottom:32,
           borderBottom: idx < items.length - 1 ? '1px solid var(--color-border)' : 'none'
         }}>
-          {/* Timeline dot */}
+          {/* Timeline dot with company logo */}
           <div style={{
             position:'absolute',
             left:-43,
@@ -32,6 +53,23 @@ export default function Timeline({ items }) {
             border:'3px solid var(--color-bg)',
             boxShadow:'0 0 0 2px var(--color-primary)'
           }}></div>
+
+          {/* Company logo */}
+          {item.company && (
+            <img 
+              src={getCompanyLogo(item.company)} 
+              alt={item.company}
+              style={{
+                width: 24,
+                height: 24,
+                marginBottom: 8,
+                opacity: 0.8
+              }}
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+          )}
 
           <div style={{display:'flex',justifyContent:'space-between',alignItems:'start',marginBottom:8}}>
             <h4 style={{margin:0,fontSize:'1.1rem',color:'var(--color-text)'}}>{item.title}</h4>

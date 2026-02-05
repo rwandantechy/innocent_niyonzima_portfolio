@@ -1,20 +1,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCode, FaPalette, FaCog, FaDatabase, FaCloud, FaBrain } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 
-const iconMap = {
-  'Languages': FaCode,
-  'Frontend': FaPalette,
-  'Backend': FaCog,
-  'Databases': FaDatabase,
-  'DevOps & Cloud': FaCloud,
-  'Theory & Algorithms': FaBrain
+// Simple Icons CDN: https://cdn.simpleicons.org/
+const logoMap = {
+  'C#': 'csharp',
+  'Python': 'python',
+  'JavaScript': 'javascript',
+  'TypeScript': 'typescript',
+  'C': 'c',
+  'C++': 'cplusplus',
+  'PHP': 'php',
+  'React': 'react',
+  'HTML5': 'html5',
+  'CSS3': 'css3',
+  'Tailwind': 'tailwindcss',
+  'Bootstrap': 'bootstrap',
+  'Redux': 'redux',
+  'Node.js': 'nodedotjs',
+  'ASP.NET Core': 'dotnet',
+  'Express': 'express',
+  'Laravel': 'laravel',
+  'REST APIs': 'swagger',
+  'SQL Server': 'microsoftsqlserver',
+  'MySQL': 'mysql',
+  'PostgreSQL': 'postgresql',
+  'MongoDB': 'mongodb',
+  'Redis': 'redis',
+  'Docker': 'docker',
+  'Git': 'git',
+  'CI/CD': 'githubactions',
+  'VPS': 'linode',
+  'NGINX': 'nginx',
+  'PM2': 'nodedotjs',
+  'Linux': 'linux'
 };
 
-const SkillCategory = ({ title, skills, icon, color, index }) => {
+const SkillCategory = ({ title, skills, index }) => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  const IconComponent = iconMap[title];
   
   return (
     <motion.div 
@@ -26,21 +49,32 @@ const SkillCategory = ({ title, skills, icon, color, index }) => {
       whileHover={{ y: -8, transition: { duration: 0.2 } }}
     >
       <div className="skill-category-header">
-        <IconComponent className="skill-icon" style={{color, fontSize: '1.8rem'}} />
         <h3>{title}</h3>
       </div>
       <div className="skill-tags">
-        {skills.map((skill, idx) => (
-          <motion.span 
-            key={idx} 
-            className="skill-tag" 
-            style={{'--skill-color': color}}
-            whileHover={{ scale: 1.05, y: -2 }}
-            transition={{ type: "spring", stiffness: 400 }}
-          >
-            {skill}
-          </motion.span>
-        ))}
+        {skills.map((skill, idx) => {
+          const iconName = logoMap[skill] || skill.toLowerCase();
+          const iconUrl = `https://cdn.simpleicons.org/${iconName}/fd961a`;
+          
+          return (
+            <motion.div
+              key={idx} 
+              className="skill-tag-with-logo"
+              whileHover={{ scale: 1.1, y: -4 }}
+              transition={{ type: "spring", stiffness: 400 }}
+            >
+              <img 
+                src={iconUrl} 
+                alt={skill} 
+                className="skill-logo"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <span className="skill-tag">{skill}</span>
+            </motion.div>
+          );
+        })}
       </div>
     </motion.div>
   );
@@ -50,32 +84,26 @@ export default function SkillsGrid() {
   const skillCategories = [
     {
       title: 'Languages',
-      color: '#fd961a',
       skills: ['C#', 'Python', 'JavaScript', 'TypeScript', 'C', 'C++', 'PHP']
     },
     {
       title: 'Frontend',
-      color: '#00d4ff',
       skills: ['React', 'HTML5', 'CSS3', 'Tailwind', 'Bootstrap', 'Redux']
     },
     {
       title: 'Backend',
-      color: '#ff4d6d',
       skills: ['Node.js', 'ASP.NET Core', 'Express', 'Laravel', 'REST APIs']
     },
     {
       title: 'Databases',
-      color: '#00d4ff',
       skills: ['SQL Server', 'MySQL', 'PostgreSQL', 'MongoDB', 'Redis']
     },
     {
       title: 'DevOps & Cloud',
-      color: '#fd961a',
       skills: ['Docker', 'Git', 'CI/CD', 'VPS', 'NGINX', 'PM2', 'Linux']
     },
     {
       title: 'Theory & Algorithms',
-      color: '#ff4d6d',
       skills: ['Automata Theory', 'Data Structures', 'Algorithms', 'OOP', 'Design Patterns']
     }
   ];
