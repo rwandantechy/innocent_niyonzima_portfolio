@@ -44,17 +44,6 @@ export default function About(){
         'Created a task-tracking system using Express and MongoDB, improving internal reporting clarity',
         'Participated in Agile scrums, sprint planning, and Git version control workflows'
       ]
-    },
-    {
-      title: 'Summer Staff – Kane Fitness Center',
-      company: 'The Catholic University of America',
-      location: 'Washington, DC',
-      date: 'Summer 2025',
-      highlights: [
-        'Ensured safe operations through routine facility inspections and protocol adherence',
-        'Provided front desk customer service, managing daily operations and visitor inquiries',
-        'Fostered a welcoming, team-oriented environment'
-      ]
     }
   ];
 
