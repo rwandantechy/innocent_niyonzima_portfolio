@@ -116,23 +116,25 @@ export default function About(){
 
               <div className="about-contact-links">
                 <motion.a 
-                  href="mailto:niyonzima@cua.edu" 
+                  href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL || 'contact@example.com'}`}
                   className="contact-chip"
                   whileHover={{ y: -4, scale: 1.05 }}
                 >
                   <FaEnvelope />
-                  niyonzima@cua.edu
+                  {import.meta.env.VITE_CONTACT_EMAIL || 'contact@example.com'}
                 </motion.a>
                 <motion.a 
-                  href="tel:+14106227477" 
+                  href={import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com'} 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="contact-chip"
                   whileHover={{ y: -4, scale: 1.05 }}
                 >
-                  <FaPhone />
-                  +1 (410) 622-7477
+                  <FaGlobe />
+                  LinkedIn
                 </motion.a>
                 <motion.a 
-                  href="https://linktr.ee/Innocent.niyonzima" 
+                  href={import.meta.env.VITE_GITHUB_URL || 'https://github.com'} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="contact-chip"
@@ -145,7 +147,7 @@ export default function About(){
 
               <div className="about-social-links">
                 <motion.a 
-                  href="https://linkedin.com/in/innocent-niyonzima" 
+                  href={import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com'} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="social-link-btn"
@@ -154,7 +156,7 @@ export default function About(){
                   <FaLinkedin />
                 </motion.a>
                 <motion.a 
-                  href="https://github.com/rwandantechy" 
+                  href={import.meta.env.VITE_GITHUB_URL || 'https://github.com'} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="social-link-btn"
@@ -163,7 +165,7 @@ export default function About(){
                   <FaGithub />
                 </motion.a>
                 <motion.a 
-                  href="https://linktr.ee/Innocent.niyonzima" 
+                  href={import.meta.env.VITE_TWITTER_URL || 'https://twitter.com'} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="social-link-btn"

@@ -5,10 +5,10 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaHeart } from 'react-icon
 
 export default function Footer(){
   const socialLinks = [
-    { icon: FaGithub, href: 'https://github.com/rwandantechy', label: 'GitHub' },
-    { icon: FaLinkedin, href: 'https://linkedin.com/in/innocent-niyonzima', label: 'LinkedIn' },
-    { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
-    { icon: FaEnvelope, href: 'mailto:niyonzima@cua.edu', label: 'Email' }
+    { icon: FaGithub, href: import.meta.env.VITE_GITHUB_URL || 'https://github.com', label: 'GitHub' },
+    { icon: FaLinkedin, href: import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com', label: 'LinkedIn' },
+    { icon: FaTwitter, href: import.meta.env.VITE_TWITTER_URL || 'https://twitter.com', label: 'Twitter' },
+    { icon: FaEnvelope, href: `mailto:${import.meta.env.VITE_CONTACT_EMAIL || 'contact@example.com'}`, label: 'Email' }
   ];
 
   const footerLinks = [
@@ -25,7 +25,7 @@ export default function Footer(){
         <div className="footer-content">
           {/* Logo and Description */}
           <div className="footer-section">
-            <h3 className="gradient-text">Innocent N.</h3>
+            <h3 className="gradient-text">Developer</h3>
             <p className="footer-description">
               Full-Stack Developer specializing in MERN and .NET Core technologies.
               Building scalable applications with technical excellence.
@@ -48,9 +48,8 @@ export default function Footer(){
           <div className="footer-section">
             <h4>Get In Touch</h4>
             <ul className="footer-contact">
-              <li>📧 niyonzima@cua.edu</li>
-              <li>📱 +1 (410) 622-7477</li>
-              <li>📍 Washington, DC</li>
+              <li>📧 {import.meta.env.VITE_CONTACT_EMAIL || 'contact@example.com'}</li>
+              <li>💼 Available for opportunities</li>
             </ul>
           </div>
 
@@ -81,7 +80,7 @@ export default function Footer(){
 
         <div className="footer-bottom">
           <p className="muted">
-            &copy; {new Date().getFullYear()} Rwandantechy. 
+            &copy; {new Date().getFullYear()} Portfolio. 
           </p>
         </div>
       </div>

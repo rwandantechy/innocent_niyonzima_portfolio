@@ -52,18 +52,7 @@ export default function Contact(){
               <FaEnvelope className="contact-icon" />
               <div>
                 <h4>Email</h4>
-                <a href="mailto:niyonzima@cua.edu">niyonzima@cua.edu</a>
-              </div>
-            </motion.div>
-            
-            <motion.div 
-              className="contact-item"
-              whileHover={{ x: 8 }}
-            >
-              <FaPhone className="contact-icon" />
-              <div>
-                <h4>Phone</h4>
-                <a href="tel:+14106227477">+1 (410) 622-7477</a>
+                <a href="mailto:contact@example.com">contact@example.com</a>
               </div>
             </motion.div>
             
@@ -74,7 +63,7 @@ export default function Contact(){
               <FaMapMarkerAlt className="contact-icon" />
               <div>
                 <h4>Location</h4>
-                <p className="muted">Washington, DC</p>
+                <p className="muted">Available for Remote Work</p>
               </div>
             </motion.div>
           </div>
@@ -83,29 +72,32 @@ export default function Contact(){
             <h4>Connect With Me</h4>
             <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
               <motion.a 
-                href="https://linkedin.com/in/innocent-niyonzima" 
+                href={import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com'}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-icon-contact"
                 whileHover={{ y: -4 }}
+                title="LinkedIn Profile"
               >
                 <FaLinkedin />
               </motion.a>
               <motion.a 
-                href="https://github.com/rwandantechy" 
+                href={import.meta.env.VITE_GITHUB_URL || 'https://github.com'}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-icon-contact"
                 whileHover={{ y: -4 }}
+                title="GitHub Profile"
               >
                 <FaGithub />
               </motion.a>
               <motion.a 
-                href="https://linktr.ee/Innocent.niyonzima" 
+                href={import.meta.env.VITE_TWITTER_URL || 'https://twitter.com'}
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-icon-contact"
                 whileHover={{ y: -4 }}
+                title="Twitter Profile"
               >
                 <FaTwitter />
               </motion.a>

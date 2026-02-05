@@ -1,4 +1,4 @@
-# Innocent Niyonzima (@Rwandantechy) - Portfolio
+# Full-Stack Portfolio
 
 A professional full-stack portfolio application built with React, Node.js, and Express.
 
@@ -11,6 +11,15 @@ cd Backend && npm install
 
 # Frontend
 cd client && npm install
+```
+
+### Configuration
+Before running the application, configure your environment variables:
+
+```bash
+# Frontend - Create .env.local in client/ directory
+cp client/.env.example client/.env.local
+# Edit client/.env.local with your actual information
 ```
 
 ### Development
