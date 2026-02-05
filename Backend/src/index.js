@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const morgan = require('morgan');
+const path = require('path');
 require('dotenv').config();
 
 const routes = require('./routes');
@@ -15,10 +16,29 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
+// Serve static files from the client public folder (for certificates, images, etc.)
+app.use(express.static(path.join(__dirname, '../../client/public')));
+
+// In production, also serve the built frontend
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../../client/dist')));
+}
+
 app.use('/api', routes);
 
-// health
-app.get('/', (req, res) => res.json({ ok: true, version: 'backend-scaffold' }));
+// health check
+app.get('/api/health', (req, res) => res.json({ ok: true, version: 'backend-scaffold' }));
+
+// SPA fallback for production - serve index.html for all non-API routes
+if (process.env.NODE_ENV === 'production') {
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../../client/dist/index.html'), (err) => {
+      if (err) {
+        res.status(500).send('Unable to load application');
+      }
+    });
+  });
+}
 
 // error handler
 app.use(errorHandler);

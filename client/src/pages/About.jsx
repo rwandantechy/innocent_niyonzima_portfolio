@@ -345,7 +345,7 @@ export default function About(){
               issuer="Kaggle"
               date="2023"
               status="completed"
-              certificateUrl="/certificates/ntro to Machine Learning by Kaggle 2023.png"
+              certificateUrl="/certificates/Introduction to Machine Learning by Kaggle 2023.png"
               index={5}
             />
             <CertificationCard
