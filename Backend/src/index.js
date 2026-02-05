@@ -29,16 +29,18 @@ app.use('/api', routes);
 // health check
 app.get('/api/health', (req, res) => res.json({ ok: true, version: 'backend-scaffold' }));
 
-// SPA fallback for production - serve index.html for all non-API routes
-if (process.env.NODE_ENV === 'production') {
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../../client/dist/index.html'), (err) => {
-      if (err) {
-        res.status(500).send('Unable to load application');
-      }
-    });
+// SPA fallback - serve index.html for all non-API routes to enable client-side routing
+app.get('*', (req, res) => {
+  const filePath = process.env.NODE_ENV === 'production' 
+    ? path.join(__dirname, '../../client/dist/index.html')
+    : path.join(__dirname, '../../client/index.html');
+  
+  res.sendFile(filePath, (err) => {
+    if (err) {
+      res.status(500).send('Unable to load application');
+    }
   });
-}
+});
 
 // error handler
 app.use(errorHandler);
