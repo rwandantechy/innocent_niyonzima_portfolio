@@ -142,7 +142,7 @@ export default function CertificationCard({ title, issuer, date, iconType, statu
       </motion.div>
 
       {/* Modal for image certificates */}
-      {showModal && certificateUrl && certificateUrl.endsWith(('.png', '.jpg', '.jpeg')) && (
+      {showModal && certificateUrl && (certificateUrl.endsWith('.png') || certificateUrl.endsWith('.jpg') || certificateUrl.endsWith('.jpeg')) && (
         <motion.div
           className="cert-modal"
           initial={{ opacity: 0 }}
