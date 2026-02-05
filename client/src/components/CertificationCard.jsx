@@ -74,12 +74,7 @@ export default function CertificationCard({ title, issuer, date, iconType, statu
   
   const handleViewCertificate = () => {
     if (certificateUrl) {
-      // Check if it's a PDF or image
-      if (certificateUrl.endsWith('.pdf')) {
-        window.open(certificateUrl, '_blank');
-      } else {
-        setShowModal(true);
-      }
+      window.open(certificateUrl, '_blank');
     }
   };
   
