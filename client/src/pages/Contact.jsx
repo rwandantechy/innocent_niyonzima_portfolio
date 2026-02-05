@@ -22,15 +22,15 @@ export default function Contact(){
   };
 
   return (
-    <section className="container" style={{ paddingTop: 40, paddingBottom: 80 }}>
+    <section className="container" style={{ paddingTop: 60, paddingBottom: 100 }}>
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        style={{ textAlign: 'center', marginBottom: 48 }}
+        style={{ textAlign: 'center', marginBottom: 72 }}
       >
         <h2>Get In Touch</h2>
-        <p className="muted" style={{ fontSize: '1.1rem', maxWidth: 600, margin: '16px auto 0' }}>
+        <p className="muted" style={{ fontSize: '1.1rem', maxWidth: 600, margin: '24px auto 0' }}>
           Open to full-stack development roles, backend engineering positions, and technical leadership opportunities
         </p>
       </motion.div>

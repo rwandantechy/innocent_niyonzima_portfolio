@@ -1382,6 +1382,40 @@ textarea {
   .mobile-menu-toggle-premium {
     display: flex;
   }
+
+  /* Mobile navbar maintains design consistency */
+  .mobile-menu-premium {
+    padding: 0.75rem 0 1rem;
+  }
+
+  .mobile-menu-list {
+    gap: 0.25rem;
+  }
+
+  .mobile-menu-link {
+    padding: 0.75rem 1.25rem;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.05);
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .mobile-menu-link:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-primary);
+    transform: translateX(0);
+  }
+
+  [data-theme="light"] .mobile-menu-link {
+    color: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="light"] .mobile-menu-link:hover {
+    background: rgba(0, 0, 0, 0.08);
+    color: #000;
+  }
 }
 
 @media (max-width: 576px) {
