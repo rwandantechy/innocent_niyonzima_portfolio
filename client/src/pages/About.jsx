@@ -224,7 +224,11 @@ export default function About(){
               className="education-item"
               whileHover={{ x: 8 }}
             >
-              <div className="education-icon">🎓</div>
+              <img 
+                src="https://legacywww.catholic.edu/assets/images/CUA-Logo-Large.png" 
+                alt="The Catholic University of America" 
+                className="education-logo"
+              />
               <div className="education-content">
                 <h4>Master of Science – Computer Science</h4>
                 <p className="education-school">The Catholic University of America</p>
@@ -236,7 +240,11 @@ export default function About(){
               className="education-item"
               whileHover={{ x: 8 }}
             >
-              <div className="education-icon">🎓</div>
+              <img 
+                src="https://www.marwadiuniversity.ac.in/wp-content/themes/marwadi-university/assets/img/logomain.svg" 
+                alt="Marwadi University" 
+                className="education-logo"
+              />
               <div className="education-content">
                 <h4>Bachelor of Technology – Computer Engineering</h4>
                 <p className="education-school">Marwadi University</p>

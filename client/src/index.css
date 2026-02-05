@@ -3163,6 +3163,30 @@ section {
   flex-shrink: 0;
 }
 
+.education-logo {
+  width: 70px;
+  height: 70px;
+  border-radius: 12px;
+  object-fit: contain;
+  padding: 8px;
+  background: linear-gradient(135deg, 
+    rgba(var(--accent-primary-rgb), 0.15), 
+    rgba(var(--accent-secondary-rgb), 0.15)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
+  transition: all var(--transition);
+}
+
+.education-item:hover .education-logo {
+  background: linear-gradient(135deg, 
+    rgba(var(--accent-primary-rgb), 0.25), 
+    rgba(var(--accent-secondary-rgb), 0.25)
+  );
+  border-color: rgba(253, 150, 26, 0.3);
+  box-shadow: 0 4px 12px rgba(253, 150, 26, 0.15);
+}
+
 .education-content h4 {
   margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
