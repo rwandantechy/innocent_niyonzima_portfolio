@@ -7,6 +7,7 @@ import SkillsGrid from '../components/SkillsGrid';
 import CertificationCard from '../components/CertificationCard';
 import InnocentImage from '../assets/images/Innocent.png';
 import experiences from '../data/experiences';
+import certificates from '../data/certificates';
 
 export default function About(){
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -252,168 +253,13 @@ export default function About(){
             <h3>Certifications & Professional Development</h3>
           </div>
           <div className="certifications-grid">
-            {/* 2025 */}
-            <CertificationCard
-              iconType="briefcase"
-              title="Professional Foundations"
-              issuer="ALX Africa"
-              date="2025"
-              status="completed"
-              certificateUrl="/certificates/professional foundations by alx africa 2025.png"
-              index={0}
-            />
-            
-            {/* 2024 */}
-            <CertificationCard
-              iconType="graduation"
-              title="Building Modern Projects with React"
-              issuer="LinkedIn Learning"
-              date="2024"
-              status="completed"
-              certificateUrl="/certificates/Building Modern Projects with React By Linkedinlearning 2024.pdf"
-              index={1}
-            />
-            <CertificationCard
-              iconType="briefcase"
-              title="Internship Completion"
-              issuer="Nishkaam Innovations LLP"
-              date="2024"
-              status="completed"
-              certificateUrl="/certificates/Internship Completion by Nishkaam Innovations Llp 2024.pdf"
-              index={2}
-            />
-            <CertificationCard
-              iconType="graduation"
-              title="Deep Dive into Business"
-              issuer="Marwadi University"
-              date="2024"
-              status="completed"
-              certificateUrl="/certificates/Deep dive into Business by Marwadi University 2024.png"
-              index={3}
-            />
-            
-            {/* 2023 */}
-            <CertificationCard
-              iconType="graduation"
-              title="Intermediate Machine Learning"
-              issuer="Kaggle"
-              date="2023"
-              status="completed"
-              certificateUrl="/certificates/Intermediate Machine Learning by kaggle 2023.png"
-              index={4}
-            />
-            <CertificationCard
-              iconType="graduation"
-              title="Introduction to Machine Learning"
-              issuer="Kaggle"
-              date="2023"
-              status="completed"
-              certificateUrl="/certificates/ntro to Machine Learning by Kaggle 2023.png"
-              index={5}
-            />
-            <CertificationCard
-              iconType="graduation"
-              title="Web Development 101"
-              issuer="Pupilfirst"
-              date="2023"
-              status="completed"
-              certificateUrl="/certificates/Web Development 101 By Pupilfirst 2023.pdf"
-              index={6}
-            />
-            
-            {/* 2022 */}
-            <CertificationCard
-              iconType="bolt"
-              title="C++ Programming"
-              issuer="Sololearn"
-              date="2022"
-              status="completed"
-              certificateUrl="/certificates/C++ by Sololearn 2022.pdf"
-              index={7}
-            />
-            <CertificationCard
-              iconType="bolt"
-              title="Java Programming"
-              issuer="Sololearn"
-              date="2022"
-              status="completed"
-              certificateUrl="/certificates/JAVA by sololearn 2022.pdf"
-              index={8}
-            />
-            <CertificationCard
-              iconType="bolt"
-              title="JavaScript Programming"
-              issuer="Sololearn"
-              date="2022"
-              status="completed"
-              certificateUrl="/certificates/JavaScript by sololearn 2022.pdf"
-              index={9}
-            />
-            <CertificationCard
-              iconType="bolt"
-              title="Introduction to Networks"
-              issuer="Cisco"
-              date="2022"
-              status="completed"
-              certificateUrl="/certificates/Introduction to Networks by Cisco 2022.pdf"
-              index={10}
-            />
-            <CertificationCard
-              iconType="bolt"
-              title="Networking Essentials"
-              issuer="Cisco"
-              date="2022"
-              status="completed"
-              certificateUrl="/certificates/Networking Essentials by Cisco 2022.pdf"
-              index={11}
-            />
-            
-            {/* 2021 */}
-            <CertificationCard
-              iconType="database"
-              title="Database Programming with SQL"
-              issuer="Oracle Academy"
-              date="2021"
-              status="completed"
-              certificateUrl="/certificates/Database Programming with SQl by oracle 2021.pdf"
-              index={12}
-            />
-            <CertificationCard
-              iconType="bolt"
-              title="Programming with SQL"
-              issuer="Oracle Academy"
-              date="2021"
-              status="completed"
-              certificateUrl="/certificates/Programming with SQL by oracle 2021.pdf"
-              index={13}
-            />
-            <CertificationCard
-              iconType="bolt"
-              title="HTML Basics"
-              issuer="Sololearn"
-              date="2021"
-              status="completed"
-              certificateUrl="/certificates/HTML by Sololearn 2021.pdf"
-              index={14}
-            />
-            <CertificationCard
-              iconType="bolt"
-              title="Linux Management"
-              issuer="University of Colorado"
-              date="2021"
-              status="completed"
-              certificateUrl="/certificates/LINUX MANAGEMENT by university of Colorado 2021.pdf"
-              index={15}
-            />
-            <CertificationCard
-              iconType="bolt"
-              title="PHP Web Development"
-              issuer="Sololearn"
-              date="2021"
-              status="completed"
-              certificateUrl="/certificates/php by sololearn 2021.pdf"
-              index={16}
-            />
+            {certificates.map((cert, idx) => (
+              <CertificationCard
+                key={cert.certificateUrl}
+                {...cert}
+                index={idx}
+              />
+            ))}
           </div>
         </motion.div>
 
