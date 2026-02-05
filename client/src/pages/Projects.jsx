@@ -8,6 +8,7 @@ import { detailedProjects } from '../data/detailedProjects';
 export default function Projects(){
   const [filter, setFilter] = useState('all');
   const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
+  const loadingProjects = false;
   
   const sourceProjects = detailedProjects;
   const filteredProjects = filter === 'all' 
