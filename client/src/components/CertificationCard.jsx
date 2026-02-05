@@ -26,6 +26,19 @@ const langIconMap = {
   'Node': 'nodedotjs'
 };
 
+// Simple Icons CDN mapping for issuers/companies
+const issuerIconMap = {
+  'ALX Africa': 'alxafrica',
+  'Kaggle': 'kaggle',
+  'Udemy': 'udemy',
+  'Oracle Academy': 'oracle',
+  'Cisco Networking Academy': 'cisco',
+  'LinkedIn Learning': 'linkedin',
+  'Marwadi University': 'google', // fallback to generic
+  'Harvard': 'harvard',
+  'Andela': 'andela'
+};
+
 export default function CertificationCard({ title, issuer, date, iconType, status, certificateUrl, index }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [showModal, setShowModal] = useState(false);
@@ -41,8 +54,22 @@ export default function CertificationCard({ title, issuer, date, iconType, statu
     return null;
   };
   
+  // Get issuer/company logo
+  const getIssuerIcon = () => {
+    for (const [issuerName, icon] of Object.entries(issuerIconMap)) {
+      if (issuer.includes(issuerName)) {
+        return `https://cdn.simpleicons.org/${icon}/fd961a`;
+      }
+    }
+    return null;
+  };
+  
   const langIconUrl = getLangIcon();
+  const issuerIconUrl = getIssuerIcon();
   const IconComponent = iconMap[iconType] || FaGraduationCap;
+  
+  // Priority: language icon > issuer icon > generic icon
+  const iconToUse = langIconUrl || issuerIconUrl;
   
   const handleViewCertificate = () => {
     if (certificateUrl) {
@@ -66,9 +93,9 @@ export default function CertificationCard({ title, issuer, date, iconType, statu
         whileHover={{ y: -4, transition: { duration: 0.2 } }}
       >
         <div className="cert-icon-wrapper">
-          {langIconUrl && !iconError ? (
+          {iconToUse && !iconError ? (
             <img 
-              src={langIconUrl} 
+              src={iconToUse} 
               alt={title}
               className="cert-lang-icon"
               onError={() => setIconError(true)}
