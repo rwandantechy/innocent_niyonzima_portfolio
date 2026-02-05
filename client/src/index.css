@@ -3423,7 +3423,6 @@ section {
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  cursor: pointer;
   position: relative;
 }
 
@@ -3517,6 +3516,9 @@ section {
   align-items: center;
   justify-content: center;
   transition: all var(--transition);
+  z-index: 10;
+  position: relative;
+  pointer-events: auto;
 }
 
 .cert-view-btn:hover {
