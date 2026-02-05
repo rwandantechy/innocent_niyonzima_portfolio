@@ -4,17 +4,12 @@ import { FaFilter, FaCode, FaStar } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import ProjectShowcase from '../components/ProjectShowcase';
 import { detailedProjects } from '../data/detailedProjects';
-import { useApp } from '../context/AppProvider';
-import { useEffect } from 'react';
 
 export default function Projects(){
   const [filter, setFilter] = useState('all');
-  const { projects, loadingProjects, fetchProjects } = useApp();
-  useEffect(() => { if (!projects || projects.length === 0) fetchProjects(); }, [fetchProjects]);
   const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   
-  // prefer backend projects when available otherwise fall back to local data
-  const sourceProjects = (projects && projects.length > 0) ? projects : detailedProjects;
+  const sourceProjects = detailedProjects;
   const filteredProjects = filter === 'all' 
     ? sourceProjects 
     : sourceProjects.filter(p => p.featured);

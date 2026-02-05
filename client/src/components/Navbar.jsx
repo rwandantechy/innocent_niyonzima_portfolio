@@ -26,7 +26,8 @@ export default function Navbar(){
     { to: '/', label: 'Home' },
     { to: '/projects', label: 'Projects' },
     { to: '/about', label: 'About' },
-    { to: '/blogs', label: 'Blog' }
+    { to: '/blogs', label: 'Blog' },
+    { to: '/contact', label: 'Contact' }
   ];
 
   return (
