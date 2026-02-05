@@ -3442,6 +3442,12 @@ section {
   color: var(--color-primary);
 }
 
+.cert-lang-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
 .cert-content {
   display: flex;
   flex-direction: column;

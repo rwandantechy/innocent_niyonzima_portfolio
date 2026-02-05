@@ -11,9 +11,37 @@ const iconMap = {
   'bolt': FaBolt
 };
 
+// Simple Icons CDN mapping for programming languages
+const langIconMap = {
+  'JavaScript': 'javascript',
+  'C++': 'cplusplus',
+  'PHP': 'php',
+  'Java': 'java',
+  'HTML': 'html5',
+  'C#': 'csharp',
+  'Python': 'python',
+  'SQL': 'microsoftsqlserver',
+  'LINUX': 'linux',
+  'React': 'react',
+  'Node': 'nodedotjs'
+};
+
 export default function CertificationCard({ title, issuer, date, iconType, status, certificateUrl, index }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [showModal, setShowModal] = useState(false);
+  const [iconError, setIconError] = useState(false);
+  
+  // Check if this is a programming language certificate
+  const getLangIcon = () => {
+    for (const [lang, icon] of Object.entries(langIconMap)) {
+      if (title.includes(lang)) {
+        return `https://cdn.simpleicons.org/${icon}/fd961a`;
+      }
+    }
+    return null;
+  };
+  
+  const langIconUrl = getLangIcon();
   const IconComponent = iconMap[iconType] || FaGraduationCap;
   
   const handleViewCertificate = () => {
@@ -38,7 +66,16 @@ export default function CertificationCard({ title, issuer, date, iconType, statu
         whileHover={{ y: -4, transition: { duration: 0.2 } }}
       >
         <div className="cert-icon-wrapper">
-          <IconComponent className="cert-icon" style={{ fontSize: '2.5rem', color: 'var(--color-primary)' }} />
+          {langIconUrl && !iconError ? (
+            <img 
+              src={langIconUrl} 
+              alt={title}
+              className="cert-lang-icon"
+              onError={() => setIconError(true)}
+            />
+          ) : (
+            <IconComponent className="cert-icon" style={{ fontSize: '2.5rem', color: 'var(--color-primary)' }} />
+          )}
         </div>
         <div className="cert-content">
           <h4>{title}</h4>
