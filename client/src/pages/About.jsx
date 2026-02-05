@@ -304,39 +304,107 @@ export default function About(){
               issuer="ALX Africa"
               date="Jan 2025 – Present"
               status="ongoing"
+              certificateUrl="/certificates/Certificate of participation.png"
               index={0}
             />
             <CertificationCard
-              iconType="trophy"
-              title="Aspire Leaders Program"
-              issuer="Aspire Institute (Harvard Business School-founded)"
-              date="Jan – Apr 2024"
+              iconType="graduation"
+              title="Intermediate Machine Learning"
+              issuer="Kaggle"
+              date="2024"
               status="completed"
+              certificateUrl="/certificates/Innocent Niyonzima - Intermediate Machine Learning.png"
               index={1}
             />
             <CertificationCard
-              iconType="briefcase"
-              title="Andela Technical Leadership"
-              issuer="Andela Rwanda"
-              date="Jan – Mar 2023"
+              iconType="graduation"
+              title="Introduction to Machine Learning"
+              issuer="Kaggle"
+              date="2024"
               status="completed"
+              certificateUrl="/certificates/Innocent Niyonzima  - Intro to Machine Learning.png"
               index={2}
+            />
+            <CertificationCard
+              iconType="graduation"
+              title="Building Modern Projects with React"
+              issuer="Udemy"
+              date="2024"
+              status="completed"
+              certificateUrl="/certificates/CertificateOfCompletion_Building Modern Projects with React.pdf"
+              index={3}
             />
             <CertificationCard
               iconType="database"
               title="Database Programming with SQL"
               issuer="Oracle Academy"
-              date="2022"
+              date="2024"
               status="completed"
-              index={3}
+              certificateUrl="/certificates/Database Programming with SQl.pdf"
+              index={4}
             />
             <CertificationCard
               iconType="bolt"
-              title="Web Development 101: JavaScript"
-              issuer="Pupilfirst - ELITE Program India"
-              date="Sep 2022 – Jan 2023"
+              title="Programming with SQL"
+              issuer="Oracle Academy"
+              date="2024"
               status="completed"
-              index={4}
+              certificateUrl="/certificates/Programming with SQL.pdf"
+              index={5}
+            />
+            <CertificationCard
+              iconType="database"
+              title="SQL Oracle"
+              issuer="Oracle Academy"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/SQL _ORACLE.pdf"
+              index={6}
+            />
+            <CertificationCard
+              iconType="bolt"
+              title="JavaScript Fundamentals"
+              issuer="Various Platforms"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/JavaScript.pdf"
+              index={7}
+            />
+            <CertificationCard
+              iconType="bolt"
+              title="HTML Basics"
+              issuer="Web Development Course"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/HTML.pdf"
+              index={8}
+            />
+            <CertificationCard
+              iconType="bolt"
+              title="Introduction to Networks"
+              issuer="Cisco Networking Academy"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/Introduction to Networks.pdf"
+              index={9}
+            />
+            <CertificationCard
+              iconType="briefcase"
+              title="Professional Foundations"
+              issuer="LinkedIn Learning"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/professional-foundations-certificate-innocent-niyonzima.png"
+              index={10}
+            />
+            <CertificationCard
+              iconType="briefcase"
+              title="Internship Certificate"
+              issuer="Marwadi University"
+              date="2023-2024"
+              status="completed"
+              certificateUrl="/certificates/MU_CE_2023-24_009_INTERNSHIP CERTIFICATE_92000103159.pdf"
+              index={11}
             />
           </div>
         </motion.div>
