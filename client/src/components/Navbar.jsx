@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaMoon, FaSun, FaRocket, FaEnvelope } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeProvider';
+import profileImage from '../assets/images/Innocent.png';
 
 export default function Navbar(){
   const [isOpen, setIsOpen] = useState(false);
@@ -47,9 +48,13 @@ export default function Navbar(){
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <span className="logo-text">
+              {/* Desktop: Text Logo */}
+              <span className="logo-text desktop-logo">
                 <span className="gradient-text" style={{ fontSize: '1.4rem', fontWeight: '900' }}>Rwandantechy</span>
               </span>
+              
+              {/* Mobile: Image Logo */}
+              <img src={profileImage} alt="Logo" className="logo-image mobile-logo" />
             </motion.div>
           </Link>
 
