@@ -354,12 +354,30 @@ export default function About(){
             />
             <CertificationCard
               iconType="bolt"
+              title="C++ Programming"
+              issuer="Programming Course"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/C++.pdf"
+              index={6}
+            />
+            <CertificationCard
+              iconType="bolt"
+              title="Java Programming"
+              issuer="Programming Course"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/JAVA.pdf"
+              index={7}
+            />
+            <CertificationCard
+              iconType="bolt"
               title="PHP Web Development"
               issuer="Web Development Course"
               date="2023"
               status="completed"
               certificateUrl="/certificates/php.pdf"
-              index={6}
+              index={8}
             />
             <CertificationCard
               iconType="bolt"
@@ -367,8 +385,8 @@ export default function About(){
               issuer="Various Platforms"
               date="2023"
               status="completed"
-              certificateUrl="/certificates/JavaScript.pdf"
-              index={7}
+              certificateUrl="/certificates/Certificate JavaScript.pdf"
+              index={9}
             />
             <CertificationCard
               iconType="bolt"
@@ -377,7 +395,25 @@ export default function About(){
               date="2023"
               status="completed"
               certificateUrl="/certificates/HTML.pdf"
-              index={8}
+              index={10}
+            />
+            <CertificationCard
+              iconType="bolt"
+              title="Linux Management"
+              issuer="System Administration Course"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/LINUX MANAGEMENT.pdf"
+              index={11}
+            />
+            <CertificationCard
+              iconType="bolt"
+              title="Networking Essentials"
+              issuer="Networking Course"
+              date="2023"
+              status="completed"
+              certificateUrl="/certificates/Networking Essentials.pdf"
+              index={12}
             />
             <CertificationCard
               iconType="bolt"
@@ -386,7 +422,7 @@ export default function About(){
               date="2023"
               status="completed"
               certificateUrl="/certificates/Introduction to Networks.pdf"
-              index={9}
+              index={13}
             />
           </div>
         </motion.div>
