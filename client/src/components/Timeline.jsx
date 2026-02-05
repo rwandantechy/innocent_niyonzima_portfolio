@@ -1,23 +1,26 @@
 import React from 'react';
 
-// Company logo mapping - using Simple Icons CDN
+// Official company and university logos from their websites
 const companyLogoMap = {
-  'The Catholic University of America': 'cua',
-  'Nkotanyi Driving School': 'car',
-  'Nishkaam Innovations LLP': 'briefcase'
+  'The Catholic University of America': 'https://www.cua.edu/assets/images/cua-logo-only.png',
+  'Nkotanyi Driving School': 'https://www.linkedin.com/company/nkotanyi-driving-school/logo',
+  'Nishkaam Innovations LLP': 'https://www.linkedin.com/company/nishkaam-innovations/logo'
 };
 
 const getCompanyLogo = (company) => {
-  const key = Object.keys(companyLogoMap).find(k => company.includes(k.split(' ')[0]) || company === k);
-  if (key) {
-    const iconName = companyLogoMap[key];
-    if (iconName === 'cua') {
-      // CUA doesn't have simple icon, use university generic
-      return 'https://cdn.simpleicons.org/googlescholar/fd961a';
-    }
-    return `https://cdn.simpleicons.org/${iconName}/fd961a`;
+  // Exact match first
+  if (companyLogoMap[company]) {
+    return companyLogoMap[company];
   }
-  // Fallback to briefcase for unknown companies
+  
+  // Partial match
+  for (const [key, url] of Object.entries(companyLogoMap)) {
+    if (company.includes(key) || key.includes(company)) {
+      return url;
+    }
+  }
+  
+  // Fallback - generic briefcase icon
   return 'https://cdn.simpleicons.org/briefcase/fd961a';
 };
 
@@ -60,13 +63,18 @@ export default function Timeline({ items }) {
               src={getCompanyLogo(item.company)} 
               alt={item.company}
               style={{
-                width: 24,
-                height: 24,
-                marginBottom: 8,
-                opacity: 0.8
+                width: 36,
+                height: 36,
+                marginBottom: 12,
+                borderRadius: 6,
+                objectFit: 'contain',
+                padding: 4,
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)'
               }}
               onError={(e) => {
-                e.target.style.display = 'none';
+                // Fallback if logo fails to load
+                e.target.src = 'https://cdn.simpleicons.org/briefcase/fd961a';
               }}
             />
           )}
