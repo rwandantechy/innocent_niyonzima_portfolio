@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FaGraduationCap, FaTrophy, FaBriefcase, FaDatabase, FaBolt, FaCheckCircle, FaClock, FaExternalLinkAlt } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 
@@ -142,26 +142,28 @@ export default function CertificationCard({ title, issuer, date, iconType, statu
       </motion.div>
 
       {/* Modal for image certificates */}
-      {showModal && certificateUrl && (certificateUrl.endsWith('.png') || certificateUrl.endsWith('.jpg') || certificateUrl.endsWith('.jpeg')) && (
-        <motion.div
-          className="cert-modal"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => setShowModal(false)}
-        >
+      <AnimatePresence>
+        {showModal && certificateUrl && (certificateUrl.endsWith('.png') || certificateUrl.endsWith('.jpg') || certificateUrl.endsWith('.jpeg')) && (
           <motion.div
-            className="cert-modal-content"
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0.8 }}
-            onClick={(e) => e.stopPropagation()}
+            className="cert-modal"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowModal(false)}
           >
-            <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
-            <img src={certificateUrl} alt={title} />
+            <motion.div
+              className="cert-modal-content"
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.8 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="modal-close" onClick={() => setShowModal(false)}>×</button>
+              <img src={certificateUrl} alt={title} />
+            </motion.div>
           </motion.div>
-        </motion.div>
-      )}
+        )}
+      </AnimatePresence>
     </>
   );
 }
