@@ -126,7 +126,6 @@ export default function Home(){
             </p>
             <div style={{display:'flex',gap:16,justifyContent:'center',flexWrap:'wrap'}}>
               <Link to="/contact" className="btn">Get In Touch</Link>
-              <Link to="/about" className="btn-outline">View Resume</Link>
             </div>
           </div>
         </div>
