@@ -39,10 +39,10 @@ export default function Home(){
             transition={{ duration: 0.5, delay: 0.15 }}
             whileHover={{ y: -12, transition: { duration: 0.3 } }}
           >
-            <FaLaptopCode className="highlight-icon" style={{ fontSize: '3.5rem', color: 'var(--color-secondary)' }} />
-            <h3>Full-Stack Development</h3>
+            <FaRocket className="highlight-icon" style={{ fontSize: '3.5rem', color: 'var(--color-secondary)' }} />
+            <h3>Production-Ready Solutions</h3>
             <p className="muted">
-              MERN, .NET Core, Laravel - building scalable applications with modern tech stacks
+              Delivering robust backend systems and optimized databases for 40K+ active users
             </p>
           </motion.div>
           
