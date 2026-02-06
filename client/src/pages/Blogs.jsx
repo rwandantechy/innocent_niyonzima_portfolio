@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaCalendar, FaClock, FaArrowRight } from 'react-icons/fa';
+import { FaCalendar, FaClock, FaArrowRight, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import blogPosts from '../data/blogs';
 
@@ -31,7 +31,7 @@ export default function Blogs(){
             whileHover={{ y: -8 }}
           >
             {post.featured && (
-              <span className="blog-badge">⭐ Featured</span>
+              <span className="blog-badge"><FaStar style={{ marginRight: 4 }} /> Featured</span>
             )}
             
             <div className="blog-meta">
