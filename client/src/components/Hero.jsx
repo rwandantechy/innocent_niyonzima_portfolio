@@ -43,16 +43,6 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.div 
-            className="hero__badge"
-            variants={itemVariants}
-            whileHover={{ scale: 1.05 }}
-          >
-            <div className="badge-dot"></div>
-            <FaBolt style={{ marginRight: 8, fontSize: '0.9rem' }} />
-            Available for Full-Stack & Backend Development Roles
-            <div className="badge-glow"></div>
-          </motion.div>
           
           <motion.div variants={itemVariants}>
             <h1 className="hero__title">
