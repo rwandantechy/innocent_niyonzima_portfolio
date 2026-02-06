@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FaFilter, FaCode, FaStar } from 'react-icons/fa';
+import { FaFilter, FaCode, FaStar, FaCog, FaUsers } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
 import ProjectShowcase from '../components/ProjectShowcase';
 import { detailedProjects } from '../data/detailedProjects';
@@ -76,7 +76,7 @@ export default function Projects(){
             className="stat-card"
             whileHover={{ y: -4, scale: 1.02 }}
           >
-            <span className="stat-icon" style={{ fontSize: '2rem' }}>⚙️</span>
+            <FaCog className="stat-icon" />
             <div className="stat-value gradient-text">{stats.technologies}</div>
             <div className="stat-label">Technologies</div>
           </motion.div>
@@ -84,7 +84,7 @@ export default function Projects(){
             className="stat-card"
             whileHover={{ y: -4, scale: 1.02 }}
           >
-            <span className="stat-icon" style={{ fontSize: '2rem' }}>👥</span>
+            <FaUsers className="stat-icon" />
             <div className="stat-value gradient-text">{stats.users}</div>
             <div className="stat-label">Total Users</div>
           </motion.div>
@@ -113,7 +113,7 @@ export default function Projects(){
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              ⭐ Featured ({detailedProjects.filter(p => p.featured).length})
+              <FaStar style={{ marginRight: 6 }} /> Featured ({detailedProjects.filter(p => p.featured).length})
             </motion.button>
           </div>
         </motion.div>
