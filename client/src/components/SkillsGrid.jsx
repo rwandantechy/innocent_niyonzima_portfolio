@@ -68,6 +68,8 @@ const SkillCategory = ({ title, skills, index }) => {
                 src={iconUrl} 
                 alt={skill} 
                 className="skill-logo"
+                loading="lazy"
+                decoding="async"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}

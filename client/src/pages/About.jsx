@@ -183,6 +183,8 @@ export default function About(){
                 src="https://legacywww.catholic.edu/assets/images/CUA-Logo-Large.png" 
                 alt="The Catholic University of America" 
                 className="education-logo"
+                loading="lazy"
+                decoding="async"
               />
               <div className="education-content">
                 <h4>Master of Science – Computer Science</h4>
@@ -199,6 +201,8 @@ export default function About(){
                 src="https://www.marwadiuniversity.ac.in/wp-content/themes/marwadi-university/assets/img/logomain.svg" 
                 alt="Marwadi University" 
                 className="education-logo"
+                loading="lazy"
+                decoding="async"
               />
               <div className="education-content">
                 <h4>Bachelor of Technology – Computer Engineering</h4>

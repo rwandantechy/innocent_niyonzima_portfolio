@@ -64,6 +64,8 @@ export default function Timeline({ items }) {
             <img 
               src={getCompanyLogo(item.company)} 
               alt={item.company}
+              loading="lazy"
+              decoding="async"
               style={{
                 width: 40,
                 height: 40,
