@@ -1,6 +1,6 @@
-# Full-Stack Portfolio
+# Backend Engineer Portfolio
 
-A professional full-stack portfolio application built with React, Node.js, and Express.
+Portfolio site and API focused on backend engineering work: production systems, reliability, debugging, and deployment ownership.
 
 ## Quick Start
 

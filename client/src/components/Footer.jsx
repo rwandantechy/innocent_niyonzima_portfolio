@@ -28,8 +28,8 @@ export default function Footer(){
           <div className="footer-section">
             <h3 className="gradient-text">Developer</h3>
             <p className="footer-description">
-              Full-Stack Developer specializing in MERN and .NET Core technologies.
-              Building scalable applications with technical excellence.
+              Backend engineer focused on production systems, reliability, and deployment.
+              Building and operating APIs that stay stable in real environments.
             </p>
           </div>
 

@@ -2,32 +2,31 @@ export const detailedProjects = [
   {
     id: 1,
     title: 'Ibyapa.com - Exam Preparation Platform',
-    description: 'A comprehensive MERN stack platform for A-Level exam preparation with 40,000+ active users across Rwanda.',
+    description: 'Built to keep driving-theory exam preparation continuously available for 72,000+ learners, with backend decisions centered on stable sessions, payments, and recoverable failures in production.',
     featured: true,
     metrics: [
-      { value: '40K+', label: 'Active Users' },
-      { value: '+25%', label: 'Pass Rate' },
-      { value: '200ms', label: 'Avg Response' }
+      { value: '72K+', label: 'Users Served' },
+      { value: 'Live', label: 'Production System' },
+      { value: 'Ongoing', label: 'Uptime Ownership' }
     ],
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Redis', 'AWS'],
     challenges: [
-      'Handling concurrent access from thousands of students during exam periods',
-      'Real-time progress tracking and analytics for 40K+ users',
-      'Optimizing database queries for complex exam statistics',
-      'Ensuring 99.9% uptime during critical exam preparation periods'
+      'Keeping the platform responsive during peak exam-preparation traffic',
+      'Handling payment errors and incomplete transactions without losing auditability',
+      'Debugging unpredictable production failures with limited time windows for fixes',
+      'Deploying updates safely while users remained active on the platform'
     ],
     solutions: [
-      'Implemented Redis caching layer reducing database load by 70%',
-      'Built microservices architecture for scalability',
-      'Used MongoDB aggregation pipelines for real-time analytics',
-      'Deployed on AWS with auto-scaling and load balancing',
-      'Added CDN for static content delivery'
+      'Prioritized backend endpoints by operational risk and hardened payment and account flows first',
+      'Added structured logs around critical request paths to speed up incident diagnosis',
+      'Introduced recovery paths for failed payment operations and reconciliation checks',
+      'Used controlled deployment steps on Linux servers to reduce avoidable production regressions'
     ],
     results: [
-      'Improved student pass rates by 25% through targeted practice',
-      'Reduced average page load time from 2.5s to 200ms',
-      'Achieved 99.97% uptime over 12 months',
-      'Scaled to 40,000+ concurrent users without performance issues'
+      'Sustained a live platform serving 72,000+ users with direct backend ownership',
+      'Reduced repeated production incidents by fixing root causes instead of temporary patches',
+      'Improved operational visibility during outages through better logs and error traces',
+      'Maintained release continuity while supporting day-to-day production issues'
     ],
     links: {
       live: 'https://ibyapa.com',
@@ -37,32 +36,30 @@ export const detailedProjects = [
   {
     id: 2,
     title: 'Containerized Infrastructure on Edge Devices',
-    description: 'Raspberry Pi 5-based Docker environment for deploying multimodal models with remote access capabilities.',
+    description: 'Created to run model workloads reliably on constrained edge devices, with reproducible containers, secure remote access, and predictable deployment behavior.',
     featured: true,
     metrics: [
-      { value: '3x', label: 'Faster Deploy' },
-      { value: '100%', label: 'Secure VPN' },
-      { value: '50ms', label: 'Inference Time' }
+      { value: 'ARM64', label: 'Edge Runtime' },
+      { value: 'Docker', label: 'Reproducible Deploys' },
+      { value: 'VPN', label: 'Secure Access' }
     ],
     tech: ['Docker', 'Python', 'FastAPI', 'TensorFlow', 'Raspberry Pi', 'WireGuard VPN'],
     challenges: [
-      'Limited computational resources on Raspberry Pi hardware',
-      'Secure remote access without exposing services publicly',
-      'Managing multiple model versions efficiently',
-      'Ensuring reproducible environments across deployments'
+      'Limited CPU and memory budgets on Raspberry Pi hardware',
+      'Need for secure remote administration without public service exposure',
+      'Runtime inconsistency between local experiments and deployed environments',
+      'Operational recovery when containers failed or degraded under load'
     ],
     solutions: [
-      'Created optimized Docker containers with multi-stage builds',
-      'Implemented WireGuard VPN for secure remote access',
-      'Used Docker Compose for orchestrating multiple services',
-      'Built automated CI/CD pipeline for deployment',
-      'Implemented model versioning with Docker tags'
+      'Used multi-stage container builds to keep runtime images lean and repeatable',
+      'Secured operations through WireGuard-only access and restricted surface area',
+      'Defined service orchestration with Docker Compose for predictable startup order',
+      'Added deployment and rollback routines to recover faster from bad releases'
     ],
     results: [
-      'Reduced deployment time from 45 minutes to 15 minutes',
-      'Achieved 50ms average inference time for common models',
-      'Zero security breaches with VPN-only access',
-      'Successfully deployed and tested 12+ models'
+      'Stabilized model-serving behavior across repeated deployments on edge hardware',
+      'Reduced manual reconfiguration by codifying environment and service setup',
+      'Improved incident recovery during runtime failures through containerized rollbacks'
     ],
     links: {
       github: null // Research project
@@ -71,63 +68,56 @@ export const detailedProjects = [
   {
     id: 3,
     title: 'Budget Planner Web Application',
-    description: 'Full-stack financial management tool built with .NET Core and SQL Server for personal budget tracking.',
+    description: 'Built to enforce consistent budgeting records and reduce manual tracking mistakes through reliable backend validation and persistent data rules.',
     featured: false,
     metrics: [
-      { value: '100%', label: 'Data Accuracy' },
-      { value: '5+', label: 'Features' },
-      { value: 'Real-time', label: 'Updates' }
+      { value: '.NET Core', label: 'Backend Runtime' },
+      { value: 'SQL Server', label: 'Data Integrity' },
+      { value: 'Tracked', label: 'Operational Events' }
     ],
     tech: ['.NET Core', 'C#', 'SQL Server', 'Entity Framework', 'Bootstrap', 'Chart.js'],
     challenges: [
-      'Complex financial calculations and category management',
-      'Real-time budget tracking with automatic categorization',
-      'Data visualization for spending patterns',
-      'Secure handling of sensitive financial data'
+      'Avoiding silent data inconsistencies in transaction and category mapping',
+      'Handling updates safely when users edited related financial records',
+      'Keeping reporting useful without compromising correctness of stored data'
     ],
     solutions: [
-      'Implemented Repository pattern with Entity Framework',
-      'Used stored procedures for complex financial calculations',
-      'Built responsive UI with Chart.js for visualizations',
-      'Added JWT authentication for secure API access',
-      'Implemented automated backup system'
+      'Used repository and service boundaries to keep business rules centralized',
+      'Applied transactional updates for dependent financial operations',
+      'Added authentication and audit-aware request handling for sensitive actions'
     ],
     results: [
-      'Accurate financial tracking with 100% data integrity',
-      'Reduced manual categorization time by 80%',
-      'Generated insights helping users save average 15% monthly',
-      'Zero data loss incidents over 6 months of use'
+      'Delivered a budgeting workflow with more predictable record consistency',
+      'Reduced operational errors caused by manual data entry and ad-hoc edits',
+      'Improved maintainability by separating validation logic from presentation'
     ]
   },
   {
     id: 4,
     title: 'Nkotanyi Driving School Platform',
-    description: 'Complete web platform for driving school management with 95% client satisfaction and 20% reduced downtime.',
+    description: 'Production school platform maintained with an uptime-first approach: backend stability, log-driven debugging, and controlled deployment changes.',
     featured: true,
     metrics: [
-      { value: '95%', label: 'Satisfaction' },
-      { value: '-20%', label: 'Downtime' },
-      { value: '24/7', label: 'Support' }
+      { value: 'Production', label: 'Live Operations' },
+      { value: 'Linux VPS', label: 'Deployment Target' },
+      { value: 'Log-Driven', label: 'Incident Response' }
     ],
     tech: ['PHP', 'Laravel', 'MySQL', 'Vue.js', 'NGINX', 'VPS'],
     challenges: [
-      'Managing high traffic during peak registration periods',
-      'Ensuring 24/7 availability for booking system',
-      'Handling complex scheduling for instructors and students',
-      'Providing tier-1 and tier-2 technical support'
+      'Maintaining availability during registration spikes and high concurrent usage',
+      'Diagnosing live failures affecting booking, account, and payment flows',
+      'Balancing release delivery with operational stability on active systems'
     ],
     solutions: [
-      'Optimized VPS server configuration and caching',
-      'Implemented automated monitoring and alerting system',
-      'Used NGINX load balancing for traffic distribution',
-      'Built automated backup and disaster recovery system',
-      'Added weekly security updates and firewall rules'
+      'Used monitoring checks and log inspection to catch and triage incidents early',
+      'Hardened deployment and server configuration on Linux/NGINX stack',
+      'Applied rollback-minded release routines and backup safeguards for critical data',
+      'Handled production debugging directly and shipped fixes with minimal service interruption'
     ],
     results: [
-      'Achieved 95% client satisfaction rating',
-      'Reduced system downtime by 20% through proactive monitoring',
-      'Improved booking response time by 40%',
-      'Zero data breaches with enhanced security measures'
+      'Kept a high-traffic platform operational through continuous production support',
+      'Reduced repeated outage patterns by addressing root operational issues',
+      'Improved service reliability through structured incident and deployment practices'
     ],
     links: {
       live: 'https://nkotanyi.rw'
@@ -136,63 +126,53 @@ export const detailedProjects = [
   {
     id: 5,
     title: 'YIGSE NGO Website',
-    description: 'Professional website for Youth Initiative for Global Sustainability and Empowerment NGO.',
+    description: 'Delivered a public-facing NGO site with low maintenance overhead and reliable content publishing for non-technical operators.',
     featured: false,
     metrics: [
-      { value: 'Modern', label: 'Design' },
-      { value: '100%', label: 'Responsive' },
-      { value: '<1s', label: 'Load Time' }
+      { value: 'Public', label: 'Production Site' },
+      { value: 'Responsive', label: 'Cross-Device Use' },
+      { value: 'Simple', label: 'Operational Updates' }
     ],
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Netlify'],
     challenges: [
-      'Creating engaging design for social impact organization',
-      'Ensuring accessibility for all users',
-      'Fast loading times on slow connections',
-      'Easy content management for non-technical staff'
+      'Providing reliable access on lower-bandwidth networks',
+      'Keeping content updates manageable for non-engineering teams',
+      'Maintaining consistent behavior across mobile and desktop devices'
     ],
     solutions: [
-      'Designed mobile-first responsive layout',
-      'Optimized images and assets for fast loading',
-      'Implemented semantic HTML for accessibility',
-      'Created simple CMS integration for updates',
-      'Deployed on Netlify CDN for global reach'
+      'Used a lightweight frontend structure with optimized static assets',
+      'Implemented accessible semantics and predictable layout behavior',
+      'Set up an update workflow that minimized operational friction'
     ],
     results: [
-      'Achieved 98% Lighthouse performance score',
-      'Sub-second load times across all pages',
-      'Increased volunteer applications by 60%',
-      'Fully accessible (WCAG 2.1 AA compliant)'
+      'Provided a stable public information channel for the organization',
+      'Reduced day-to-day maintenance burden through straightforward update patterns'
     ]
   },
   {
     id: 6,
     title: 'Task Tracking System',
-    description: 'Internal task management system built with Node.js and MongoDB, improving team efficiency by 70%.',
+    description: 'Built to reduce operational handoff failures across teams through traceable task states, backend validation, and reliable status visibility.',
     featured: false,
     metrics: [
-      { value: '70%', label: 'Faster Response' },
-      { value: 'Real-time', label: 'Analytics' },
-      { value: '15+', label: 'Team Users' }
+      { value: 'Node.js', label: 'Service Layer' },
+      { value: 'MongoDB', label: 'Data Store' },
+      { value: 'Realtime', label: 'Status Updates' }
     ],
     tech: ['Node.js', 'Express', 'MongoDB', 'React', 'Socket.io', 'JWT'],
     challenges: [
-      'Real-time collaboration across departments',
-      'Complex task dependencies and workflows',
-      'Generating meaningful productivity reports',
-      'Integration with existing tools and systems'
+      'Preventing conflicting updates in shared task workflows',
+      'Maintaining clear audit trails for task ownership and status changes',
+      'Balancing realtime updates with backend consistency guarantees'
     ],
     solutions: [
-      'Implemented Socket.io for real-time updates',
-      'Built flexible task workflow engine',
-      'Created automated reporting system',
-      'Used JWT for secure authentication',
-      'Added REST API for third-party integrations'
+      'Implemented realtime events with backend guards to avoid invalid state transitions',
+      'Added authenticated API boundaries and role-aware task operations',
+      'Created reporting endpoints for operational visibility and follow-up'
     ],
     results: [
-      'Reduced inter-departmental response times by 70%',
-      'Improved task completion rate by 45%',
-      'Generated automated daily/weekly reports',
-      'Successfully adopted by 15+ team members'
+      'Improved reliability of cross-team execution by making task states explicit and traceable',
+      'Reduced recurring coordination failures with clearer operational reporting'
     ]
   }
 ];

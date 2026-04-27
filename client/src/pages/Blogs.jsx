@@ -16,7 +16,7 @@ export default function Blogs(){
       >
         <h2>Blog & Insights</h2>
         <p className="muted" style={{ fontSize: '1.1rem', maxWidth: 700, margin: '16px auto 0' }}>
-          Sharing insights on full-stack development, best practices, and technical innovations
+          Sharing backend engineering notes on production reliability, debugging patterns, and deployment operations
         </p>
       </motion.div>
 
@@ -69,8 +69,7 @@ export default function Blogs(){
         transition={{ delay: 0.8 }}
       >
         <p className="muted">
-          📝 More articles coming soon! Stay tuned for deep dives into full-stack development,
-          system design, and best practices in modern web technologies.
+          📝 More articles coming soon on API operations, incident response, and maintaining reliable systems in production.
         </p>
       </motion.div>
     </section>

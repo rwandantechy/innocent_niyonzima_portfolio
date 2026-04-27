@@ -5,17 +5,17 @@ const mockProjects = [
   {
     id: 'ibyapa',
     title: 'Ibyapa.com — Driving Exam Platform',
-    description: 'Educational platform serving 40,000+ learners in Rwanda. Built with MERN stack, featuring adaptive exam analytics and real-time performance tracking.',
+    description: 'Created to support high exam-prep demand without service instability, this platform serves 72,000+ learners with backend flows designed for reliable sessions, payments, and continuous access.',
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80',
     tags: ['React', 'Node.js', 'MongoDB', 'Express'],
-    metrics: '40K+ users, 25% pass rate increase',
+    metrics: '72K+ users, production reliability ownership',
     link: 'https://ibyapa.com',
     featured: true
   },
   {
     id: 'ai-server',
     title: 'Containerized AI Server',
-    description: 'Secure ARM64-based inference platform on Raspberry Pi 5. Docker orchestration with persistent storage, VPN security, and multimodal model deployment.',
+    description: 'Designed for repeatable model deployment on constrained hardware, with containerized services, secure remote access, and predictable runtime behavior under limited resources.',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80',
     tags: ['Docker', 'Raspberry Pi', 'Python', 'AI/ML'],
     metrics: 'Research deployment',
@@ -25,7 +25,7 @@ const mockProjects = [
   {
     id: 'budget-planner',
     title: 'Personal Budget Planner',
-    description: 'OOP-based financial management application with transaction classification algorithms and secure data protocols. Built with .NET Core and SQL Server.',
+    description: 'Built to reduce manual tracking errors by enforcing consistent transaction rules and dependable data handling in everyday financial workflows.',
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80',
     tags: ['C#', '.NET Core', 'SQL Server'],
     metrics: 'Production-ready',

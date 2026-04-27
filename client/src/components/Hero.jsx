@@ -54,9 +54,8 @@ export default function Hero() {
             className="hero__subtitle"
             variants={itemVariants}
           >
-            Full-Stack & Backend Engineering Architect crafting scalable, 
-            high-performance systems. Specialized in <strong>MERN, .NET Core, and Laravel</strong> 
-            with a track record of delivering enterprise solutions that impact millions.
+            Backend Engineer focused on production systems, API reliability, and deployment workflows.
+            I own backend behavior in live environments, from incident debugging to stable releases on Linux infrastructure.
           </motion.p>
           
           <motion.div 
@@ -85,7 +84,7 @@ export default function Hero() {
               <div className="stat-icon-wrapper">
                 <FaUsers className="stat-icon" />
               </div>
-              <div className="stat__number">40K+</div>
+              <div className="stat__number">72K+</div>
               <div className="stat__label">Users Impacted</div>
             </motion.div>
             <motion.div 
@@ -96,8 +95,8 @@ export default function Hero() {
               <div className="stat-icon-wrapper">
                 <FaRocket className="stat-icon" />
               </div>
-              <div className="stat__number">95%</div>
-              <div className="stat__label">Satisfaction Rate</div>
+              <div className="stat__number">Live</div>
+              <div className="stat__label">Production Ownership</div>
             </motion.div>
             <motion.div 
               className="stat"

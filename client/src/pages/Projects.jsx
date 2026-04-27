@@ -19,7 +19,7 @@ export default function Projects(){
     total: detailedProjects.length,
     featured: detailedProjects.filter(p => p.featured).length,
     technologies: [...new Set(detailedProjects.flatMap(p => p.tech || []))].length,
-    users: '40K+'
+    users: '72K+'
   };
 
   return (
@@ -46,7 +46,7 @@ export default function Projects(){
           animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          A curated collection of projects demonstrating full-stack development, system design, and real-world impact
+          Projects focused on backend architecture, production constraints, and reliability under real usage
         </motion.p>
 
         {/* Stats Grid */}

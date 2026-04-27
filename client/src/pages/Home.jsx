@@ -28,7 +28,7 @@ export default function Home(){
             <FaLaptopCode className="highlight-icon" style={{ fontSize: '3.5rem', color: 'var(--color-primary)' }} />
             <h3>Technical Expertise</h3>
             <p className="muted">
-              Specializing in MERN, .NET Core, and modern web technologies
+              Backend engineering for APIs, data flows, and resilient production operations
             </p>
           </motion.div>
           
@@ -42,7 +42,7 @@ export default function Home(){
             <FaRocket className="highlight-icon" style={{ fontSize: '3.5rem', color: 'var(--color-secondary)' }} />
             <h3>Production-Ready Solutions</h3>
             <p className="muted">
-              Delivering robust backend systems and optimized databases for 40K+ active users
+              Operating backend systems in production with deployment discipline and incident response
             </p>
           </motion.div>
           
@@ -56,7 +56,7 @@ export default function Home(){
             <FaRocket className="highlight-icon" style={{ fontSize: '3.5rem', color: 'var(--color-accent)' }} />
             <h3>Real-World Impact</h3>
             <p className="muted">
-              Projects serving 40K+ users with proven metrics: +25% pass rates, -20% downtime
+              Services supporting 72K+ users with uptime-focused debugging and maintenance
             </p>
           </motion.div>
         </div>
@@ -122,7 +122,7 @@ export default function Home(){
           <div className="cta-content">
             <h2 className="gradient-text">Let's Build Something Amazing Together</h2>
             <p className="muted" style={{fontSize:'1.1rem',marginBottom:32}}>
-              Open to full-stack development roles, backend engineering positions, and technical leadership opportunities
+              Open to backend engineering roles focused on production systems, reliability, and deployment
             </p>
             <div style={{display:'flex',gap:16,justifyContent:'center',flexWrap:'wrap'}}>
               <Link to="/contact" className="btn">Get In Touch</Link>

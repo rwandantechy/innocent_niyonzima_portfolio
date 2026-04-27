@@ -32,7 +32,7 @@ export default function Contact(){
       >
         <h2>Get In Touch</h2>
         <p className="muted" style={{ fontSize: '1.1rem', maxWidth: 600, margin: '24px auto 0' }}>
-          Open to full-stack development roles, backend engineering positions, and technical leadership opportunities
+          Open to backend engineering roles focused on production reliability, deployment, and operational ownership
         </p>
       </motion.div>
 

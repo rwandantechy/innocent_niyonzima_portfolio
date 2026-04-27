@@ -10,11 +10,11 @@ const blogPosts = [
   },
   {
     id: 2,
-    title: 'Building Scalable MERN Stack Applications',
-    excerpt: 'Best practices for architecting production-ready full-stack applications with MongoDB, Express, React, and Node.js.',
+    title: 'Operating Reliable Node.js APIs in Production',
+    excerpt: 'Practical patterns for API resilience, incident debugging, and safer deployment workflows in live backend systems.',
     date: 'Oct 28, 2025',
     readTime: '12 min read',
-    tags: ['Web Development', 'MERN', 'Full-Stack'],
+    tags: ['Backend', 'Node.js', 'Reliability'],
     featured: true
   },
   {

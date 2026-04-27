@@ -63,11 +63,11 @@ export default function About(){
                 Hi, I'm <span className="gradient-text">Innocent Niyonzima</span>
               </h1>
               <p className="about-subtitle">
-                Full-Stack Developer | Backend Engineer | Tech Innovator
+                Backend Engineer focused on production systems, reliability, and deployment
               </p>
               <p className="about-description">
-                Passionate about building scalable applications and solving complex technical challenges with modern technologies.
-                Specialized in MERN stack, .NET Core, and cloud infrastructure. Always eager to learn and tackle new technical problems.
+                I build and operate backend services that run in live environments where uptime, recovery, and predictable deployments matter.
+                My work centers on APIs, incident debugging, Linux server operations, and keeping production systems stable as usage grows.
               </p>
 
               <div className="about-contact-links">
@@ -278,11 +278,11 @@ export default function About(){
               <h4>Technical Interests</h4>
             </div>
             <div className="interest-tags">
-              <span className="interest-tag">Full-Stack Development</span>
               <span className="interest-tag">Backend Engineering</span>
               <span className="interest-tag">System Design</span>
-              <span className="interest-tag">Cloud Technologies</span>
-              <span className="interest-tag">Database Optimization</span>
+              <span className="interest-tag">Production Reliability</span>
+              <span className="interest-tag">Debugging & Incident Response</span>
+              <span className="interest-tag">Deployment Operations</span>
             </div>
           </motion.div>
 
