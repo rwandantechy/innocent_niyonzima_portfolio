@@ -22,8 +22,15 @@ const getCompanyLogo = (company) => {
     }
   }
   
-  // Fallback - generic briefcase icon
-  return 'https://cdn.simpleicons.org/briefcase/fd961a';
+  // Fallback - generated local SVG (no network dependency)
+  const initials = (company || 'NA')
+    .split(' ')
+    .map((part) => part[0] || '')
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><rect width='100%' height='100%' rx='12' fill='%231f2937'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='28' fill='%23f8fafc'>${initials}</text></svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
 };
 
 export default function Timeline({ items }) {
@@ -46,7 +53,7 @@ export default function Timeline({ items }) {
               decoding="async"
               className="timeline-logo"
               onError={(e) => {
-                e.target.src = 'https://cdn.simpleicons.org/briefcase/fd961a';
+                e.target.src = getCompanyLogo(item.company || 'NA');
               }}
             />
           )}

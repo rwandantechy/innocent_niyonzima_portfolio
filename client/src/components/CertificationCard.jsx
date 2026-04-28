@@ -28,16 +28,16 @@ const langIconMap = {
 
 // Official company logo URLs
 const officialIssuerLogoMap = {
-  'Oracle Academy': 'https://techsassygirlz.org/home/oracle-academy-logo1-800x343/',
-  'Kaggle': 'https://www.kaggle.com/static/images/site-logo.png',
-  'Sololearn': 'https://www.sololearn.com/images/logo.svg',
-  'Cisco': 'https://upload.wikimedia.org/wikipedia/commons/e/e0/Cisco_academy_logo.svg',
-  'LinkedIn Learning': 'https://www.linkedin.com/favicon.ico',
-  'ALX Africa': 'https://www.alxafrica.com/wp-content/uploads/2023/12/logo-black.svg',
-  'Pupilfirst': 'https://www.pupilfirst.org/pupilfirst.svg',
-  'University of Colorado': 'https://www.colorado.edu/favicon.ico',
-  'Marwadi University': 'https://www.lawctopus.com/wp-content/uploads/2024/05/MU_LOGO_BLACK.jpg',
-  'Nishkaam Innovations LLP': 'https://nishkaamllp.com/favicon.ico'
+  'Oracle Academy': 'https://cdn.simpleicons.org/oracle/fd961a',
+  'Kaggle': 'https://cdn.simpleicons.org/kaggle/fd961a',
+  'Sololearn': 'https://cdn.simpleicons.org/sololearn/fd961a',
+  'Cisco': 'https://cdn.simpleicons.org/cisco/fd961a',
+  'LinkedIn Learning': 'https://cdn.simpleicons.org/linkedin/fd961a',
+  'ALX Africa': 'https://cdn.simpleicons.org/academia/fd961a',
+  'Pupilfirst': 'https://cdn.simpleicons.org/openbadges/fd961a',
+  'University of Colorado': 'https://cdn.simpleicons.org/coursera/fd961a',
+  'Marwadi University': 'https://cdn.simpleicons.org/graduationcap/fd961a',
+  'Nishkaam Innovations LLP': 'https://cdn.simpleicons.org/briefcase/fd961a'
 };
 
 export default function CertificationCard({ title, issuer, date, iconType, status, certificateUrl, index }) {
@@ -94,6 +94,8 @@ export default function CertificationCard({ title, issuer, date, iconType, statu
               src={iconToUse} 
               alt={title}
               className="cert-lang-icon"
+              loading="lazy"
+              decoding="async"
               onError={() => setIconError(true)}
             />
           ) : (

@@ -10,6 +10,17 @@ import InnocentImage from '../assets/images/Innocent.png';
 import experiences from '../data/experiences';
 import certificates from '../data/certificates';
 
+const fallbackLogo = (label = 'NA') => {
+  const initials = label
+    .split(' ')
+    .map((part) => part[0] || '')
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='80' height='80'><rect width='100%' height='100%' rx='10' fill='%231f2937'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='%23f8fafc'>${initials}</text></svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+};
+
 export default function About(){
   const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
@@ -123,6 +134,9 @@ export default function About(){
                 className="education-logo"
                 loading="lazy"
                 decoding="async"
+                onError={(e) => {
+                  e.currentTarget.src = fallbackLogo('CUA');
+                }}
               />
               <div className="education-content">
                 <h4>Master of Science – Computer Science</h4>
@@ -141,6 +155,9 @@ export default function About(){
                 className="education-logo"
                 loading="lazy"
                 decoding="async"
+                onError={(e) => {
+                  e.currentTarget.src = fallbackLogo('MU');
+                }}
               />
               <div className="education-content">
                 <h4>Bachelor of Technology – Computer Engineering</h4>
