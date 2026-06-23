@@ -33,10 +33,6 @@ export default function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.p className="hero-role-line" variants={itemVariants}>
-            {CREDENTIALS.roleLine}
-          </motion.p>
-
           <motion.div variants={itemVariants}>
             <h1 className="hero__title">{IDENTITY.headline}</h1>
           </motion.div>

@@ -1061,8 +1061,8 @@ textarea {
 [data-theme="light"] .navbar-bg-blur {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.75) 100%
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.94) 100%
   );
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
