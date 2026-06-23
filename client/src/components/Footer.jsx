@@ -24,6 +24,8 @@ export default function Footer(){
     { to: '/uses', label: 'Uses' },
     { to: '/contact', label: 'Contact' },
   ];
+  const primaryLinks = footerLinks.slice(0, 5);
+  const secondaryLinks = footerLinks.slice(5);
 
   return (
     <footer className="footer">
@@ -40,13 +42,28 @@ export default function Footer(){
           {/* Quick Links */}
           <div className="footer-section">
             <h4>Quick Links</h4>
-            <ul className="footer-links">
-              {footerLinks.map(link => (
-                <li key={link.to}>
-                  <Link to={link.to}>{link.label}</Link>
-                </li>
-              ))}
-            </ul>
+            <div className="footer-links-split">
+              <div className="footer-links-group">
+                <h5>Main</h5>
+                <ul className="footer-links">
+                  {primaryLinks.map((link) => (
+                    <li key={link.to}>
+                      <Link to={link.to}>{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="footer-links-group">
+                <h5>More</h5>
+                <ul className="footer-links">
+                  {secondaryLinks.map((link) => (
+                    <li key={link.to}>
+                      <Link to={link.to}>{link.label}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
 
           {/* Contact Info */}

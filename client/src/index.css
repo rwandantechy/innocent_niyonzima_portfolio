@@ -2514,6 +2514,20 @@ textarea {
   margin: 0;
 }
 
+.footer-links-split {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.footer-links-group h5 {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
 .footer-links li,
 .footer-contact li {
   margin-bottom: 0.45rem;
@@ -2712,6 +2726,11 @@ section {
 
   .footer-contact li {
     justify-content: center;
+  }
+
+  .footer-links-split {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
   }
 }
 
