@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaEnvelope, FaMapMarkerAlt, FaGraduationCap, FaAward, FaGlobe, FaLaptopCode, FaCode, FaBrain } from 'react-icons/fa';
+import { FaEnvelope, FaGraduationCap, FaAward, FaGlobe, FaLaptopCode, FaCode, FaBrain, FaBook, FaCompass, FaLightbulb } from 'react-icons/fa';
 import { CONTACT_EMAIL, SOCIAL } from '../config/env';
 import { useInView } from 'react-intersection-observer';
 import Timeline from '../components/Timeline';
@@ -9,6 +9,14 @@ import CertificationCard from '../components/CertificationCard';
 import InnocentImage from '../assets/images/Innocent.png';
 import experiences from '../data/experiences';
 import certificates from '../data/certificates';
+import {
+  IDENTITY,
+  STORY_PARAGRAPHS,
+  SITE_PURPOSES,
+  AREAS_OF_INTEREST,
+  WRITING_TOPICS,
+  MISSION,
+} from '../data/story';
 
 const fallbackLogo = (label = 'NA') => {
   const initials = label
@@ -66,11 +74,10 @@ export default function About(){
                 Hi, I'm <span className="gradient-text">Innocent Niyonzima</span>
               </h1>
               <p className="about-subtitle">
-                Backend Engineer focused on production systems, reliability, and deployment
+                {IDENTITY.tagline}
               </p>
               <p className="about-description">
-                I build and maintain backend services used in real environments.
-                Most of my work is around APIs, debugging production issues, Linux servers, and reliable deployments.
+                {IDENTITY.summary}
               </p>
 
               <div className="about-contact-links">
@@ -111,6 +118,57 @@ export default function About(){
 
       {/* Main Content */}
       <div className="container about-content">
+        {/* Personal Story */}
+        <motion.div 
+          className="card about-section"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="section-header">
+            <FaCompass className="section-icon" />
+            <h3>My Journey</h3>
+          </div>
+          <div className="story-paragraphs">
+            {STORY_PARAGRAPHS.map((paragraph, idx) => (
+              <p key={idx} className="story-paragraph">{paragraph}</p>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Mission */}
+        <motion.div 
+          className="mission-block"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <FaLightbulb className="mission-icon" />
+          <p className="mission-statement">{MISSION.statement}</p>
+          <p className="mission-belief">{MISSION.belief}</p>
+        </motion.div>
+
+        {/* What This Site Represents */}
+        <motion.div 
+          className="card about-section"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="section-header">
+            <FaBook className="section-icon" />
+            <h3>What This Site Represents</h3>
+          </div>
+          <ul className="purpose-list">
+            {SITE_PURPOSES.map((purpose) => (
+              <li key={purpose}>{purpose}</li>
+            ))}
+          </ul>
+        </motion.div>
+
         {/* Education */}
         <motion.div 
           className="card about-section"
@@ -233,14 +291,12 @@ export default function About(){
           >
             <div className="section-header">
               <FaLaptopCode className="section-icon" />
-              <h4>Technical Interests</h4>
+              <h4>Areas of Interest</h4>
             </div>
             <div className="interest-tags">
-              <span className="interest-tag">Backend Engineering</span>
-              <span className="interest-tag">System Design</span>
-              <span className="interest-tag">Production Reliability</span>
-              <span className="interest-tag">Debugging & Incident Response</span>
-              <span className="interest-tag">Deployment Operations</span>
+              {AREAS_OF_INTEREST.map((interest) => (
+                <span key={interest} className="interest-tag">{interest}</span>
+              ))}
             </div>
           </motion.div>
 
@@ -250,6 +306,24 @@ export default function About(){
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            <div className="section-header">
+              <FaBook className="section-icon" />
+              <h4>Writing Topics</h4>
+            </div>
+            <div className="interest-tags">
+              {WRITING_TOPICS.map((topic) => (
+                <span key={topic} className="interest-tag">{topic}</span>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div 
+            className="card about-section"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
           >
             <div className="section-header">
               <FaGlobe className="section-icon" />

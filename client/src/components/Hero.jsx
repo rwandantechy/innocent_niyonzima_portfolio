@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaRocket, FaBolt, FaServer } from 'react-icons/fa';
+import { FaRocket, FaBolt, FaCode, FaEnvelope } from 'react-icons/fa';
+import { IDENTITY } from '../data/story';
 
 export default function Hero() {
   const containerVariants = {
@@ -38,13 +39,13 @@ export default function Hero() {
           animate="visible"
         >
           <motion.div className="hd-badge" variants={itemVariants}>
-            <FaServer />
-            Backend APIs and infrastructure
+            <FaCode />
+            {IDENTITY.tagline}
           </motion.div>
           
           <motion.div variants={itemVariants}>
             <h1 className="hero__title">
-              I build backend systems that stay reliable in production.
+              {IDENTITY.headline}
             </h1>
           </motion.div>
           
@@ -52,8 +53,7 @@ export default function Hero() {
             className="hero__subtitle"
             variants={itemVariants}
           >
-            I work on backend APIs, deployments, and day-to-day reliability.  
-            That includes fixing issues in production, improving stability, and keeping services running well.
+            {IDENTITY.summary}
           </motion.p>
           
           <motion.div 
@@ -64,8 +64,12 @@ export default function Hero() {
               <FaRocket style={{ marginRight: 8 }} />
               View Projects
             </Link>
-            <Link to="/contact" className="btn btn-secondary">
+            <Link to="/about" className="btn btn-secondary">
               <FaBolt style={{ marginRight: 8 }} />
+              My Story
+            </Link>
+            <Link to="/contact" className="btn btn-secondary">
+              <FaEnvelope style={{ marginRight: 8 }} />
               Contact Me
             </Link>
           </motion.div>

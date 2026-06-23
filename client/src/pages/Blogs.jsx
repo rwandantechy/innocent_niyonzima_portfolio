@@ -16,7 +16,7 @@ export default function Blogs(){
       >
         <h2>Blog & Insights</h2>
         <p className="muted" style={{ fontSize: '1.1rem', maxWidth: 700, margin: '16px auto 0' }}>
-          Sharing backend engineering notes on production reliability, debugging patterns, and deployment operations
+          Lessons from building software, deploying infrastructure, and working with AI systems—shared openly for developers, students, and founders.
         </p>
       </motion.div>
 

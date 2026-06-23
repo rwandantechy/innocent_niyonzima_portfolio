@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaHeart, FaBriefcase } from 'react-icons/fa';
 import { CONTACT_EMAIL, SOCIAL } from '../config/env';
+import { MISSION, IDENTITY } from '../data/story';
 
 export default function Footer(){
   const socialLinks = [
@@ -26,10 +27,9 @@ export default function Footer(){
         <div className="footer-content">
           {/* Logo and Description */}
           <div className="footer-section">
-            <h3 className="gradient-text">Developer</h3>
+            <h3 className="gradient-text">Innocent Niyonzima</h3>
             <p className="footer-description">
-              Backend engineer focused on production systems, reliability, and deployment.
-              I build and run APIs used in real environments.
+              {IDENTITY.tagline}. {MISSION.belief}
             </p>
           </div>
 

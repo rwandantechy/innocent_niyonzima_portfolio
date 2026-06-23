@@ -3851,6 +3851,109 @@ section {
   margin: 0;
 }
 
+.story-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.story-paragraph {
+  margin: 0;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+}
+
+.mission-block {
+  text-align: center;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  background: var(--surface-glass);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+}
+
+.mission-icon {
+  font-size: 1.5rem;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+}
+
+.mission-statement {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.mission-belief {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.purpose-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.purpose-list li {
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.home-story-section {
+  padding: 0 0 2rem;
+}
+
+.home-story-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.home-story-lead {
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+}
+
+.home-story-sub {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.home-purpose-list {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.home-purpose-list li {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.home-purpose-list li::before {
+  content: '•';
+  color: var(--accent-primary);
+  margin-right: 0.5rem;
+}
+
 .about-contact-links {
   display: flex;
   flex-wrap: wrap;

@@ -5,6 +5,7 @@ import { useInView } from 'react-intersection-observer';
 import Hero from '../components/Hero';
 import { Link } from 'react-router-dom';
 import { useApp } from '../context/AppProvider';
+import { MISSION, SITE_PURPOSES } from '../data/story';
 
 export default function Home(){
   const { projects = [], loadingProjects } = useApp();
@@ -14,6 +15,31 @@ export default function Home(){
   return (
     <>
       <Hero />
+
+      {/* Mission Preview */}
+      <section className="home-story-section">
+        <div className="container">
+          <motion.div
+            className="home-story-content card"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="home-story-lead">{MISSION.statement}</p>
+            <p className="muted home-story-sub">{MISSION.belief}</p>
+            <ul className="home-purpose-list">
+              {SITE_PURPOSES.slice(0, 2).map((purpose) => (
+                <li key={purpose}>{purpose}</li>
+              ))}
+            </ul>
+            <Link to="/about" className="btn btn-secondary" style={{ marginTop: 24 }}>
+              Read My Full Story
+              <FaArrowRight style={{ marginLeft: 8 }} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
       
       {/* Featured Projects Preview */}
       <section ref={projectsRef} className="container" style={{paddingTop:40,paddingBottom:80}}>
@@ -76,7 +102,7 @@ export default function Home(){
           <div className="cta-content">
             <h2 className="gradient-text">Want to work together?</h2>
             <p className="muted" style={{fontSize:'1.1rem',marginBottom:32}}>
-              I am open to backend engineering roles focused on production systems, reliability, and deployment.
+              I build useful technology, share knowledge openly, and create systems that make a meaningful impact.
             </p>
             <div style={{display:'flex',gap:16,justifyContent:'center',flexWrap:'wrap'}}>
               <Link to="/contact" className="btn">Send a Message</Link>
