@@ -41,7 +41,7 @@ export default function BlogPost() {
 
   return (
     <article className="blog-post-page">
-      <div className="container" style={{ paddingTop: 40, paddingBottom: 80, maxWidth: 760 }}>
+      <div className="container page-section page-narrow">
         <Link to="/blogs" className="back-link">
           <FaArrowLeft /> All Articles
         </Link>

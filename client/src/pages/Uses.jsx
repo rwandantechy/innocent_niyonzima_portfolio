@@ -4,15 +4,14 @@ import { USES_CATEGORIES } from '../data/uses';
 
 export default function Uses() {
   return (
-    <section className="container page-shell">
+    <section className="container page-section">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <h1>Uses</h1>
         <p className="page-intro muted">
-          Tools, hardware, and software I use to build and operate production systems.
-          Inspired by the <a href="https://uses.tech" target="_blank" rel="noopener noreferrer">/uses</a> movement.
+          Hardware and software I use day to day. Inspired by <a href="https://uses.tech" target="_blank" rel="noopener noreferrer">/uses</a> pages.
         </p>
       </motion.div>
 

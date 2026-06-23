@@ -7,7 +7,7 @@ import CurrentlySection from '../components/CurrentlySection';
 
 export default function Now() {
   return (
-    <section className="container page-shell">
+    <section className="container page-section">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

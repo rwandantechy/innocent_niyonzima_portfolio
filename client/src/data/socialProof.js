@@ -1,21 +1,21 @@
 export const TESTIMONIALS = [
   {
     quote:
-      'Innocent designed and ran reproducible benchmarking pipelines for small language models on constrained hardware. He worked independently, debugged runtime failures systematically, and delivered consistent experimental results.',
+      'Innocent set up repeatable benchmarks for small language models on limited hardware. He worked on his own, fixed runtime issues as they came up, and kept the results consistent across runs.',
     name: 'Research Supervisor',
     role: 'Professor, Computer Science',
     org: 'The Catholic University of America',
   },
   {
     quote:
-      'He took full ownership of our platform — from payments to server maintenance. When something broke in production, he diagnosed it from logs and shipped fixes without waiting for direction.',
+      'He ran our platform end to end, from payments to the servers. When production broke, he read the logs, found the cause, and shipped a fix without waiting to be told what to do.',
     name: 'Platform Stakeholder',
     role: 'Operations Lead',
     org: 'Nkotanyi Driving School',
   },
   {
     quote:
-      'Innocent led backend architecture and deployment for our client deliverables. He communicated clearly, met deadlines, and built systems our clients could actually maintain.',
+      'Innocent led the backend and deployment side of our client work. He communicated well, hit deadlines, and built systems the clients could keep using after handoff.',
     name: 'Client Project Lead',
     role: 'Technical Director',
     org: 'Niheza Solutions Ltd',

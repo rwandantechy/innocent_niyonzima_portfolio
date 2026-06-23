@@ -2,16 +2,16 @@ import { CREDENTIALS, IMPACT_METRICS } from './metrics';
 import { CONTACT_EMAIL, SOCIAL } from '../config/env';
 
 export const RECRUITER_INFO = {
-  headline: 'Everything recruiters need in one place',
+  headline: 'Quick info for recruiters',
   summary:
-    'Software engineer with production ownership of a platform serving 76,000+ users, experience across cloud infrastructure and AI systems, and an international engineering background.',
+    'Software engineer who built and runs a live platform for 76,000+ users in Rwanda. I also work on cloud infrastructure, AI systems, and have studied and worked across three continents.',
   workAuthorization:
     'F-1 student on OPT. Eligible for STEM OPT extension. Open to roles with visa sponsorship.',
   keyAchievements: [
-    'Built and operated Ibyapa.com — 76,000+ users, 40,000+ transactions, 22M+ RWF in payments',
-    'Owned full-stack production system: APIs, payments, Linux servers, deployment, incident response',
-    'Research assistant designing LLM benchmarking frameworks on resource-constrained edge devices',
-    'Technical lead for project-based client deliveries at Niheza Solutions',
+    'Built and run Ibyapa.com: 76,000+ users, 40,000+ transactions, 22M+ RWF in payments',
+    'Handle the full stack in production: APIs, payments, Linux servers, deployments, and incident fixes',
+    'Research assistant building LLM benchmarks for resource-limited edge devices',
+    'Technical lead on project-based client work at Niheza Solutions',
   ],
   topSkills: [
     'Node.js & Express', 'MongoDB & SQL', 'Docker & Linux', 'NGINX & Cloudflare',

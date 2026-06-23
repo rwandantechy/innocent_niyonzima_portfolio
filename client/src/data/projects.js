@@ -1,7 +1,7 @@
 const projects = [
   {
     id: 'ibyapa',
-    title: 'Ibyapa.com — Driving Exam Platform',
+    title: 'Ibyapa.com - Driving Exam Platform',
     description: 'Production platform serving 76,000+ learners with reliable exam sessions, payment processing, and continuous access across Rwanda.',
     image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80',
     tags: ['React', 'Node.js', 'MongoDB', 'Express', 'NGINX', 'Cloudflare'],

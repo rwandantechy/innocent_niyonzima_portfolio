@@ -23,18 +23,18 @@ export default function Contact(){
   };
 
   return (
-    <section className="container" style={{ paddingTop: 60, paddingBottom: 100 }}>
-      <motion.div 
+    <section className="container page-section">
+      <motion.header
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        style={{ textAlign: 'center', marginBottom: 72 }}
+        className="page-header"
       >
-        <h2>Get In Touch</h2>
-        <p className="muted" style={{ fontSize: '1.1rem', maxWidth: 600, margin: '24px auto 0' }}>
-          I am open to backend engineering roles focused on reliability, deployment, and production support.
+        <h1>Get In Touch</h1>
+        <p className="muted">
+          I am open to software engineering roles. Feel free to reach out.
         </p>
-      </motion.div>
+      </motion.header>
 
       <div className="contact-layout">
         {/* Contact Info */}

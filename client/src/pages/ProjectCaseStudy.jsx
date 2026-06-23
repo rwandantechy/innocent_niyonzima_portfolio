@@ -13,7 +13,7 @@ export default function ProjectCaseStudy() {
 
   return (
     <article className="case-study-page">
-      <div className="container" style={{ paddingTop: 40, paddingBottom: 80 }}>
+      <div className="container page-section">
         <Link to="/projects" className="back-link">
           <FaArrowLeft /> All Projects
         </Link>

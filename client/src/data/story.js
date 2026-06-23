@@ -2,22 +2,22 @@ export const IDENTITY = {
   tagline: 'Software Engineer | Infrastructure | AI Systems',
   headline: 'I build software that real people use.',
   summary:
-    'Software engineer at the intersection of cloud infrastructure, AI systems, and product development — from a production platform serving 76,000+ users in Rwanda to AI research in Washington, DC.',
+    'I build and run software that people depend on. In Rwanda that is Ibyapa.com, a driving exam platform with 76,000+ users. In Washington, DC I do graduate work and research on AI systems.',
 };
 
 export const STORY_PARAGRAPHS = [
-  'I grew up in Rwanda with a passion for technology and problem solving. That passion led me across continents—to pursue a Bachelor\'s in Computer Engineering in India, and later a Master\'s in Computer Science at The Catholic University of America in Washington, DC.',
-  'Throughout that journey, I was never interested in building projects solely for grades or portfolios. I wanted to build software that real people use.',
-  'One of my proudest accomplishments is building and maintaining Ibyapa.com, a driving theory preparation platform used by more than 76,000 users in Rwanda. As the primary developer, I owned the entire system—frontend and backend, payments, infrastructure, deployment, maintenance, and troubleshooting. The platform has processed 40,000+ transactions, 22M+ RWF in payments, and helped thousands prepare for their driving exams.',
-  'While pursuing graduate studies, I worked as a research assistant on efficient AI systems and large language model evaluation. I designed automated benchmarking frameworks to compare open-source language models on resource-constrained devices.',
-  'Today, I enjoy building products from idea to deployment, designing scalable architectures, solving real-world problems, and continuously learning new technologies.',
+  'I grew up in Rwanda and got into technology early. I liked taking things apart and figuring out how they worked. That curiosity took me to India for a degree in Computer Engineering, and later to Washington, DC for a Master\'s in Computer Science at The Catholic University of America.',
+  'I was never interested in building projects just for grades or a portfolio. I wanted to build things people would actually use.',
+  'The clearest example is Ibyapa.com, a driving theory prep platform I built and still maintain for 76,000+ users in Rwanda. I handle the frontend, backend, payments, servers, deployments, and fixes when something breaks. The platform has processed 40,000+ transactions and over 22 million RWF in payments.',
+  'During graduate school I worked as a research assistant on efficient AI systems. I built tools to benchmark open-source language models on devices with limited memory and compute, like Raspberry Pi boards.',
+  'These days I like taking an idea from first code to something running in production, and learning whatever I need to make it work.',
 ];
 
 export const SITE_PURPOSES = [
-  'A portfolio showcasing projects and technical work',
-  'A professional profile highlighting experience and accomplishments',
-  'A technical blog sharing lessons from building software, deploying infrastructure, and working with AI systems',
-  'A public journal documenting growth as an engineer and entrepreneur',
+  'Projects I have built and shipped',
+  'A record of my work and background',
+  'Notes on building software, running servers, and working with AI',
+  'A place to write about what I am learning along the way',
 ];
 
 export const AREAS_OF_INTEREST = [
@@ -45,6 +45,6 @@ export const WRITING_TOPICS = [
 
 export const MISSION = {
   statement:
-    'To build useful technology, share knowledge openly, and create systems that make a meaningful impact on people\'s lives.',
-  belief: 'Technology is most valuable when it solves real problems for real people.',
+    'Build useful software, share what I learn, and work on problems that matter to real people.',
+  belief: 'Technology is worth the effort when it helps someone with a real problem.',
 };

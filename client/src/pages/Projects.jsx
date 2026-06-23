@@ -15,11 +15,11 @@ export default function Projects(){
     : sourceProjects.filter(p => p.featured);
 
   return (
-    <section className="container" style={{ paddingTop: 40, paddingBottom: 80 }}>
+    <section className="container page-section">
       {/* Header Section */}
       <motion.div 
         ref={headerRef}
-        className="projects-header"
+        className="projects-header page-header"
         initial={{ opacity: 0, y: 30 }}
         animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
         transition={{ duration: 0.6 }}
@@ -38,7 +38,7 @@ export default function Projects(){
           animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Production systems with real users, payments, and operational ownership — including long-form case studies.
+          Real projects with real users, payments, and long-form write-ups.
         </motion.p>
 
         {/* Filters */}

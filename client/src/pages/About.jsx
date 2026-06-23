@@ -197,7 +197,7 @@ export default function About(){
                 }}
               />
               <div className="education-content">
-                <h4>Master of Science – Computer Science</h4>
+                <h4>Master of Science in Computer Science</h4>
                 <p className="education-school">The Catholic University of America</p>
                 <p className="education-location">Washington, DC</p>
                 <span className="education-date">May 2026</span>
@@ -218,7 +218,7 @@ export default function About(){
                 }}
               />
               <div className="education-content">
-                <h4>Bachelor of Technology – Computer Engineering</h4>
+                <h4>Bachelor of Technology in Computer Engineering</h4>
                 <p className="education-school">Marwadi University</p>
                 <p className="education-location">Rajkot, Gujarat, India</p>
                 <span className="education-date">April 2024</span>

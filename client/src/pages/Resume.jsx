@@ -12,14 +12,14 @@ import { IMPACT_METRICS } from '../data/metrics';
 
 export default function Resume() {
   return (
-    <section className="resume-page container page-shell">
+    <section className="resume-page container page-section">
       <motion.header
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
       >
         <h1>Resume</h1>
         <p className="page-intro muted">
-          {CREDENTIALS.roleLine} — {CREDENTIALS.degree}, {CREDENTIALS.school}
+          {CREDENTIALS.roleLine} - {CREDENTIALS.degree}, {CREDENTIALS.school}
         </p>
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 20 }}>
           <Link to="/recruiters" className="btn">
@@ -62,11 +62,11 @@ export default function Resume() {
         <h2>Education</h2>
         <div className="resume-education">
           <div className="resume-edu-item">
-            <strong>Master of Science — Computer Science</strong>
+            <strong>Master of Science in Computer Science</strong>
             <p className="muted">The Catholic University of America, Washington, DC · May 2026</p>
           </div>
           <div className="resume-edu-item">
-            <strong>Bachelor of Technology — Computer Engineering</strong>
+            <strong>Bachelor of Technology in Computer Engineering</strong>
             <p className="muted">Marwadi University, Rajkot, India · April 2024</p>
           </div>
         </div>
@@ -90,9 +90,7 @@ export default function Resume() {
       >
         <h2>Research</h2>
         <p>
-          Graduate Research Assistant — designed automated benchmarking frameworks to compare
-          open-source language models on resource-constrained edge devices (Raspberry Pi, ARM64).
-          Focus areas: efficient AI systems, containerized deployments, reproducible experimentation.
+          Research assistant building automated benchmarks to compare open-source language models on edge devices with limited resources.
         </p>
       </motion.div>
 

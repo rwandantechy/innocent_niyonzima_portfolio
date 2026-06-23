@@ -8,18 +8,18 @@ export default function Blogs() {
   const blogPosts = staticBlogs;
 
   return (
-    <section className="container" style={{ paddingTop: 40, paddingBottom: 80 }}>
-      <motion.div
+    <section className="container page-section">
+      <motion.header
+        className="page-header"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        style={{ textAlign: 'center', marginBottom: 48 }}
       >
-        <h2>Blog & Insights</h2>
-        <p className="muted" style={{ fontSize: '1.1rem', maxWidth: 700, margin: '16px auto 0' }}>
-          Lessons from building software, deploying infrastructure, and working with AI systems.
-        </p>
-      </motion.div>
+        <h1>Blog & Insights</h1>
+            <p className="muted">
+              Notes on building software, running servers, and working with AI.
+            </p>
+      </motion.header>
 
       <div className="blog-grid">
         {blogPosts.map((post, idx) => (
@@ -29,7 +29,7 @@ export default function Blogs() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: idx * 0.1 }}
-            whileHover={{ y: -8 }}
+            whileHover={{ y: -4 }}
           >
             {post.featured && (
               <span className="blog-badge"><FaStar style={{ marginRight: 4 }} /> Featured</span>

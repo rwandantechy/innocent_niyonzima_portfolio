@@ -12,7 +12,7 @@ export default function Recruiters() {
   const { contact, credentials } = RECRUITER_INFO;
 
   return (
-    <section className="container page-shell recruiters-page">
+    <section className="container page-section recruiters-page">
       <motion.header
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -86,8 +86,8 @@ export default function Recruiters() {
           <h2>Work Authorization</h2>
           <p>{RECRUITER_INFO.workAuthorization}</p>
           <h3 style={{ marginTop: 24 }}>Education</h3>
-          <p><strong>{credentials.degree}</strong> — {credentials.school}, {credentials.location}</p>
-          <p className="muted">B.Tech Computer Engineering — Marwadi University, India (2024)</p>
+          <p><strong>{credentials.degree}</strong>, {credentials.school}, {credentials.location}</p>
+          <p className="muted">B.Tech Computer Engineering, Marwadi University, India (2024)</p>
         </motion.section>
       </div>
     </section>
