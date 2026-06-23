@@ -1045,7 +1045,7 @@ textarea {
   );
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: none;
   transition: all var(--transition);
 }
 
@@ -1493,7 +1493,7 @@ textarea {
    2026 NAVBAR + HEADER REFRESH
    ============================================ */
 .nb-shell {
-  border-bottom: 1px solid color-mix(in srgb, var(--color-border) 78%, transparent);
+  border-bottom: none;
 }
 
 .nb-blur {
@@ -1507,7 +1507,7 @@ textarea {
   align-items: center;
   height: 72px;
   column-gap: 1.25rem;
-  padding-bottom: 4px;
+  padding-bottom: 8px;
 }
 
 .navbar-scrolled .nb-content {
@@ -1647,7 +1647,7 @@ textarea {
   .nb-content {
     grid-template-columns: 1fr auto;
     height: 64px;
-    padding-bottom: 3px;
+    padding-bottom: 6px;
   }
 
   .nb-menu,
@@ -1674,7 +1674,7 @@ textarea {
   .nb-content {
     height: 60px;
     column-gap: 0.75rem;
-    padding-bottom: 2px;
+    padding-bottom: 4px;
   }
 
   .nb-name {
