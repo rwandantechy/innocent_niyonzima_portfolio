@@ -25,7 +25,8 @@
   --success: #22c55e;
 
   /* Layout rhythm */
-  --nav-height: 84px;
+  --nav-height: 72px;
+  --header-offset: 98px;
   --page-padding-y: clamp(2rem, 4vw, 3rem);
   --section-spacing: clamp(2rem, 4vw, 3.5rem);
   --grid-gap: 1.5rem;
@@ -1012,7 +1013,7 @@ textarea {
   flex: 1;
   position: relative;
   z-index: 1;
-  padding-top: calc(var(--nav-height) + 1.25rem);
+  padding-top: var(--header-offset);
 }
 
 .main-content--admin {
@@ -4729,7 +4730,7 @@ section {
    MOBILE STANDARDS OVERRIDES
    ============================================ */
 .main-content {
-  padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1.75rem) !important;
+  padding-top: calc(var(--header-offset) + env(safe-area-inset-top, 0px)) !important;
 }
 
 button,
@@ -4749,13 +4750,13 @@ a.btn,
 
 @media (max-width: 968px) {
   .main-content {
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1.25rem) !important;
+    padding-top: calc(92px + env(safe-area-inset-top, 0px)) !important;
   }
 }
 
 @media (max-width: 768px) {
   .main-content {
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1rem) !important;
+    padding-top: calc(88px + env(safe-area-inset-top, 0px)) !important;
   }
 
   .theme-toggle-premium,
@@ -4788,7 +4789,7 @@ a.btn,
 
 @media (max-width: 480px) {
   .main-content {
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 0.9rem) !important;
+    padding-top: calc(84px + env(safe-area-inset-top, 0px)) !important;
   }
 
   .social-icon {
@@ -4803,7 +4804,7 @@ a.btn,
    ============================================ */
 
 .hero--dense {
-  padding: 1.75rem 0 2rem;
+  padding: 0.75rem 0 2rem;
 }
 
 .hero--dense .hero__content {
