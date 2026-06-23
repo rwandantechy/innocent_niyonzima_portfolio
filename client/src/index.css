@@ -1503,7 +1503,7 @@ textarea {
 
 .nb-content {
   display: grid;
-  grid-template-columns: 240px 1fr auto;
+  grid-template-columns: 280px 1fr auto;
   align-items: center;
   height: 72px;
   column-gap: 1.25rem;
@@ -1521,16 +1521,26 @@ textarea {
 .nb-brand {
   display: flex;
   align-items: center;
+  gap: 0.7rem;
   width: max-content;
   text-decoration: none;
   justify-self: start;
 }
 
+.nb-logo-image {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid color-mix(in srgb, var(--color-primary) 55%, transparent);
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--color-primary) 24%, transparent);
+}
+
 .nb-name {
   color: var(--color-text);
-  font-size: 0.8rem;
+  font-size: 0.92rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   opacity: 0.9;
   transition: opacity var(--transition), color var(--transition);
@@ -1625,7 +1635,7 @@ textarea {
 
 @media (max-width: 1200px) {
   .nb-content {
-    grid-template-columns: 220px 1fr auto;
+    grid-template-columns: 250px 1fr auto;
   }
 
   .nb-menu {
@@ -1646,8 +1656,13 @@ textarea {
   }
 
   .nb-name {
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
+    font-size: 0.88rem;
+    letter-spacing: 0.01em;
+  }
+
+  .nb-logo-image {
+    width: 42px;
+    height: 42px;
   }
 
   .nb-actions {
@@ -1663,8 +1678,12 @@ textarea {
   }
 
   .nb-name {
-    font-size: 0.72rem;
-    letter-spacing: 0.07em;
+    font-size: 0.82rem;
+  }
+
+  .nb-logo-image {
+    width: 38px;
+    height: 38px;
   }
 }
 

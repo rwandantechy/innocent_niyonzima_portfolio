@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaMoon, FaSun, FaEnvelope } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeProvider';
+import InnocentImage from '../assets/images/Innocent.png';
 
 export default function Navbar(){
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,8 @@ export default function Navbar(){
       <div className="container nb-container">
         <div className="navbar-content-premium nb-content">
           <Link to="/" className="nb-brand">
-            <span className="nb-name">INNOCENT NIYONZIMA</span>
+            <img src={InnocentImage} alt="Innocent Niyonzima" className="nb-logo-image" />
+            <span className="nb-name">Innocent N.</span>
           </Link>
 
           <ul className="navbar-menu-premium desktop-menu nb-menu">
