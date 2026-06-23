@@ -5423,9 +5423,34 @@ a.btn,
 
 .recruiters-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  align-items: stretch;
+}
+
+.recruiters-grid .page-card {
+  margin-top: 0;
+  padding: 1.6rem 1.5rem;
+  height: 100%;
+}
+
+.recruiters-grid h2 {
+  margin-bottom: 0.85rem;
+}
+
+.recruiters-grid .interest-tags {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.recruiters-grid .interest-tag {
+  padding: 0.5rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  line-height: 1.25;
+  text-align: center;
 }
 
 .recruiters-full {
@@ -5451,6 +5476,23 @@ a.btn,
   color: var(--accent-primary);
   margin-top: 0.2rem;
   flex-shrink: 0;
+}
+
+@media (max-width: 968px) {
+  .recruiters-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .recruiters-grid .interest-tags {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .recruiters-grid .interest-tags {
+    grid-template-columns: 1fr;
+  }
 }
 
 .resume-metrics {
