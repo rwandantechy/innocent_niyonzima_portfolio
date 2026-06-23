@@ -1501,7 +1501,10 @@ textarea {
 }
 
 .nb-content {
-  min-height: var(--nav-height);
+  display: grid;
+  grid-template-columns: 220px 1fr 180px;
+  align-items: center;
+  height: 72px;
 }
 
 .navbar-scrolled .nb-content {
@@ -1515,28 +1518,13 @@ textarea {
 .nb-brand {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-}
-
-.nb-logo-wrapper {
-  padding: 0.2rem;
-}
-
-.nb-logo-image {
-  width: 42px;
-  height: 42px;
-}
-
-.nb-brand-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
 }
 
 .nb-name {
   color: var(--color-text);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: 0.08em;
 }
 
 .nb-role {
@@ -1546,27 +1534,40 @@ textarea {
 }
 
 .nb-menu {
-  gap: 0.15rem;
-  margin-left: 0.35rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .nb-link {
-  font-size: 0.9rem;
-  padding: 0.6rem 1rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-weight: 500;
+}
+
+.nb-link.active {
+  background: rgba(255, 165, 0, 0.08);
+  border: 1px solid rgba(255, 165, 0, 0.15);
 }
 
 .nb-actions {
-  gap: 0.65rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
 }
 
 .nb-theme-toggle {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
 }
 
 .nb-cta {
-  padding: 0.65rem 1.1rem;
-  font-size: 0.88rem;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
 }
 
 .nb-mobile-toggle {
@@ -1639,12 +1640,6 @@ textarea {
   .hd-shell .btn {
     min-width: 0;
     width: 100%;
-  }
-}
-
-@media (max-width: 968px) {
-  .nb-brand-text {
-    display: none;
   }
 }
 

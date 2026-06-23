@@ -3,7 +3,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaMoon, FaSun, FaEnvelope } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeProvider';
-import InnocentImage from '../assets/images/Innocent.png';
 
 export default function Navbar(){
   const [isOpen, setIsOpen] = useState(false);
@@ -28,8 +27,7 @@ export default function Navbar(){
     { to: '/projects', label: 'Projects' },
     { to: '/blogs', label: 'Writing' },
     { to: '/about', label: 'About' },
-    { to: '/resume', label: 'Resume' },
-    { to: '/contact', label: 'Contact' }
+    { to: '/resume', label: 'Resume' }
   ];
 
   return (
@@ -43,17 +41,8 @@ export default function Navbar(){
       
       <div className="container nb-container">
         <div className="navbar-content-premium nb-content">
-          <Link to="/" className="navbar-logo-premium nb-brand">
-            <motion.div 
-              className="logo-wrapper nb-logo-wrapper"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <img src={InnocentImage} alt="Innocent Niyonzima" className="logo-image nb-logo-image" />
-            </motion.div>
-            <div className="nb-brand-text">
-              <span className="nb-name">Innocent Niyonzima</span>
-            </div>
+          <Link to="/" className="nb-brand">
+            <span className="nb-name">INNOCENT NIYONZIMA</span>
           </Link>
 
           <ul className="navbar-menu-premium desktop-menu nb-menu">
