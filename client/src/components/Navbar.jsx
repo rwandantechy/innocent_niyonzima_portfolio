@@ -26,8 +26,9 @@ export default function Navbar(){
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/projects', label: 'Projects' },
+    { to: '/blogs', label: 'Writing' },
     { to: '/about', label: 'About' },
-    { to: '/blogs', label: 'Blog' },
+    { to: '/resume', label: 'Resume' },
     { to: '/contact', label: 'Contact' }
   ];
 
@@ -40,7 +41,7 @@ export default function Navbar(){
     >
       <div className="navbar-bg-blur nb-blur" />
       
-      <div className="container">
+      <div className="container nb-container">
         <div className="navbar-content-premium nb-content">
           <Link to="/" className="navbar-logo-premium nb-brand">
             <motion.div 
