@@ -1518,13 +1518,16 @@ textarea {
 .nb-brand {
   display: flex;
   align-items: center;
+  width: max-content;
+  text-decoration: none;
 }
 
 .nb-name {
   color: var(--color-text);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
 }
 
 .nb-role {
