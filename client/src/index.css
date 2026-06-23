@@ -1038,24 +1038,16 @@ textarea {
 .navbar-bg-blur {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(26, 26, 26, 0.7) 0%,
-    rgba(26, 26, 26, 0.6) 100%
-  );
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
   border-bottom: none;
   transition: all var(--transition);
 }
 
 .navbar-scrolled .navbar-bg-blur {
-  background: linear-gradient(
-    180deg,
-    rgba(20, 20, 20, 0.85) 0%,
-    rgba(20, 20, 20, 0.8) 100%
-  );
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  background: transparent;
+  box-shadow: none;
   border-bottom-color: rgba(253, 150, 26, 0.3);
 }
 
@@ -1065,21 +1057,13 @@ textarea {
 
 /* Light Theme Navbar */
 [data-theme="light"] .navbar-bg-blur {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.99) 0%,
-    rgba(255, 255, 255, 0.98) 100%
-  );
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  background: transparent;
+  border-bottom: none;
 }
 
 [data-theme="light"] .navbar-scrolled .navbar-bg-blur {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.9) 0%,
-    rgba(255, 255, 255, 0.85) 100%
-  );
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  box-shadow: none;
   border-bottom-color: rgba(253, 150, 26, 0.2);
 }
 
@@ -1497,8 +1481,8 @@ textarea {
 }
 
 .nb-blur {
-  background: color-mix(in srgb, var(--color-surface) 92%, transparent);
-  backdrop-filter: blur(12px);
+  background: transparent;
+  backdrop-filter: none;
 }
 
 .nb-content {
