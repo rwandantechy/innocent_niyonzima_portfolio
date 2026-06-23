@@ -25,7 +25,7 @@
   --success: #22c55e;
 
   /* Layout rhythm */
-  --nav-height: 72px;
+  --nav-height: 84px;
   --page-padding-y: clamp(2rem, 4vw, 3rem);
   --section-spacing: clamp(2rem, 4vw, 3.5rem);
   --grid-gap: 1.5rem;
@@ -1030,6 +1030,7 @@ textarea {
   right: 0;
   z-index: 1000;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: var(--nav-height);
 }
 
 /* Dark Theme Navbar */
@@ -1061,8 +1062,8 @@ textarea {
 [data-theme="light"] .navbar-bg-blur {
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.96) 0%,
-    rgba(255, 255, 255, 0.94) 100%
+    rgba(255, 255, 255, 0.99) 0%,
+    rgba(255, 255, 255, 0.98) 100%
   );
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
@@ -1474,7 +1475,7 @@ textarea {
 }
 
 .nb-content {
-  min-height: 72px;
+  min-height: var(--nav-height);
 }
 
 .nb-brand {
@@ -4728,7 +4729,7 @@ section {
    MOBILE STANDARDS OVERRIDES
    ============================================ */
 .main-content {
-  padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1rem) !important;
+  padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1.75rem) !important;
 }
 
 button,
@@ -4748,13 +4749,13 @@ a.btn,
 
 @media (max-width: 968px) {
   .main-content {
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 0.75rem) !important;
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1.25rem) !important;
   }
 }
 
 @media (max-width: 768px) {
   .main-content {
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 0.5rem) !important;
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 1rem) !important;
   }
 
   .theme-toggle-premium,
@@ -4787,7 +4788,7 @@ a.btn,
 
 @media (max-width: 480px) {
   .main-content {
-    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 0.5rem) !important;
+    padding-top: calc(var(--nav-height) + env(safe-area-inset-top, 0px) + 0.9rem) !important;
   }
 
   .social-icon {
@@ -4802,7 +4803,7 @@ a.btn,
    ============================================ */
 
 .hero--dense {
-  padding: 1rem 0 2rem;
+  padding: 1.75rem 0 2rem;
 }
 
 .hero--dense .hero__content {
