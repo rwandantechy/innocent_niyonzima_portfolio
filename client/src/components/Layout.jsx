@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import RecruiterFab from './RecruiterFab';
 
 export default function Layout({ children }){
   const { pathname } = useLocation();
@@ -14,6 +15,7 @@ export default function Layout({ children }){
         {children}
       </main>
       {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <RecruiterFab />}
     </div>
   )
 }

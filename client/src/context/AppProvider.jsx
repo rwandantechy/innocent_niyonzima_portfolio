@@ -1,5 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { API_URL } from '../config/env';
+import { detailedProjects as staticProjects } from '../data/detailedProjects';
+import staticBlogs from '../data/blogs';
 
 const AppContext = createContext(null);
 
@@ -27,7 +29,7 @@ export default function AppProvider({ children }) {
   };
 
   const normalizeProject = (project) => ({
-    id: project.id || `${Date.now()}`,
+    id: project.id != null ? String(project.id) : `${Date.now()}`,
     title: project.title || 'Untitled Project',
     description: project.description || '',
     featured: Boolean(project.featured),
@@ -39,8 +41,16 @@ export default function AppProvider({ children }) {
     links: project.links && typeof project.links === 'object' ? project.links : {},
   });
 
+  const staticProjectFallback = staticProjects.map((p, idx) =>
+    normalizeProject({
+      ...p,
+      id: ['ibyapa', 'ai-server', 'budget-planner', 'nkotanyi', 'yigse', 'task-tracker'][idx] || p.id,
+    })
+  );
+
   const normalizeBlog = (blog) => ({
     id: blog.id || `${Date.now()}`,
+    slug: blog.slug || '',
     title: blog.title || 'Untitled',
     excerpt: blog.excerpt || (blog.content ? `${blog.content.slice(0, 140)}...` : ''),
     content: blog.content || '',
@@ -65,7 +75,7 @@ export default function AppProvider({ children }) {
       const normalized = Array.isArray(data) ? data.map(normalizeProject) : [];
       setProjectsList(normalized);
     } catch (err) {
-      setProjectsList([]);
+      setProjectsList(staticProjectFallback);
       setError(err.message);
     } finally {
       setLoadingProjects(false);
@@ -81,7 +91,7 @@ export default function AppProvider({ children }) {
       const normalized = Array.isArray(data) ? data.map(normalizeBlog) : [];
       setBlogsList(normalized);
     } catch (err) {
-      setBlogsList([]);
+      setBlogsList(staticBlogs.map(normalizeBlog));
       setError(err.message);
     } finally {
       setLoadingBlogs(false);

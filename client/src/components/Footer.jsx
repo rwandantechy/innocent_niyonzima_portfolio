@@ -16,9 +16,13 @@ export default function Footer(){
   const footerLinks = [
     { to: '/', label: 'Home' },
     { to: '/projects', label: 'Projects' },
+    { to: '/resume', label: 'Resume' },
+    { to: '/recruiters', label: 'For Recruiters' },
     { to: '/blogs', label: 'Blog' },
     { to: '/about', label: 'About' },
-    { to: '/contact', label: 'Contact' }
+    { to: '/now', label: 'Now' },
+    { to: '/uses', label: 'Uses' },
+    { to: '/contact', label: 'Contact' },
   ];
 
   return (

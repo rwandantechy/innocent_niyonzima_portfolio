@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaBars, FaTimes, FaMoon, FaSun, FaEnvelope } from 'react-icons/fa';
 import { useTheme } from '../context/ThemeProvider';
 import InnocentImage from '../assets/images/Innocent.png';
+import { CREDENTIALS } from '../data/metrics';
 
 export default function Navbar(){
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +53,7 @@ export default function Navbar(){
             </motion.div>
             <div className="nb-brand-text">
               <span className="nb-name">Innocent Niyonzima</span>
-              <span className="nb-role">Backend Engineer</span>
+              <span className="nb-role">{CREDENTIALS.roleLine}</span>
             </div>
           </Link>
 

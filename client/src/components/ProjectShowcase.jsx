@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt, FaStar } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaStar, FaBookOpen } from 'react-icons/fa';
 import { useInView } from 'react-intersection-observer';
+import { getCaseStudy } from '../data/caseStudies';
 
 export default function ProjectShowcase({ project, index }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -90,32 +92,36 @@ export default function ProjectShowcase({ project, index }) {
       )}
 
       {/* Action Links */}
-      {project.links && (project.links.github || project.links.live) && (
-        <motion.div className="project-actions">
-          {project.links.github && (
-            <a 
-              href={project.links.github} 
-              className="btn-outline" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <FaGithub />
-              View Code
-            </a>
-          )}
-          {project.links.live && (
-            <a 
-              href={project.links.live} 
-              className="btn" 
-              target="_blank" 
-              rel="noopener noreferrer"
-            >
-              <FaExternalLinkAlt />
-              Live Demo
-            </a>
-          )}
-        </motion.div>
-      )}
+      <motion.div className="project-actions">
+        {getCaseStudy(project.id) && (
+          <Link to={`/projects/${project.id}`} className="btn">
+            <FaBookOpen />
+            Case Study
+          </Link>
+        )}
+        {project.links?.github && (
+          <a
+            href={project.links.github}
+            className="btn-outline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaGithub />
+            View Code
+          </a>
+        )}
+        {project.links?.live && (
+          <a
+            href={project.links.live}
+            className="btn btn-secondary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaExternalLinkAlt />
+            Live Demo
+          </a>
+        )}
+      </motion.div>
     </motion.article>
   );
 }

@@ -1,14 +1,14 @@
 export const IDENTITY = {
-  tagline: 'Software engineer, researcher, and builder',
+  tagline: 'Software Engineer | Infrastructure | AI Systems',
   headline: 'I build software that real people use.',
   summary:
-    'My work sits at the intersection of software engineering, cloud infrastructure, AI systems, and entrepreneurship—from production platforms in Rwanda to research on efficient AI systems in Washington, DC.',
+    'Software engineer at the intersection of cloud infrastructure, AI systems, and product development — from a production platform serving 76,000+ users in Rwanda to AI research in Washington, DC.',
 };
 
 export const STORY_PARAGRAPHS = [
   'I grew up in Rwanda with a passion for technology and problem solving. That passion led me across continents—to pursue a Bachelor\'s in Computer Engineering in India, and later a Master\'s in Computer Science at The Catholic University of America in Washington, DC.',
   'Throughout that journey, I was never interested in building projects solely for grades or portfolios. I wanted to build software that real people use.',
-  'One of my proudest accomplishments is building and maintaining a driving theory preparation platform used by more than 76,000 users in Rwanda. As the primary developer, I owned the entire system—frontend and backend, payments, infrastructure, deployment, maintenance, and troubleshooting. The platform has processed tens of thousands of transactions and helped thousands prepare for their driving exams.',
+  'One of my proudest accomplishments is building and maintaining Ibyapa.com, a driving theory preparation platform used by more than 76,000 users in Rwanda. As the primary developer, I owned the entire system—frontend and backend, payments, infrastructure, deployment, maintenance, and troubleshooting. The platform has processed 40,000+ transactions, 22M+ RWF in payments, and helped thousands prepare for their driving exams.',
   'While pursuing graduate studies, I worked as a research assistant on efficient AI systems and large language model evaluation. I designed automated benchmarking frameworks to compare open-source language models on resource-constrained devices.',
   'Today, I enjoy building products from idea to deployment, designing scalable architectures, solving real-world problems, and continuously learning new technologies.',
 ];

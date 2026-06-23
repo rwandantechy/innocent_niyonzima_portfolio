@@ -2,12 +2,12 @@ export const detailedProjects = [
   {
     id: 1,
     title: 'Ibyapa.com - Exam Preparation Platform',
-    description: 'Built to keep driving-theory exam preparation continuously available for 72,000+ learners, with backend decisions centered on stable sessions, payments, and recoverable failures in production.',
+    description: 'Built to keep driving-theory exam preparation continuously available for 76,000+ learners, with backend decisions centered on stable sessions, payments, and recoverable failures in production.',
     featured: true,
     metrics: [
-      { value: '72K+', label: 'Users Served' },
-      { value: 'Live', label: 'Production System' },
-      { value: 'Ongoing', label: 'Uptime Ownership' }
+      { value: '76K+', label: 'Users Served' },
+      { value: '40K+', label: 'Transactions' },
+      { value: '22M+', label: 'RWF Processed' },
     ],
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Redis', 'AWS'],
     challenges: [
@@ -23,7 +23,7 @@ export const detailedProjects = [
       'Used controlled deployment steps on Linux servers to reduce avoidable production regressions'
     ],
     results: [
-      'Sustained a live platform serving 72,000+ users with direct backend ownership',
+      'Sustained a live platform serving 76,000+ users with direct backend ownership',
       'Reduced repeated production incidents by fixing root causes instead of temporary patches',
       'Improved operational visibility during outages through better logs and error traces',
       'Maintained release continuity while supporting day-to-day production issues'

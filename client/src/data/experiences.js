@@ -11,13 +11,13 @@ const experiences = [
     ]
   },
   {
-    title: 'Backend Engineer & Systems Reliability Owner',
-    company: 'Nkotanyi Driving School',
+    title: 'Software Engineer & Production Systems Owner',
+    company: 'Nkotanyi Driving School / Ibyapa.com',
     location: 'Kigali, Rwanda',
     date: 'Jan 2024 – Jan 2026',
     highlights: [
-      'Owned backend operations for ibyapa.com, a live theory-exam platform used by 72,000+ learners, with direct responsibility for reliability in production',
-      'Built and maintained payment and account APIs, including transaction logging, reconciliation checks, and recovery paths for failed requests',
+      'Owned production operations for Ibyapa.com, a live theory-exam platform used by 76,000+ learners, with direct responsibility for reliability, payments, and infrastructure',
+      'Built and maintained payment and account APIs — 40,000+ transactions, 22M+ RWF processed, with reconciliation and recovery for failed requests',
       'Handled production incidents independently by debugging logs and runtime errors, applying targeted fixes, and restoring service quickly',
       'Managed Linux/VPS deployment workflows, scheduled updates, and security hardening to keep the platform stable and available'
     ]

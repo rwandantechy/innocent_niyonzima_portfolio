@@ -3,10 +3,13 @@ const defaultProjects = [
     id: 'ibyapa',
     title: 'Ibyapa.com — Driving Exam Platform',
     description:
-      'Created to support high exam-prep demand without service instability, this platform serves 72,000+ learners with backend flows designed for reliable sessions, payments, and continuous access.',
+      'Production platform serving 76,000+ learners with reliable exam sessions, payment processing, and continuous access across Rwanda.',
     featured: true,
-    tech: ['React', 'Node.js', 'MongoDB', 'Express'],
-    metrics: ['72K+ users', 'Production reliability ownership'],
+    tech: ['React', 'Node.js', 'MongoDB', 'Express', 'NGINX', 'Cloudflare'],
+    metrics: [
+      { value: '76K+', label: 'Users' },
+      { value: '40K+', label: 'Transactions' },
+    ],
     challenges: [],
     solutions: [],
     results: [],
@@ -16,63 +19,80 @@ const defaultProjects = [
     id: 'ai-server',
     title: 'Containerized AI Server',
     description:
-      'Designed for repeatable model deployment on constrained hardware, with containerized services, secure remote access, and predictable runtime behavior under limited resources.',
+      'Reproducible LLM benchmarking on resource-constrained edge devices with containerized services and secure remote access.',
     featured: true,
     tech: ['Docker', 'Raspberry Pi', 'Python', 'AI/ML'],
-    metrics: ['Research deployment'],
+    metrics: [
+      { value: 'ARM64', label: 'Edge Runtime' },
+      { value: 'Docker', label: 'Deploys' },
+    ],
     challenges: [],
     solutions: [],
     results: [],
     links: {},
   },
   {
-    id: 'budget-planner',
-    title: 'Personal Budget Planner',
+    id: 'nkotanyi',
+    title: 'Nkotanyi Driving School Platform',
     description:
-      'Built to reduce manual tracking errors by enforcing consistent transaction rules and dependable data handling in everyday financial workflows.',
-    featured: false,
-    tech: ['C#', '.NET Core', 'SQL Server'],
-    metrics: ['Production-ready'],
+      'Production school-management platform maintained through active monitoring, backend debugging, and controlled Linux deployments.',
+    featured: true,
+    tech: ['PHP', 'Laravel', 'MySQL', 'NGINX', 'VPS'],
+    metrics: [
+      { value: 'Live', label: 'Production' },
+      { value: '24/7', label: 'Support' },
+    ],
     challenges: [],
     solutions: [],
     results: [],
-    links: {},
+    links: { live: 'https://nkotanyi.rw' },
   },
 ];
 
 const defaultBlogs = [
   {
-    id: 'blog-automata-theory',
-    title: 'Understanding Automata Theory: From DFA to Turing Machines',
+    id: 'platform-76k-users',
+    slug: 'building-platform-76000-users',
+    title: 'Building a Platform Used by 76,000 Users',
     excerpt:
-      'A comprehensive guide to automata theory, exploring deterministic and non-deterministic finite automata, pushdown automata, and the foundations of computability.',
-    content:
-      'A comprehensive guide to automata theory, exploring deterministic and non-deterministic finite automata, pushdown automata, and the foundations of computability.',
-    readTime: '8 min read',
-    tags: ['Theory of Computation', 'Automata', 'Computer Science'],
-    featured: true,
-  },
-  {
-    id: 'blog-reliable-node-apis',
-    title: 'Operating Reliable Node.js APIs in Production',
-    excerpt:
-      'Practical patterns for API resilience, incident debugging, and safer deployment workflows in live backend systems.',
-    content:
-      'Practical patterns for API resilience, incident debugging, and safer deployment workflows in live backend systems.',
-    readTime: '12 min read',
-    tags: ['Backend', 'Node.js', 'Reliability'],
-    featured: true,
-  },
-  {
-    id: 'blog-p-vs-np',
-    title: 'Computational Complexity: P vs NP Problem',
-    excerpt:
-      "Diving deep into one of computer science's greatest unsolved mysteries and its implications for algorithm design.",
-    content:
-      "Diving deep into one of computer science's greatest unsolved mysteries and its implications for algorithm design.",
+      'What I learned building and operating Ibyapa.com — a driving theory platform that grew from zero to 76,000+ users with real payments, real failures, and real production responsibility.',
+    content: 'See full article on portfolio site.',
     readTime: '10 min read',
-    tags: ['Algorithms', 'Complexity Theory', 'Research'],
-    featured: false,
+    tags: ['Production Systems', 'Ibyapa', 'Entrepreneurship'],
+    featured: true,
+  },
+  {
+    id: 'rwanda-to-america',
+    slug: 'journey-rwanda-to-graduate-school',
+    title: 'My Journey from Rwanda to Graduate School in America',
+    excerpt:
+      'From growing up in Rwanda to studying in India and now pursuing a Master\'s in Computer Science in Washington, DC.',
+    content: 'See full article on portfolio site.',
+    readTime: '8 min read',
+    tags: ['Career', 'International', 'Personal'],
+    featured: true,
+  },
+  {
+    id: 'production-infrastructure',
+    slug: 'lessons-production-infrastructure',
+    title: 'Lessons Learned Running Production Infrastructure',
+    excerpt:
+      'Practical lessons from operating Linux servers, NGINX, and Node.js APIs in production.',
+    content: 'See full article on portfolio site.',
+    readTime: '12 min read',
+    tags: ['DevOps', 'Linux', 'Production'],
+    featured: true,
+  },
+  {
+    id: 'benchmarking-llms',
+    slug: 'benchmarking-small-language-models',
+    title: 'Benchmarking Small Language Models on Edge Devices',
+    excerpt:
+      'How I designed automated benchmarking frameworks to compare open-source LLMs on resource-constrained Raspberry Pi hardware.',
+    content: 'See full article on portfolio site.',
+    readTime: '9 min read',
+    tags: ['AI', 'Edge Computing', 'Research'],
+    featured: true,
   },
 ];
 

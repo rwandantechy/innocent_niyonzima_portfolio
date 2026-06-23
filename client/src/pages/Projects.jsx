@@ -38,7 +38,7 @@ export default function Projects(){
           animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Projects focused on backend architecture, production constraints, and reliability under real usage
+          Production systems with real users, payments, and operational ownership — including long-form case studies.
         </motion.p>
 
         {/* Filters */}
