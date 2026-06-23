@@ -240,12 +240,12 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(10, 10, 10, 0.7);
+  background: transparent;
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 1rem 0;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-bottom: none;
+  padding: 0;
+  box-shadow: none;
   transition: var(--transition);
 }
 
