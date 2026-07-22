@@ -13,10 +13,10 @@ export const ENV = {
 
   // Social Media URLs
   SOCIAL: {
-    LINKEDIN: import.meta.env.VITE_LINKEDIN_URL || 'https://linkedin.com',
-    GITHUB: import.meta.env.VITE_GITHUB_URL || 'https://github.com',
-    TWITTER: import.meta.env.VITE_TWITTER_URL || 'https://twitter.com',
-    FACEBOOK: import.meta.env.VITE_FACEBOOK_URL || 'https://facebook.com',
+    LINKEDIN: import.meta.env.VITE_LINKEDIN_URL || 'https://www.linkedin.com/in/innocent-niyonziima/',
+    GITHUB: import.meta.env.VITE_GITHUB_URL || 'https://github.com/Rwandantechy',
+    TWITTER: import.meta.env.VITE_TWITTER_URL || 'https://x.com/Rwandantechy',
+    FACEBOOK: import.meta.env.VITE_FACEBOOK_URL || 'https://www.facebook.com/Rwandantechy/',
   },
 
   // Development flag
