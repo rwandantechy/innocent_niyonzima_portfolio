@@ -67,11 +67,11 @@ export default function Footer() {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="social-icon-contact"
+                    className="footer-social-link"
                     aria-label={social.label}
                     title={social.label}
-                    whileHover={{ y: -4 }}
-                    whileTap={{ scale: 0.95 }}
+                    whileHover={{ y: -3 }}
+                    whileTap={{ scale: 0.96 }}
                   >
                     <Icon />
                   </motion.a>
