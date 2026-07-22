@@ -8,13 +8,6 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      'He ran our platform end to end, from payments to the servers. When production broke, he read the logs, found the cause, and shipped a fix without waiting to be told what to do.',
-    name: 'Platform Stakeholder',
-    role: 'Operations Lead',
-    org: 'Nkotanyi Driving School',
-  },
-  {
-    quote:
       'Innocent led the backend and deployment side of our client work. He communicated well, hit deadlines, and built systems the clients could keep using after handoff.',
     name: 'Client Project Lead',
     role: 'Technical Director',

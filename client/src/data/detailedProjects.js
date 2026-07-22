@@ -94,37 +94,6 @@ export const detailedProjects = [
   },
   {
     id: 4,
-    title: 'Nkotanyi Driving School Platform',
-    description: 'Production school platform maintained with an uptime-first approach: backend stability, log-driven debugging, and controlled deployment changes.',
-    featured: true,
-    metrics: [
-      { value: 'Production', label: 'Live Operations' },
-      { value: 'Linux VPS', label: 'Deployment Target' },
-      { value: 'Log-Driven', label: 'Incident Response' }
-    ],
-    tech: ['PHP', 'Laravel', 'MySQL', 'Vue.js', 'NGINX', 'VPS'],
-    challenges: [
-      'Maintaining availability during registration spikes and high concurrent usage',
-      'Diagnosing live failures affecting booking, account, and payment flows',
-      'Balancing release delivery with operational stability on active systems'
-    ],
-    solutions: [
-      'Used monitoring checks and log inspection to catch and triage incidents early',
-      'Hardened deployment and server configuration on Linux/NGINX stack',
-      'Applied rollback-minded release routines and backup safeguards for critical data',
-      'Handled production debugging directly and shipped fixes with minimal service interruption'
-    ],
-    results: [
-      'Kept a high-traffic platform operational through continuous production support',
-      'Reduced repeated outage patterns by addressing root operational issues',
-      'Improved service reliability through structured incident and deployment practices'
-    ],
-    links: {
-      live: 'https://nkotanyi.rw'
-    }
-  },
-  {
-    id: 5,
     title: 'YIGSE NGO Website',
     description: 'Delivered a public-facing NGO site with low maintenance overhead and reliable content publishing for non-technical operators.',
     featured: false,
@@ -150,7 +119,7 @@ export const detailedProjects = [
     ]
   },
   {
-    id: 6,
+    id: 5,
     title: 'Task Tracking System',
     description: 'Built to reduce operational handoff failures across teams through traceable task states, backend validation, and reliable status visibility.',
     featured: false,

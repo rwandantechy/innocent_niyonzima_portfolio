@@ -31,22 +31,6 @@ const defaultProjects = [
     results: [],
     links: {},
   },
-  {
-    id: 'nkotanyi',
-    title: 'Nkotanyi Driving School Platform',
-    description:
-      'Production school-management platform maintained through active monitoring, backend debugging, and controlled Linux deployments.',
-    featured: true,
-    tech: ['PHP', 'Laravel', 'MySQL', 'NGINX', 'VPS'],
-    metrics: [
-      { value: 'Live', label: 'Production' },
-      { value: '24/7', label: 'Support' },
-    ],
-    challenges: [],
-    solutions: [],
-    results: [],
-    links: { live: 'https://nkotanyi.rw' },
-  },
 ];
 
 const defaultBlogs = [

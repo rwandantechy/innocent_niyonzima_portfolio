@@ -39,19 +39,6 @@ const projects = [
     featured: false,
   },
   {
-    id: 'nkotanyi',
-    title: 'Nkotanyi Driving School Platform',
-    description: 'Production school-management platform maintained through active monitoring, backend debugging, and controlled Linux deployments.',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&q=80',
-    tags: ['Node.js', 'VPS', 'DevOps', 'NGINX'],
-    metrics: [
-      { value: 'Live', label: 'Production' },
-      { value: '24/7', label: 'Support' },
-    ],
-    link: 'https://nkotanyi.rw',
-    featured: true,
-  },
-  {
     id: 'yigse',
     title: 'YIGSE NGO Website & Branding',
     description: 'Delivered a maintainable public site with straightforward content updates for a non-technical team.',

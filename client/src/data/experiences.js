@@ -4,6 +4,7 @@ const experiences = [
     company: 'ITEC International',
     location: 'Kigali, Rwanda',
     date: 'Jan 2024 - Mar 2026',
+    logo: '/Profile/itec-logo.jpeg',
     highlights: [
       'Developed backend services and APIs for ITEC’s SaaS products supporting student management, payments, and facility management systems',
       'Contributed to the API layer of ITEC Pay, a payment platform supporting multiple payment methods',
@@ -15,6 +16,7 @@ const experiences = [
     company: 'Molecular Computing Lab, The Catholic University of America',
     location: 'Washington, DC',
     date: 'Apr 2025 - Dec 2025',
+    logo: 'https://legacywww.catholic.edu/assets/images/CUA-Logo-Large.png',
     highlights: [
       'Built an automated evaluation framework comparing multiple open-weight LLMs on resource-constrained environments',
       'Evaluated performance trade-offs across models including Gemma, Phi-3, Mistral, TinyLlama, and LLaMA',
@@ -27,6 +29,7 @@ const experiences = [
     company: 'Webacy',
     location: 'New York, NY',
     date: 'Aug 2024 - Oct 2024',
+    logo: '/Profile/webacy.png',
     highlights: [
       'Completed a project-based externship focused on Web3 security, blockchain technologies, and data analytics',
       'Analyzed and labeled smart contract vulnerabilities to support security research and risk assessment',
@@ -39,6 +42,7 @@ const experiences = [
     company: 'Niheza Solutions Ltd',
     location: 'Kigali, Rwanda',
     date: 'Feb 2026 - Recent',
+    logo: '/Profile/niheza-logo.png',
     highlights: [
       'Led backend and deployment work on client web projects',
       'Helped small teams with API design, bug triage, and release planning',
@@ -50,6 +54,7 @@ const experiences = [
     company: 'Nishkaam Innovations',
     location: 'Rajkot, India',
     date: 'Dec 2023 - April 2024',
+    logo: 'https://nishkaamllp.com/assets/logo.png',
     highlights: [
       'Contributed to 3 internal tools that automated recurring reporting tasks',
       'Built workflow and task management tools improving internal operational efficiency',

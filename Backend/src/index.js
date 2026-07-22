@@ -20,9 +20,12 @@ app.use(morgan('dev'));
 // Serve static files from the client public folder (for certificates, images, etc.)
 app.use(express.static(path.join(__dirname, '../../client/public')));
 
+const clientDist = path.join(__dirname, '../../client/dist');
+const clientDistIndex = path.join(clientDist, 'index.html');
+
 // In production, also serve the built frontend
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../../client/dist')));
+  app.use(express.static(clientDist));
 }
 
 app.use('/api', routes);
@@ -30,15 +33,19 @@ app.use('/api', routes);
 // health check
 app.get('/api/health', (req, res) => res.json({ ok: true, version: 'backend-scaffold' }));
 
-// SPA fallback - serve index.html for all non-API routes to enable client-side routing
-app.get('*', (req, res) => {
-  const filePath = process.env.NODE_ENV === 'production' 
-    ? path.join(__dirname, '../../client/dist/index.html')
+// SPA fallback - serve index.html for client routes like /resume, /about, etc.
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) {
+    return next();
+  }
+
+  const filePath = process.env.NODE_ENV === 'production'
+    ? clientDistIndex
     : path.join(__dirname, '../../client/index.html');
-  
+
   res.sendFile(filePath, (err) => {
     if (err) {
-      res.status(500).send('Unable to load application');
+      next(err);
     }
   });
 });

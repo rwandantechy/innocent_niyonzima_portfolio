@@ -1,33 +1,6 @@
 import React from 'react';
 
-// Official company and university logos from their websites
-const companyLogoMap = {
-  'The Catholic University of America': 'https://legacywww.catholic.edu/assets/images/CUA-Logo-Large.png',
-  'Molecular Computing Lab, The Catholic University of America': 'https://legacywww.catholic.edu/assets/images/CUA-Logo-Large.png',
-  'ITEC International': '/Profile/itec-logo.jpeg',
-  'Webacy': '/Profile/webacy-logo.jpeg',
-  'Niheza Solutions Ltd': '/Profile/niheza-logo.png',
-  'Nishkaam Innovations': 'https://nishkaamllp.com/assets/logo.png',
-  'Nishkaam Innovations LLP': 'https://nishkaamllp.com/assets/logo.png',
-  'Nkotanyi Driving School': 'https://ibyapa.com/images/logo.jpg',
-  'Marwadi University': 'https://www.marwadiuniversity.ac.in/wp-content/themes/marwadi-university/assets/img/logomain.svg',
-  'Andela': 'https://cdn.prod.website-files.com/660dcc7f45ad8881324199b5/66267ca5100e5bf7643aa0d6_andela_logo.svg'
-};
-
-const getCompanyLogo = (company) => {
-  // Exact match first
-  if (companyLogoMap[company]) {
-    return companyLogoMap[company];
-  }
-  
-  // Partial match
-  for (const [key, url] of Object.entries(companyLogoMap)) {
-    if (company.includes(key) || key.includes(company)) {
-      return url;
-    }
-  }
-  
-  // Fallback - generated local SVG (no network dependency)
+const initialsLogo = (company) => {
   const initials = (company || 'NA')
     .split(' ')
     .map((part) => part[0] || '')
@@ -45,20 +18,22 @@ export default function Timeline({ items }) {
 
       {items.map((item, idx) => (
         <div
-          key={idx}
+          key={`${item.company}-${item.date}-${idx}`}
           className={`timeline-item ${idx < items.length - 1 ? 'timeline-item--divider' : ''}`}
         >
           <div className="timeline-dot" />
 
           {item.company && (
             <img
-              src={getCompanyLogo(item.company)}
+              src={item.logo || initialsLogo(item.company)}
               alt={item.company}
               loading="lazy"
               decoding="async"
               className="timeline-logo"
               onError={(e) => {
-                e.target.src = getCompanyLogo(item.company || 'NA');
+                if (e.currentTarget.dataset.fallback === '1') return;
+                e.currentTarget.dataset.fallback = '1';
+                e.currentTarget.src = initialsLogo(item.company);
               }}
             />
           )}

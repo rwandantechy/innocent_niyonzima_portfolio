@@ -49,48 +49,6 @@ export const caseStudies = {
     ],
     screenshot: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80',
   },
-  nkotanyi: {
-    slug: 'nkotanyi',
-    title: 'Nkotanyi Driving School Platform',
-    tagline: 'School management software kept running in production',
-    liveUrl: 'https://nkotanyi.rw',
-    featured: true,
-    metrics: [
-      { value: 'Live', label: 'Production System' },
-      { value: 'Linux VPS', label: 'Deployment' },
-      { value: '24/7', label: 'Support' },
-    ],
-    tech: ['PHP', 'Laravel', 'MySQL', 'Vue.js', 'NGINX', 'Linux VPS'],
-    problem: `A driving school needed software for registrations, bookings, and student records. It had to stay up during busy enrollment periods. When the site went down, bookings stopped and students got stuck.`,
-    solution: `I maintained and improved the live platform with uptime as the priority: reading logs when things broke, careful NGINX/Linux deploys, and a clear process when booking or payment flows failed.`,
-    architecture: [
-      { label: 'Students & Staff', detail: 'Web application users' },
-      { label: 'NGINX', detail: 'Reverse proxy on Linux VPS' },
-      { label: 'Laravel API', detail: 'PHP backend services' },
-      { label: 'MySQL', detail: 'Student and booking records' },
-      { label: 'Vue.js', detail: 'Frontend SPA' },
-    ],
-    challenges: [
-      'Registration spikes slowing the site on a shared VPS',
-      'Finding live bugs in booking flows without a staging environment',
-      'Shipping features without breaking a system people use every day',
-    ],
-    decisions: [
-      'Used logs and basic monitoring checks to catch issues early',
-      'Backed up the database before deploys and kept rollback steps ready',
-      'Tightened NGINX and server config to cut down avoidable outages',
-    ],
-    results: [
-      'Kept a busy school platform running through ongoing production support',
-      'Stopped the same outages from coming back by fixing underlying issues',
-      'Made deploys less scary with backups and rollback habits',
-    ],
-    lessons: [
-      'Running production means showing up when things break, not only when you are building',
-      'On a small server, disciplined deploy habits beat expensive tools',
-    ],
-    screenshot: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1200&q=80',
-  },
   'ai-server': {
     slug: 'ai-server',
     title: 'Containerized AI Server on Edge Devices',
