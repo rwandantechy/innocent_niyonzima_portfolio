@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useApp } from '../context/AppProvider';
+import staticSkills from '../data/skills';
 
 // Simple Icons CDN: https://cdn.simpleicons.org/
 const logoMap = {
@@ -35,7 +36,10 @@ const logoMap = {
   'VPS': 'linode',
   'NGINX': 'nginx',
   'PM2': 'nodedotjs',
-  'Linux': 'linux'
+  'Linux': 'linux',
+  'AWS': 'amazonaws',
+  'Express.js': 'express',
+  'TensorFlow': 'tensorflow'
 };
 
 const SkillCategory = ({ title, skills, index }) => {
@@ -86,11 +90,12 @@ const SkillCategory = ({ title, skills, index }) => {
 
 export default function SkillsGrid() {
   const { skills: skillCategories = [] } = useApp();
+  const categories = skillCategories.length > 0 ? skillCategories : staticSkills;
 
   return (
     <div className="skills-grid">
-      {skillCategories.map((category, idx) => (
-        <SkillCategory key={idx} {...category} index={idx} />
+      {categories.map((category, idx) => (
+        <SkillCategory key={category.id || category.title || idx} {...category} index={idx} />
       ))}
     </div>
   );

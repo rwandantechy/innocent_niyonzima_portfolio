@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import { API_URL } from '../config/env';
 import { detailedProjects as staticProjects } from '../data/detailedProjects';
 import staticBlogs from '../data/blogs';
+import staticSkills from '../data/skills';
 
 const AppContext = createContext(null);
 
@@ -105,9 +106,9 @@ export default function AppProvider({ children }) {
       if (!res.ok) throw new Error('Failed to load skills');
       const data = await res.json();
       const normalized = Array.isArray(data) ? data.map(normalizeSkills) : [];
-      setSkillsList(normalized);
+      setSkillsList(normalized.length > 0 ? normalized : staticSkills.map(normalizeSkills));
     } catch (err) {
-      setSkillsList([]);
+      setSkillsList(staticSkills.map(normalizeSkills));
       setError(err.message);
     } finally {
       setLoadingSkills(false);

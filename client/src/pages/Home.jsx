@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import CurrentlySection from '../components/CurrentlySection';
 import JourneyTimeline from '../components/JourneyTimeline';
-import SocialProofSection from '../components/SocialProofSection';
 import GitHubActivity from '../components/GitHubActivity';
 import { useApp } from '../context/AppProvider';
 import staticBlogs from '../data/blogs';
@@ -39,21 +38,6 @@ export default function Home() {
             <h2>My Journey</h2>
           </motion.div>
           <JourneyTimeline />
-        </div>
-      </section>
-
-      <section className="content-section">
-        <div className="container">
-          <motion.div
-            className="section-heading"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2>What people say</h2>
-            <p className="muted">Short notes from research, operations, and client work.</p>
-          </motion.div>
-          <SocialProofSection />
         </div>
       </section>
 
