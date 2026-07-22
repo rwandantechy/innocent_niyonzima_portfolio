@@ -8,7 +8,6 @@ const defaultProjects = [
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'NGINX', 'Cloudflare'],
     metrics: [
       { value: '80K+', label: 'Users' },
-      { value: '40K+', label: 'Transactions' },
     ],
     challenges: [],
     solutions: [],

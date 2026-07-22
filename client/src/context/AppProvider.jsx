@@ -44,7 +44,7 @@ export default function AppProvider({ children }) {
   const staticProjectFallback = staticProjects.map((p, idx) =>
     normalizeProject({
       ...p,
-      id: ['ibyapa', 'ai-server', 'budget-planner', 'yigse', 'task-tracker'][idx] || p.id,
+      id: ['ibyapa', 'ai-server', 'yigse'][idx] || p.id,
     })
   );
 

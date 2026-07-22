@@ -8,7 +8,7 @@ export const RECRUITER_INFO = {
   workAuthorization:
     'F-1 student on OPT. Eligible for STEM OPT extension. Open to roles with visa sponsorship.',
   keyAchievements: [
-    'Built and run Ibyapa.com: 80,000+ users, 40,000+ transactions, 22M+ RWF in payments',
+    'Built and run Ibyapa.com for 80,000+ users in Rwanda',
     'Handle the full stack in production: APIs, payments, Linux servers, deployments, and incident fixes',
     'Research assistant building LLM benchmarks for resource-limited edge devices',
     'Technical lead on project-based client work at Niheza Solutions',

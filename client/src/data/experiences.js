@@ -41,12 +41,12 @@ const experiences = [
     title: 'Technical Lead (Project-Based)',
     company: 'Niheza Solutions Ltd',
     location: 'Kigali, Rwanda',
-    date: 'Feb 2026 - Recent',
+    date: '2026 - Present',
     logo: '/Profile/niheza-logo.png',
     highlights: [
       'Led backend and deployment work on client web projects',
-      'Helped small teams with API design, bug triage, and release planning',
-      'Built small internal tools to cut down repetitive work',
+      'Supported API design, bug triage, and release planning',
+      'Built internal tools to reduce repetitive operational work',
     ],
   },
   {

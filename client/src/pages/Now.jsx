@@ -31,18 +31,6 @@ export default function Now() {
 
       <CurrentlySection />
 
-      <motion.div
-        className="card page-card"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.2 }}
-      >
-        <h3>Not focused on</h3>
-        <ul className="purpose-list">
-          {NOW_PAGE.notFocused.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      </motion.div>
-
       <div style={{ marginTop: 32 }}>
         <Link to="/about" className="btn btn-secondary">
           Read my full story <FaArrowRight style={{ marginLeft: 8 }} />

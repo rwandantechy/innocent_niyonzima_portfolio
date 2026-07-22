@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaBriefcase } from 'react-icons/fa';
 import { CONTACT_EMAIL, SOCIAL } from '../config/env';
-import { MISSION, IDENTITY } from '../data/story';
+import { IDENTITY } from '../data/story';
 
 export default function Footer(){
   const socialLinks = [
@@ -20,12 +20,10 @@ export default function Footer(){
     { to: '/recruiters', label: 'For Recruiters' },
     { to: '/blogs', label: 'Blog' },
     { to: '/about', label: 'About' },
-    { to: '/now', label: 'Now' },
-    { to: '/uses', label: 'Uses' },
     { to: '/contact', label: 'Contact' },
   ];
-  const primaryLinks = footerLinks.slice(0, 5);
-  const secondaryLinks = footerLinks.slice(5);
+  const primaryLinks = footerLinks.slice(0, 4);
+  const secondaryLinks = footerLinks.slice(4);
 
   return (
     <footer className="footer">
@@ -35,7 +33,7 @@ export default function Footer(){
           <div className="footer-section">
             <h3 className="gradient-text">Innocent Niyonzima</h3>
             <p className="footer-description">
-              {IDENTITY.tagline}. {MISSION.belief}
+              {IDENTITY.tagline}
             </p>
           </div>
 

@@ -7,8 +7,6 @@ export const caseStudies = {
     featured: true,
     metrics: [
       { value: '80K+', label: 'Registered Users' },
-      { value: '40K+', label: 'Transactions' },
-      { value: '22M+', label: 'RWF Processed' },
       { value: '99%+', label: 'Uptime Target' },
     ],
     tech: ['React', 'Node.js', 'Express', 'MongoDB', 'Redis', 'NGINX', 'Cloudflare', 'Linux VPS'],
@@ -37,9 +35,9 @@ export const caseStudies = {
     ],
     results: [
       'Platform still serving 80,000+ registered users with me as the main person on call',
-      '40,000+ transactions and 22M+ RWF in payments with audit trails',
       'Fewer repeat incidents by fixing root causes instead of quick patches',
       'Kept the service running through structured rollback and incident routines',
+      'Reliable payment and exam flows with audit trails for critical operations',
     ],
     lessons: [
       'In markets like Rwanda, uptime often matters more than shipping features fast',

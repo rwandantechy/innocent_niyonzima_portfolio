@@ -6,8 +6,6 @@ export const detailedProjects = [
     featured: true,
     metrics: [
       { value: '80K+', label: 'Users Served' },
-      { value: '40K+', label: 'Transactions' },
-      { value: '22M+', label: 'RWF Processed' },
     ],
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Redis', 'AWS'],
     challenges: [
@@ -30,7 +28,7 @@ export const detailedProjects = [
     ],
     links: {
       live: 'https://ibyapa.com',
-      github: null // Private repository
+      github: null
     }
   },
   {
@@ -62,45 +60,16 @@ export const detailedProjects = [
       'Improved incident recovery during runtime failures through containerized rollbacks'
     ],
     links: {
-      github: null // Research project
+      github: null
     }
   },
   {
     id: 3,
-    title: 'Budget Planner Web Application',
-    description: 'Built to enforce consistent budgeting records and reduce manual tracking mistakes through reliable backend validation and persistent data rules.',
-    featured: false,
-    metrics: [
-      { value: '.NET Core', label: 'Backend Runtime' },
-      { value: 'SQL Server', label: 'Data Integrity' },
-      { value: 'Tracked', label: 'Operational Events' }
-    ],
-    tech: ['.NET Core', 'C#', 'SQL Server', 'Entity Framework', 'Bootstrap', 'Chart.js'],
-    challenges: [
-      'Avoiding silent data inconsistencies in transaction and category mapping',
-      'Handling updates safely when users edited related financial records',
-      'Keeping reporting useful without compromising correctness of stored data'
-    ],
-    solutions: [
-      'Used repository and service boundaries to keep business rules centralized',
-      'Applied transactional updates for dependent financial operations',
-      'Added authentication and audit-aware request handling for sensitive actions'
-    ],
-    results: [
-      'Delivered a budgeting workflow with more predictable record consistency',
-      'Reduced operational errors caused by manual data entry and ad-hoc edits',
-      'Improved maintainability by separating validation logic from presentation'
-    ]
-  },
-  {
-    id: 4,
     title: 'YIGSE NGO Website',
     description: 'Delivered a public-facing NGO site with low maintenance overhead and reliable content publishing for non-technical operators.',
     featured: false,
     metrics: [
       { value: 'Public', label: 'Production Site' },
-      { value: 'Responsive', label: 'Cross-Device Use' },
-      { value: 'Simple', label: 'Operational Updates' }
     ],
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Netlify'],
     challenges: [
@@ -116,32 +85,6 @@ export const detailedProjects = [
     results: [
       'Provided a stable public information channel for the organization',
       'Reduced day-to-day maintenance burden through straightforward update patterns'
-    ]
-  },
-  {
-    id: 5,
-    title: 'Task Tracking System',
-    description: 'Built to reduce operational handoff failures across teams through traceable task states, backend validation, and reliable status visibility.',
-    featured: false,
-    metrics: [
-      { value: 'Node.js', label: 'Service Layer' },
-      { value: 'MongoDB', label: 'Data Store' },
-      { value: 'Realtime', label: 'Status Updates' }
-    ],
-    tech: ['Node.js', 'Express', 'MongoDB', 'React', 'Socket.io', 'JWT'],
-    challenges: [
-      'Preventing conflicting updates in shared task workflows',
-      'Maintaining clear audit trails for task ownership and status changes',
-      'Balancing realtime updates with backend consistency guarantees'
-    ],
-    solutions: [
-      'Implemented realtime events with backend guards to avoid invalid state transitions',
-      'Added authenticated API boundaries and role-aware task operations',
-      'Created reporting endpoints for operational visibility and follow-up'
-    ],
-    results: [
-      'Improved reliability of cross-team execution by making task states explicit and traceable',
-      'Reduced recurring coordination failures with clearer operational reporting'
     ]
   }
 ];

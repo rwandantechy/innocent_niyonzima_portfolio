@@ -1,21 +1,15 @@
 export const CURRENTLY_ITEMS = [
-  { label: 'Building Ibyapa.com', detail: 'Keeping the driving theory platform running and growing' },
-  { label: 'Growing Niheza Solutions', detail: 'Leading technical work on client projects' },
-  { label: 'Researching efficient AI systems', detail: 'Testing small language models on edge hardware' },
-  { label: 'Looking for software engineering roles', detail: 'Open to full-time work in the US' },
+  { label: 'Maintaining Ibyapa.com', detail: 'Production platform for 80,000+ learners in Rwanda' },
+  { label: 'Technical work at Niheza Solutions', detail: 'Backend and deployment on client projects' },
+  { label: 'AI systems research', detail: 'LLM benchmarking on edge hardware at CUA' },
 ];
 
 export const NOW_PAGE = {
   lastUpdated: 'June 2026',
-  intro: 'What I am focused on right now. I update this page from time to time.',
+  intro: 'Current professional focus.',
   focus: [
-    'Looking for a software engineering job',
+    'Software engineering roles in the US',
     'AI research and model benchmarking',
-    'Growing and maintaining Ibyapa.com',
-    'Writing about what I learn on the job',
-  ],
-  notFocused: [
-    'Big freelance projects',
-    'Moving outside the US',
+    'Maintaining and improving Ibyapa.com',
   ],
 };

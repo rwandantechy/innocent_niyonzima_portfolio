@@ -73,7 +73,7 @@ export default function Home() {
           >
             <h2>Featured Work</h2>
             <p className="muted">
-              Production work with real users, payments, and systems I still maintain.
+              Production systems with real users and ongoing ownership.
             </p>
           </motion.div>
 

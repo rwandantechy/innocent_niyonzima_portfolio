@@ -14,7 +14,7 @@ const blogPosts = [
 
 I did not start Ibyapa.com for a class project. People in Rwanda needed a reliable way to prepare for driving theory exams, and most options were unstable or hard to use during busy periods.
 
-Today the platform has **80,000+ registered users** and has processed **40,000+ transactions**, over **22 million RWF** in payments.
+Today the platform has **80,000+ registered users** and stays online for learners across Rwanda.
 
 ## What running it actually involves
 
@@ -63,11 +63,7 @@ I would set up a proper staging environment earlier. Debugging production-only i
     date: 'Jun 10, 2026',
     readTime: '8 min read',
     tags: ['Career', 'International', 'Personal'],
-    featured: true,
-    content: `
-## Rwanda
-
-I grew up in Rwanda and got into computers early. I was less interested in homework demos and more interested in software people would actually open and use.
+    featured: false,
 
 That mindset led me to build Ibyapa.com while I was still an undergraduate. It now serves 80,000+ users back home.
 

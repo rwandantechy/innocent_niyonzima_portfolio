@@ -19,5 +19,4 @@ export const FEATURED_IN = [
   { name: 'ACM Student Member', type: 'Organization' },
   { name: 'NSBE Member', type: 'Organization' },
   { name: 'ALX Africa', type: 'Professional Development' },
-  { name: 'Kaggle Learn', type: 'Machine Learning' },
 ];
