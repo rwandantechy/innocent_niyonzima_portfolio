@@ -4,11 +4,11 @@ import { CONTACT_EMAIL, SOCIAL } from '../config/env';
 export const RECRUITER_INFO = {
   headline: 'Quick info for recruiters',
   summary:
-    'Software engineer who built and runs a live platform for 76,000+ users in Rwanda. I also work on cloud infrastructure, AI systems, and have studied and worked across three continents.',
+    'Software engineer who built and runs a live platform for 80,000+ users in Rwanda. I also work on cloud infrastructure, AI systems, and have studied and worked across three continents.',
   workAuthorization:
     'F-1 student on OPT. Eligible for STEM OPT extension. Open to roles with visa sponsorship.',
   keyAchievements: [
-    'Built and run Ibyapa.com: 76,000+ users, 40,000+ transactions, 22M+ RWF in payments',
+    'Built and run Ibyapa.com: 80,000+ users, 40,000+ transactions, 22M+ RWF in payments',
     'Handle the full stack in production: APIs, payments, Linux servers, deployments, and incident fixes',
     'Research assistant building LLM benchmarks for resource-limited edge devices',
     'Technical lead on project-based client work at Niheza Solutions',

@@ -2,11 +2,11 @@ export const caseStudies = {
   ibyapa: {
     slug: 'ibyapa',
     title: 'Ibyapa.com - Driving Theory Platform',
-    tagline: 'A live exam prep platform used by 76,000+ learners in Rwanda',
+    tagline: 'A live exam prep platform used by 80,000+ learners in Rwanda',
     liveUrl: 'https://ibyapa.com',
     featured: true,
     metrics: [
-      { value: '76K+', label: 'Registered Users' },
+      { value: '80K+', label: 'Registered Users' },
       { value: '40K+', label: 'Transactions' },
       { value: '22M+', label: 'RWF Processed' },
       { value: '99%+', label: 'Uptime Target' },
@@ -15,7 +15,7 @@ export const caseStudies = {
     problem: `Driving theory exams are in high demand in Rwanda, but learners did not have a reliable place to practice online. Existing options were unstable during busy periods and could not handle payments at scale. The site needed to work when tens of thousands of people were studying at once.`,
     solution: `I built Ibyapa.com from the ground up: accounts, exam sessions, payments, and content delivery. The setup is Cloudflare in front, NGINX as reverse proxy, Node.js APIs behind that, MongoDB for storage, and Redis for sessions when traffic spikes.`,
     architecture: [
-      { label: 'Users', detail: '76,000+ learners on web and mobile' },
+      { label: 'Users', detail: '80,000+ learners on web and mobile' },
       { label: 'Cloudflare', detail: 'CDN, DDoS protection, SSL' },
       { label: 'NGINX', detail: 'Reverse proxy and load balancing' },
       { label: 'Node.js API', detail: 'Express REST services' },
@@ -36,7 +36,7 @@ export const caseStudies = {
       'Hardened payment and auth flows before adding new features',
     ],
     results: [
-      'Platform still serving 76,000+ registered users with me as the main person on call',
+      'Platform still serving 80,000+ registered users with me as the main person on call',
       '40,000+ transactions and 22M+ RWF in payments with audit trails',
       'Fewer repeat incidents by fixing root causes instead of quick patches',
       'Kept the service running through structured rollback and incident routines',
@@ -47,7 +47,7 @@ export const caseStudies = {
       'Good logs are the best cheap observability you can get',
       'Real users at scale teach you things no class project will',
     ],
-    screenshot: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80',
+    screenshot: '/projects/ibyapa-thumbnail.png',
   },
   'ai-server': {
     slug: 'ai-server',

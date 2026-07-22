@@ -1,10 +1,10 @@
 const blogPosts = [
   {
-    id: 'platform-76k-users',
-    slug: 'building-platform-76000-users',
-    title: 'Building a Platform Used by 76,000 Users',
+    id: 'platform-80k-users',
+    slug: 'building-platform-80000-users',
+    title: 'Building a Platform Used by 80,000 Users',
     excerpt:
-      'What I learned building Ibyapa.com, a driving theory platform that grew to 76,000+ users with real payments, real outages, and real responsibility when things went wrong.',
+      'What I learned building Ibyapa.com, a driving theory platform that grew to 80,000+ users with real payments, real outages, and real responsibility when things went wrong.',
     date: 'Jun 15, 2026',
     readTime: '10 min read',
     tags: ['Production Systems', 'Ibyapa', 'Entrepreneurship'],
@@ -14,7 +14,7 @@ const blogPosts = [
 
 I did not start Ibyapa.com for a class project. People in Rwanda needed a reliable way to prepare for driving theory exams, and most options were unstable or hard to use during busy periods.
 
-Today the platform has **76,000+ registered users** and has processed **40,000+ transactions**, over **22 million RWF** in payments.
+Today the platform has **80,000+ registered users** and has processed **40,000+ transactions**, over **22 million RWF** in payments.
 
 ## What running it actually involves
 
@@ -51,7 +51,7 @@ I would set up a proper staging environment earlier. Debugging production-only i
 
 ## The main takeaway
 
-76,000 users teach you things you cannot learn from a side project. Uptime matters. Payments need extra care. And when you run the system, you are on the hook when it breaks.
+80,000 users teach you things you cannot learn from a side project. Uptime matters. Payments need extra care. And when you run the system, you are on the hook when it breaks.
     `.trim(),
   },
   {
@@ -69,7 +69,7 @@ I would set up a proper staging environment earlier. Debugging production-only i
 
 I grew up in Rwanda and got into computers early. I was less interested in homework demos and more interested in software people would actually open and use.
 
-That mindset led me to build Ibyapa.com while I was still an undergraduate. It now serves 76,000+ users back home.
+That mindset led me to build Ibyapa.com while I was still an undergraduate. It now serves 80,000+ users back home.
 
 ## India
 

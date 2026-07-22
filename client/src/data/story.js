@@ -2,13 +2,13 @@ export const IDENTITY = {
   tagline: 'Software Engineer | Infrastructure | AI Systems',
   headline: 'I build software that real people use.',
   summary:
-    'I build and run software that people depend on. In Rwanda that is Ibyapa.com, a driving exam platform with 76,000+ users. In Washington, DC I do graduate work and research on AI systems.',
+    'I build and run software that people depend on. In Rwanda that is Ibyapa.com, a driving exam platform with 80,000+ users. In Washington, DC I do graduate work and research on AI systems.',
 };
 
 export const STORY_PARAGRAPHS = [
   'I grew up in Rwanda and got into technology early. I liked taking things apart and figuring out how they worked. That curiosity took me to India for a degree in Computer Engineering, and later to Washington, DC for a Master\'s in Computer Science at The Catholic University of America.',
   'I was never interested in building projects just for grades or a portfolio. I wanted to build things people would actually use.',
-  'The clearest example is Ibyapa.com, a driving theory prep platform I built and still maintain for 76,000+ users in Rwanda. I handle the frontend, backend, payments, servers, deployments, and fixes when something breaks. The platform has processed 40,000+ transactions and over 22 million RWF in payments.',
+  'The clearest example is Ibyapa.com, a driving theory prep platform I built and still maintain for 80,000+ users in Rwanda. I handle the frontend, backend, payments, servers, deployments, and fixes when something breaks. The platform has processed 40,000+ transactions and over 22 million RWF in payments.',
   'During graduate school I worked as a research assistant on efficient AI systems. I built tools to benchmark open-source language models on devices with limited memory and compute, like Raspberry Pi boards.',
   'These days I like taking an idea from first code to something running in production, and learning whatever I need to make it work.',
 ];

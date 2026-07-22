@@ -3,11 +3,11 @@ const defaultProjects = [
     id: 'ibyapa',
     title: 'Ibyapa.com — Driving Exam Platform',
     description:
-      'Production platform serving 76,000+ learners with reliable exam sessions, payment processing, and continuous access across Rwanda.',
+      'Production platform serving 80,000+ learners with reliable exam sessions, payment processing, and continuous access across Rwanda.',
     featured: true,
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'NGINX', 'Cloudflare'],
     metrics: [
-      { value: '76K+', label: 'Users' },
+      { value: '80K+', label: 'Users' },
       { value: '40K+', label: 'Transactions' },
     ],
     challenges: [],
@@ -35,11 +35,11 @@ const defaultProjects = [
 
 const defaultBlogs = [
   {
-    id: 'platform-76k-users',
-    slug: 'building-platform-76000-users',
-    title: 'Building a Platform Used by 76,000 Users',
+    id: 'platform-80k-users',
+    slug: 'building-platform-80000-users',
+    title: 'Building a Platform Used by 80,000 Users',
     excerpt:
-      'What I learned building and operating Ibyapa.com — a driving theory platform that grew from zero to 76,000+ users with real payments, real failures, and real production responsibility.',
+      'What I learned building and operating Ibyapa.com — a driving theory platform that grew from zero to 80,000+ users with real payments, real failures, and real production responsibility.',
     content: 'See full article on portfolio site.',
     readTime: '10 min read',
     tags: ['Production Systems', 'Ibyapa', 'Entrepreneurship'],
