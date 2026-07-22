@@ -4,54 +4,53 @@ const blogPosts = [
     slug: 'building-platform-80000-users',
     title: 'Building a Platform Used by 80,000 Users',
     excerpt:
-      'What I learned building Ibyapa.com, a driving theory platform that grew to 80,000+ users with real payments, real outages, and real responsibility when things went wrong.',
+      'Ibyapa.com started as a practical need in Rwanda. Years later it has 80,000+ users, and I am still the person who gets the call when something breaks.',
     date: 'Jun 15, 2026',
     readTime: '10 min read',
     tags: ['Production Systems', 'Ibyapa', 'Entrepreneurship'],
     featured: true,
     content: `
-## Why I built it
+## How it started
 
-I did not start Ibyapa.com for a class project. People in Rwanda needed a reliable way to prepare for driving theory exams, and most options were unstable or hard to use during busy periods.
+I built Ibyapa.com because people around me needed a steadier way to prepare for driving theory exams. A lot of what existed then felt slow, unreliable, or hard to use when traffic went up. I did not treat it like a portfolio piece. I treated it like something people would depend on.
 
-Today the platform has **80,000+ registered users** and stays online for learners across Rwanda.
+It still runs. There are more than 80,000 registered users, and most weeks I am still the one watching logs, patching payment issues, and shipping fixes.
 
-## What running it actually involves
+## What my job actually looks like
 
-As the main developer, I handle:
+On paper the stack is familiar: React on the front, Node.js and Express for APIs, MongoDB for data. In practice the work is messier.
 
-- **Frontend and backend**: React on the client, Node.js/Express APIs, MongoDB for data
-- **Payments**: integration, retries, and cleanup when a transaction fails halfway
-- **Servers**: Linux VPS, NGINX, Cloudflare, deployments
-- **Day-to-day fixes**: reading logs, debugging live issues, keeping the site up
+Payments fail halfway. Sessions pile up during busy exam weeks. A deploy that looked fine on my machine can make a slow endpoint worse for everyone. When that happens, I am usually the person digging through logs and deciding whether to roll back or patch forward.
 
-That last part is not glamorous. It means checking error logs when something breaks and shipping a fix before too many users notice.
+I also run the servers: Linux VPS boxes, NGINX, Cloudflare, Redis when sessions get heavy. None of that is exotic. It just has to keep working while people are studying late at night.
 
-## How the system is set up
+## The setup I settled on
 
-The stack is simple on purpose:
+I kept the path short on purpose:
 
 \`\`\`
 Users -> Cloudflare -> NGINX -> Node.js API -> MongoDB + Redis
 \`\`\`
 
-Cloudflare handles CDN and basic protection. NGINX terminates SSL and routes traffic. Redis helps with sessions when traffic spikes during exam prep. MongoDB stores users, exam progress, and payment records.
+Cloudflare sits in front. NGINX handles SSL and routing. Redis absorbs session pressure when registrations spike. MongoDB holds accounts, exam progress, and payment records.
 
-The best early decision was adding **clear logs on critical paths** before spending money on fancy monitoring tools.
+One early habit saved me a lot of guessing: logging the important moments clearly - payment start and finish, login, exam start and submit. Before I had nice dashboards, those logs were how I found out what actually broke.
 
-## Problems I did not expect
+## The failures that stuck with me
 
-1. **Failed payments**: the gateway would time out and leave transactions half-done. I added idempotent endpoints and a way to reconcile orphaned payments.
-2. **Traffic spikes**: registration periods brought heavy concurrent use. Caching sessions and tightening slow queries helped.
-3. **Deploying with users online**: pushing code while people were mid-exam meant I needed health checks and a clear rollback plan.
+Payment timeouts were the worst. The gateway would hang, the client would retry, and I would end up with half-finished transactions. I had to make payment endpoints safe to retry and add a small reconciliation path for the ones that got stuck.
 
-## What I would do differently
+Traffic spikes were less dramatic but just as real. When lots of people registered at once, the slow queries showed up fast. Caching sessions and cleaning up the worst queries helped more than rewriting the whole app.
 
-I would set up a proper staging environment earlier. Debugging production-only issues while real users are paying is stressful in a way no tutorial prepares you for.
+Deployments also got harder once the site had active exams. I stopped pushing casually. Backup first if the schema changes. Hit the health checks after release. Know the rollback before you need it.
 
-## The main takeaway
+## If I started again
 
-80,000 users teach you things you cannot learn from a side project. Uptime matters. Payments need extra care. And when you run the system, you are on the hook when it breaks.
+I would set up a proper staging environment earlier. Fixing production-only bugs while people are paying is a particular kind of stress. You learn from it, but I would rather learn some of those lessons off to the side.
+
+## Still running it
+
+The number I care about is not "80,000 users" as a headline. It is that those people expect the site to open when they sit down to study. That changes how you write code. You get careful about payments, careful about deploys, and honest about how little sleep a broken production night can cost.
     `.trim(),
   },
   {
@@ -59,7 +58,7 @@ I would set up a proper staging environment earlier. Debugging production-only i
     slug: 'journey-rwanda-to-graduate-school',
     title: 'My Journey from Rwanda to Graduate School in America',
     excerpt:
-      'From Rwanda to India for undergrad, and now a Master\'s in Computer Science in Washington, DC. How moving countries changed the way I build software.',
+      'Rwanda, then India for undergrad, now a Master\'s in Computer Science in Washington, DC. A short account of how I got here and what stayed the same.',
     date: 'Jun 10, 2026',
     readTime: '8 min read',
     tags: ['Career', 'International', 'Personal'],
@@ -67,31 +66,31 @@ I would set up a proper staging environment earlier. Debugging production-only i
     content: `
 ## Rwanda
 
-I grew up in Rwanda and got into computers early. I was less interested in homework demos and more interested in software people would actually open and use.
+I grew up in Rwanda. Computers caught me early, mostly because I liked making things people would open again the next day. School projects that disappeared after grading never felt as interesting as something someone might actually use.
 
-That mindset led me to build Ibyapa.com while I was still an undergraduate. It now serves 80,000+ users back home.
+That is how Ibyapa.com started. I was still an undergrad when I began building it. It now serves tens of thousands of learners back home, and I still help keep it online.
 
 ## India
 
-In 2020 I moved to India for a Bachelor's in Computer Engineering at Marwadi University. Living in a new country forces you to adapt quickly. It also showed me that good engineering principles hold up everywhere, but the constraints change.
+In 2020 I moved to India for a Bachelor's in Computer Engineering at Marwadi University. New country, new routines, a lot of figuring things out as I went. I finished in April 2024.
 
-I finished in April 2024. The most useful experience was not a single course. It was keeping a live production system running across time zones while still in school.
+The courses mattered, but so did the quieter work: keeping a live product running while I was in class, sometimes across awkward time zones. That made the degree feel connected to something outside campus.
 
 ## United States
 
-In 2025 I started my Master's in Computer Science at The Catholic University of America in Washington, DC. I also work as a research assistant, building tools to compare open-source language models on hardware with tight memory and CPU limits.
+In 2025 I began a Master's in Computer Science at The Catholic University of America in Washington, DC. I also work as a research assistant on tools for comparing open-source language models on hardware with tight memory and CPU limits - Raspberry Pi boards and similar machines.
 
-That work sits close to what I already care about: software systems, servers, and AI that has to run in real conditions, not just on a powerful laptop.
+That research sits close to what I already care about. I like systems that have to fit real limits, not just demos on a strong laptop.
 
-## What the moves taught me
+## What stayed with me
 
-Building for Rwanda taught me that uptime and payment reliability matter more than chasing the latest framework.
+Moving did not rewrite my personality. It mostly changed the scenery around the same habits: ship something useful, keep it working, and learn from the parts that fail.
 
-Working in three countries is not a resume trick. It is just context. I have debugged servers in Kigali, deployed containers in DC, and studied in Rajkot. Each place added something.
+I have fixed servers while thinking about Kigali users, studied in Rajkot, and now work in DC. The places are different. The preference for software that has to survive contact with real people is not.
 
-## What is next
+## Looking ahead
 
-I am looking for software engineering roles where I can keep building real products and learning on the job.
+I am looking for software engineering roles where I can keep building products that matter in production, and keep getting better at the systems work around them.
     `.trim(),
   },
   {
@@ -99,60 +98,69 @@ I am looking for software engineering roles where I can keep building real produ
     slug: 'lessons-production-infrastructure',
     title: 'Lessons Learned Running Production Infrastructure',
     excerpt:
-      'Plain notes from running Linux servers, NGINX, and Node.js APIs in production. The stuff textbooks skip.',
+      'Notes from keeping Linux servers, NGINX, and Node.js APIs alive for a real product. Mostly unglamorous, occasionally stressful.',
     date: 'Jun 5, 2026',
     readTime: '12 min read',
     tags: ['DevOps', 'Linux', 'Production'],
     featured: true,
     content: `
-## It is boring until it breaks
+## Quiet until it is not
 
-Running a Linux VPS in production taught me more than most courses. A few things that actually helped:
+Most days, production infrastructure is boring. That is good. The interesting nights are the ones where something fails and you need a clear trail of what happened.
 
-## Logs first
+Running a Linux VPS for a live product taught me more than a lot of tidy lab setups ever did. Here is what I keep coming back to.
 
-Before buying APM tools, I added **structured logs** on the paths that mattered:
+## Logs before fancy tools
+
+I started with structured logs on the paths that hurt when they break:
 
 - Payment start and finish
 - Login and session creation
 - Exam session start and submit
 
-When something failed at 2 AM, the answer was usually in the logs, not a dashboard.
+When something failed late at night, I usually found the answer in those lines, not in a polished dashboard I had not bought yet.
 
-## NGINX matters
+## NGINX can save you or sink you
 
-A bad reverse proxy config can take down your whole API. A few lessons:
+A reverse proxy mistake can make a healthy app look dead. A few habits helped:
 
-- Test SSL termination separately from app logic
-- Set timeouts that match slow payment requests
-- Check upstream health before sending traffic to a new deploy
+- Test SSL termination on its own before blaming the API
+- Give slow payment requests timeouts that match reality
+- Check upstream health before sending traffic to a new release
 
-## How I deploy
+None of that is clever. It just stops you from guessing under pressure.
 
-On a live site with active users I got into a simple routine:
+## A deploy routine that calmed me down
 
-1. **Backup first** before any schema change
-2. **Health check after deploy** on the endpoints that matter
-3. **Know the rollback** before you push
+Once the site had active users, I stopped improvising releases. The sequence got short and repeatable:
 
-## Payments are different
+1. Backup before schema changes
+2. Deploy
+3. Hit the health checks that matter
+4. Keep a rollback ready before you need it
 
-If a client retries a request, the server must not charge twice. I learned that after gateway timeouts left payments in a messy state.
+Knowing the rollback ahead of time sounds obvious. It feels different when people are mid-exam.
 
-The fix was idempotent payment endpoints plus a small reconciliation job for stuck transactions.
+## Payments need extra caution
 
-## Security on a small budget
+If a client retries after a timeout, the server should not charge twice. I learned that the hard way after gateway hangs left messy half-states.
 
-You do not need enterprise tooling on day one. What helped:
+Idempotent payment endpoints and a small reconciliation job for stuck transactions made those nights shorter.
+
+## Security without a huge budget
+
+I did not start with enterprise tooling. What helped early on:
 
 - Cloudflare for basic protection and SSL
-- WireGuard VPN for admin access to servers
+- WireGuard for admin access instead of leaving services open
 - fail2ban on SSH
-- Regular security updates on the base Linux image
+- Regular updates on the base Linux image
 
-## Bottom line
+Enough to raise the floor while I kept shipping product work.
 
-You learn infrastructure by running real systems, breaking them, and fixing them. Each outage made the next one a little less scary.
+## After enough outages
+
+You get less dramatic about failures and more practical. Check the logs. Narrow the blast radius. Fix the root cause when you can. Each rough night made the next one a little more familiar, which is about as close to comfort as production gets.
     `.trim(),
   },
   {
@@ -160,49 +168,52 @@ You learn infrastructure by running real systems, breaking them, and fixing them
     slug: 'benchmarking-small-language-models',
     title: 'Benchmarking Small Language Models on Edge Devices',
     excerpt:
-      'How I built a simple framework to compare open-source LLMs on a Raspberry Pi, and what I found.',
+      'I needed a fair way to compare small open-source models on a Raspberry Pi. Here is the setup I used and what actually limited performance.',
     date: 'May 28, 2026',
     readTime: '9 min read',
     tags: ['AI', 'Edge Computing', 'Research'],
     featured: true,
     content: `
-## The question
+## Why bother
 
-Big models get the headlines, but plenty of real work runs on **small devices**: edge boxes, IoT gateways, Raspberry Pi boards.
+Large models get most of the attention. A lot of useful work still has to live on smaller machines: edge boxes, gateways, Raspberry Pi boards with limited RAM.
 
-I wanted to know how open-source small language models actually perform on that kind of hardware.
+I wanted numbers I could trust for open-source small language models on that kind of hardware - not vibes from a laptop with plenty of headroom.
 
-## What I built
+## The small pipeline
 
-A small automated pipeline that:
+I put together a simple automated path:
 
-1. **Packages** each model in Docker so runs are repeatable
-2. **Runs the same prompts** across models
-3. **Measures** latency, memory use, and output quality
-4. **Saves results** in a consistent format for comparison
+1. Package each model in Docker so the environment stays the same
+2. Run the same prompts across models
+3. Record latency, memory use, and a rough read on output quality
+4. Save results in one format so comparisons do not turn into a spreadsheet mess
 
-## Setup
+## How the pieces connect
 
 \`\`\`
 Researcher -> WireGuard VPN -> Docker Compose -> FastAPI -> Model -> Raspberry Pi (ARM64)
 \`\`\`
 
-Models sit behind a VPN with no public exposure. Every run uses the same container image and env vars so results are comparable.
+Access goes through a VPN. Nothing needs to sit on the public internet. Each run uses the same image and environment variables, which makes the comparisons less unfair.
 
-## What stood out
+## What I kept noticing
 
-- **Memory is usually the limit**. Models often fail at load time on 4GB boards before inference even starts.
-- **Quantization helps a lot**. Smaller precision trades some quality for something that actually fits.
-- **Containers are worth the overhead** when you need someone else to reproduce your numbers.
-- **Parameter count is not enough** to predict edge performance.
+Memory usually failed first. On 4GB boards, some models never got past load time. Inference never even started.
 
-## What that means in practice
+Quantization helped more than almost anything else. Smaller precision costs some quality, but it is often the difference between "runs" and "does not fit."
 
-Edge AI is not about running the biggest model you can find. It is about picking something that fits the hardware, measuring honestly, and designing for failure when resources run out.
+Containers added a little overhead, and they were still worth it. When someone else needs to repeat your numbers, a shared image beats a long README of machine-specific steps.
 
-## Tools I used
+Parameter count alone did not predict edge performance well. Two models that look similar on paper can behave very differently once RAM and CPU are tight.
 
-Docker and Docker Compose, Python and FastAPI, TensorFlow for inference, WireGuard for access, and JSON logs to track experiments.
+## How I think about edge AI now
+
+I stopped asking which model is biggest. The useful question is which one fits the board, stays stable under the workload, and fails in a way you can detect.
+
+## Tools in the mix
+
+Docker and Docker Compose, Python and FastAPI, TensorFlow for inference, WireGuard for access, and JSON logs so experiment history does not live only in my head.
     `.trim(),
   },
 ];

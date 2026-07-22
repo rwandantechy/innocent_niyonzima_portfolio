@@ -38,7 +38,7 @@ const defaultBlogs = [
     slug: 'building-platform-80000-users',
     title: 'Building a Platform Used by 80,000 Users',
     excerpt:
-      'What I learned building and operating Ibyapa.com — a driving theory platform that grew from zero to 80,000+ users with real payments, real failures, and real production responsibility.',
+      'Ibyapa.com started as a practical need in Rwanda. Years later it has 80,000+ users, and I am still the person who gets the call when something breaks.',
     content: 'See full article on portfolio site.',
     readTime: '10 min read',
     tags: ['Production Systems', 'Ibyapa', 'Entrepreneurship'],
@@ -49,18 +49,18 @@ const defaultBlogs = [
     slug: 'journey-rwanda-to-graduate-school',
     title: 'My Journey from Rwanda to Graduate School in America',
     excerpt:
-      'From growing up in Rwanda to studying in India and now pursuing a Master\'s in Computer Science in Washington, DC.',
+      'Rwanda, then India for undergrad, now a Master\'s in Computer Science in Washington, DC. A short account of how I got here and what stayed the same.',
     content: 'See full article on portfolio site.',
     readTime: '8 min read',
     tags: ['Career', 'International', 'Personal'],
-    featured: true,
+    featured: false,
   },
   {
     id: 'production-infrastructure',
     slug: 'lessons-production-infrastructure',
     title: 'Lessons Learned Running Production Infrastructure',
     excerpt:
-      'Practical lessons from operating Linux servers, NGINX, and Node.js APIs in production.',
+      'Notes from keeping Linux servers, NGINX, and Node.js APIs alive for a real product. Mostly unglamorous, occasionally stressful.',
     content: 'See full article on portfolio site.',
     readTime: '12 min read',
     tags: ['DevOps', 'Linux', 'Production'],
@@ -71,7 +71,7 @@ const defaultBlogs = [
     slug: 'benchmarking-small-language-models',
     title: 'Benchmarking Small Language Models on Edge Devices',
     excerpt:
-      'How I designed automated benchmarking frameworks to compare open-source LLMs on resource-constrained Raspberry Pi hardware.',
+      'I needed a fair way to compare small open-source models on a Raspberry Pi. Here is the setup I used and what actually limited performance.',
     content: 'See full article on portfolio site.',
     readTime: '9 min read',
     tags: ['AI', 'Edge Computing', 'Research'],
@@ -81,24 +81,34 @@ const defaultBlogs = [
 
 const defaultSkills = [
   {
-    id: 'skills-languages',
-    title: 'Languages',
-    skills: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++'],
+    id: 'skills-frontend',
+    title: 'Frontend / Web',
+    skills: ['React', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3'],
   },
   {
     id: 'skills-backend',
-    title: 'Backend',
-    skills: ['Node.js', 'Express', 'REST APIs', 'Laravel'],
+    title: 'Backend / API',
+    skills: ['Node.js', 'Express', 'Python', 'REST APIs'],
+  },
+  {
+    id: 'skills-devops',
+    title: 'Cloud & DevOps',
+    skills: ['Docker', 'Linux', 'NGINX', 'CI/CD', 'VPS', 'AWS'],
   },
   {
     id: 'skills-databases',
     title: 'Databases',
-    skills: ['MongoDB', 'MySQL', 'PostgreSQL', 'Redis'],
+    skills: ['PostgreSQL', 'MySQL', 'MongoDB'],
   },
   {
-    id: 'skills-devops',
-    title: 'DevOps & Infra',
-    skills: ['Docker', 'Linux', 'NGINX', 'CI/CD', 'VPS'],
+    id: 'skills-systems',
+    title: 'Systems',
+    skills: ['Git', 'Redis', 'PM2'],
+  },
+  {
+    id: 'skills-ai',
+    title: 'AI / ML',
+    skills: ['Python', 'TensorFlow'],
   },
 ];
 
