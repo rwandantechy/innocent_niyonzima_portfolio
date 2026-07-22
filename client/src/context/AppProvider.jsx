@@ -240,13 +240,28 @@ export default function AppProvider({ children }) {
     await Promise.all([fetchProjects(), fetchAdminContent()]);
   };
 
+  const updateProject = async (id, payload) => {
+    await request(`/admin/projects/${id}`, 'PUT', payload);
+    await Promise.all([fetchProjects(), fetchAdminContent()]);
+  };
+
   const createBlog = async (payload) => {
     await request('/admin/blogs', 'POST', payload);
     await Promise.all([fetchBlogs(), fetchAdminContent()]);
   };
 
+  const updateBlog = async (id, payload) => {
+    await request(`/admin/blogs/${id}`, 'PUT', payload);
+    await Promise.all([fetchBlogs(), fetchAdminContent()]);
+  };
+
   const createSkill = async (payload) => {
     await request('/admin/skills', 'POST', payload);
+    await Promise.all([fetchSkills(), fetchAdminContent()]);
+  };
+
+  const updateSkill = async (id, payload) => {
+    await request(`/admin/skills/${id}`, 'PUT', payload);
     await Promise.all([fetchSkills(), fetchAdminContent()]);
   };
 
