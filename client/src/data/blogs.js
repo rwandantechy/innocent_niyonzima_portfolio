@@ -64,6 +64,10 @@ I would set up a proper staging environment earlier. Debugging production-only i
     readTime: '8 min read',
     tags: ['Career', 'International', 'Personal'],
     featured: false,
+    content: `
+## Rwanda
+
+I grew up in Rwanda and got into computers early. I was less interested in homework demos and more interested in software people would actually open and use.
 
 That mindset led me to build Ibyapa.com while I was still an undergraduate. It now serves 80,000+ users back home.
 
