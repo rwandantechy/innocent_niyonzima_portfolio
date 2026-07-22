@@ -25,7 +25,7 @@ const contentNav = [
 const pageCopy = {
   '/admin/dashboard': {
     title: 'Dashboard',
-    sub: '',
+    sub: 'Publishing overview',
   },
   '/admin/projects': {
     title: 'Projects',
@@ -33,15 +33,15 @@ const pageCopy = {
   },
   '/admin/blogs': {
     title: 'Writing',
-    sub: 'Long-form posts and drafts',
+    sub: 'Posts and drafts',
   },
   '/admin/skills': {
     title: 'Skills',
-    sub: 'Skill categories shown on Resume and About',
+    sub: 'Categories on About and Resume',
   },
   '/admin/experience': {
     title: 'Experience',
-    sub: 'Roles, concurrent flags, and display order',
+    sub: 'Roles and display order',
   },
 };
 
@@ -65,24 +65,27 @@ export default function AdminLayout() {
           <div className="admin-sidebar-section">
             <div className="admin-sidebar-title">Workspace</div>
             <nav className="admin-sidebar-nav">
-              {contentNav.map(({ to, label, icon: Icon, end, soon }) => (
-                <NavLink
-                  key={to}
-                  to={soon ? '#' : to}
-                  end={end}
-                  className={({ isActive }) =>
-                    `admin-sidebar-item ${isActive && !soon ? 'active' : ''} ${soon ? 'is-disabled' : ''}`
-                  }
-                  onClick={(e) => {
-                    if (soon) e.preventDefault();
-                  }}
-                  title={soon ? 'Coming next' : undefined}
-                >
-                  <Icon />
-                  <span>{label}</span>
-                  {soon && <span className="admin-nav-soon">Soon</span>}
-                </NavLink>
-              ))}
+              {contentNav.map(({ to, label, icon: Icon, end, soon }) =>
+                soon ? (
+                  <span key={to} className="admin-sidebar-item is-disabled" title="Coming next">
+                    <Icon />
+                    <span>{label}</span>
+                    <span className="admin-nav-soon">Soon</span>
+                  </span>
+                ) : (
+                  <NavLink
+                    key={to}
+                    to={to}
+                    end={end}
+                    className={({ isActive }) =>
+                      `admin-sidebar-item ${isActive ? 'active' : ''}`
+                    }
+                  >
+                    <Icon />
+                    <span>{label}</span>
+                  </NavLink>
+                )
+              )}
             </nav>
           </div>
 
@@ -108,13 +111,15 @@ export default function AdminLayout() {
         </aside>
 
         <div className="admin-main">
-          <div className="admin-topbar">
+          <header className="admin-topbar">
             <div>
               <h1 className="admin-topbar-title">{copy.title}</h1>
               {copy.sub && <p className="admin-topbar-sub">{copy.sub}</p>}
             </div>
+          </header>
+          <div className="admin-content">
+            <Outlet />
           </div>
-          <Outlet />
         </div>
       </div>
     </section>
