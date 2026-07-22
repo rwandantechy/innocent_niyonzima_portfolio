@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import {
   FaEnvelope, FaLinkedin, FaGithub, FaFileAlt, FaCheckCircle,
 } from 'react-icons/fa';
@@ -32,9 +31,15 @@ export default function Recruiters() {
         <a href={contact.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
           <FaGithub style={{ marginRight: 8 }} /> GitHub
         </a>
-        <Link to="/resume" className="btn btn-secondary">
+        <a
+          href="/Innocent_Niyonzima_Resume.pdf"
+          className="btn btn-secondary"
+          download="Innocent_Niyonzima_Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaFileAlt style={{ marginRight: 8 }} /> Full Resume
-        </Link>
+        </a>
       </div>
 
       <motion.div

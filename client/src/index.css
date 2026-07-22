@@ -5343,6 +5343,20 @@ a.btn,
 
 .recruiters-page > header {
   margin-bottom: 0;
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.recruiters-page > header .page-intro {
+  margin-inline: auto;
+}
+
+.recruiters-page .recruiter-role-line {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
 }
 
 .recruiters-page .recruiter-actions,
@@ -5353,6 +5367,12 @@ a.btn,
 
 .recruiters-page .hero-metrics-grid {
   margin-bottom: 0;
+  margin-inline: auto;
+}
+
+.recruiters-page .recruiter-actions {
+  margin: 0;
+  justify-content: center;
 }
 
 .section-heading h2 {
@@ -5527,6 +5547,7 @@ a.btn,
   flex-wrap: wrap;
   gap: 0.75rem;
   margin: 1.5rem 0;
+  justify-content: center;
 }
 
 .recruiters-grid {
@@ -5602,6 +5623,26 @@ a.btn,
 
   .recruiters-grid .interest-tags {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .recruiters-page .recruiter-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+
+  .recruiters-page .recruiter-actions .btn {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .recruiters-page .recruiter-actions {
+    grid-template-columns: 1fr;
   }
 }
 
