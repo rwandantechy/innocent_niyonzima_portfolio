@@ -3,6 +3,7 @@ import React from 'react';
 // Official company and university logos from their websites
 const companyLogoMap = {
   'The Catholic University of America': 'https://legacywww.catholic.edu/assets/images/CUA-Logo-Large.png',
+  'ITEC International': 'https://itec.rw/favicon.ico',
   'Nkotanyi Driving School': 'https://ibyapa.com/images/logo.jpg',
   'Nishkaam Innovations LLP': 'https://nishkaamllp.com/assets/logo.png',
   'Marwadi University': 'https://www.marwadiuniversity.ac.in/wp-content/themes/marwadi-university/assets/img/logomain.svg',

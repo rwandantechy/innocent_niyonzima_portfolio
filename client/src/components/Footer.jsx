@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaHeart, FaBriefcase } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaBriefcase } from 'react-icons/fa';
 import { CONTACT_EMAIL, SOCIAL } from '../config/env';
 import { MISSION, IDENTITY } from '../data/story';
 
