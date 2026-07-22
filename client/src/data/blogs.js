@@ -1,5 +1,55 @@
 const blogPosts = [
   {
+    id: 'post-quantum-2029',
+    slug: 'keeping-up-with-the-2029-quantum-deadline',
+    title: 'Keeping Up with the 2029 Quantum Deadline',
+    excerpt:
+      'Google moved its post-quantum cryptography timeline to 2029. Here is what that means for people who ship production systems, not just read security papers.',
+    date: 'Jul 22, 2026',
+    readTime: '8 min read',
+    tags: ['Security', 'Cryptography', 'Infrastructure'],
+    featured: true,
+    published: true,
+    content: `
+## A faster shift than expected
+
+As software engineers, we are used to moving targets. Frameworks change, dependencies update, and the "right" architecture keeps shifting. Every so often the change sits lower than the app layer.
+
+That is what is happening with internet encryption.
+
+Google recently said it is accelerating the move of its global infrastructure to Post-Quantum Cryptography (PQC) by 2029. When a company that size pulls a security timeline forward by years, it is worth paying attention even if you are not writing crypto libraries yourself.
+
+## Why the timeline moved
+
+For a long time, quantum computers breaking RSA and ECC felt like a 2030s or 2040s problem. Two things changed that:
+
+- **Harvest now, decrypt later.** Attackers do not need a quantum computer today. They can store encrypted traffic now and decrypt it later. Data protected with older standards can already be treated as future-vulnerable.
+- **Better estimates of the work.** Recent research suggests some classical algorithms may fall with fewer qubits than older models assumed. The "safe later" window got shorter.
+
+## What is already shipping
+
+This is not only whitepapers. Google, Cloudflare, and others are putting lattice-based cryptography into real systems - especially ML-KEM (formerly Kyber) and ML-DSA.
+
+You will see it in browser handshakes, cloud key management, and hardware roots of trust. Packet sizes change. Handshake cost changes. Hardware utilization changes. That is live engineering, not a future slide deck.
+
+If you already put Cloudflare in front of a Node.js API the way I do for production work, you will feel some of this through TLS and edge defaults before you rewrite application crypto yourself.
+
+## Crypto-agility matters more than one algorithm
+
+The practical lesson is not "memorize every PQC acronym." It is design for crypto-agility.
+
+Swapping encryption is rarely a one-line bump in \`package.json\`. Hardcoded algorithms, old database encryption paths, and third-party APIs do not move on the same schedule. If the crypto choice is welded into business logic, the upgrade becomes a multi-year rewrite instead of a controlled cutover.
+
+When I design systems now, I try to assume the cryptographic primitives underneath will need to change without rewriting the product around them. Keep the crypto behind clear boundaries. Prefer libraries and platforms that can rotate algorithms. Treat long-lived encrypted data as a special case, because HNDL makes retention decisions a security decision too.
+
+## What I am watching next
+
+I am not pretending to be a cryptographer. I am a developer who keeps production systems online and wants those systems to age honestly.
+
+The 2029 date is Google's. The need to leave room for stronger cryptography is shared by anyone storing user data, payments, or sessions that should still be private years from now.
+    `.trim(),
+  },
+  {
     id: 'platform-80k-users',
     slug: 'building-platform-80000-users',
     title: 'Building a Platform Used by 80,000 Users',

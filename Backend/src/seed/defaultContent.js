@@ -36,6 +36,18 @@ const defaultProjects = [
 
 const defaultBlogs = [
   {
+    id: 'post-quantum-2029',
+    slug: 'keeping-up-with-the-2029-quantum-deadline',
+    title: 'Keeping Up with the 2029 Quantum Deadline',
+    excerpt:
+      'Google moved its post-quantum cryptography timeline to 2029. Here is what that means for people who ship production systems, not just read security papers.',
+    content: 'See full article on portfolio site.',
+    readTime: '8 min read',
+    tags: ['Security', 'Cryptography', 'Infrastructure'],
+    featured: true,
+    published: true,
+  },
+  {
     id: 'platform-80k-users',
     slug: 'building-platform-80000-users',
     title: 'Building a Platform Used by 80,000 Users',
@@ -83,6 +95,7 @@ const defaultBlogs = [
     featured: true,
     published: true,
   },
+
 ];
 
 const defaultSkills = [
