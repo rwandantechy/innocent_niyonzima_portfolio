@@ -5,12 +5,19 @@ import { FaDownload, FaBriefcase } from 'react-icons/fa';
 import Timeline from '../components/Timeline';
 import SkillsGrid from '../components/SkillsGrid';
 import CertificationCard from '../components/CertificationCard';
-import experiences from '../data/experiences';
+import experiencesFallback, { toTimelineItem } from '../data/experiences';
+import { useApp } from '../context/AppProvider';
 import certificates from '../data/certificates';
 import { CREDENTIALS } from '../data/metrics';
 import { IMPACT_METRICS } from '../data/metrics';
 
 export default function Resume() {
+  const { timelineExperience = [] } = useApp();
+  const experienceItems =
+    timelineExperience.length > 0
+      ? timelineExperience
+      : experiencesFallback.map(toTimelineItem);
+
   return (
     <section className="resume-page container page-section">
       <motion.header
@@ -61,7 +68,7 @@ export default function Resume() {
         style={{ opacity: 1 }}
       >
         <h2>Experience</h2>
-        <Timeline items={experiences} />
+        <Timeline items={experienceItems} />
       </motion.div>
 
       <motion.div

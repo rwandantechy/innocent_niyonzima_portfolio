@@ -2,10 +2,12 @@ const express = require('express');
 const router = express.Router();
 const blogsController = require('../controllers/blogsController');
 
-router.get('/', blogsController.getAll);
-router.get('/:id', blogsController.getById);
-router.post('/', blogsController.create);
-router.put('/:id', blogsController.update);
-router.delete('/:id', blogsController.remove);
+const markPublic = (req, _res, next) => {
+  req.publicOnly = true;
+  next();
+};
+
+router.get('/', markPublic, blogsController.getAll);
+router.get('/:id', markPublic, blogsController.getById);
 
 module.exports = router;

@@ -2,7 +2,8 @@ const blogsService = require('../services/blogsService');
 
 exports.getAll = async (req, res, next) => {
   try {
-    const items = await blogsService.getAll();
+    const publishedOnly = req.publicOnly === true;
+    const items = await blogsService.getAll({ publishedOnly });
     res.json(items);
   } catch (err) {
     next(err);
@@ -11,7 +12,8 @@ exports.getAll = async (req, res, next) => {
 
 exports.getById = async (req, res, next) => {
   try {
-    const item = await blogsService.getById(req.params.id);
+    const publishedOnly = req.publicOnly === true;
+    const item = await blogsService.getById(req.params.id, { publishedOnly });
     if (!item) return res.status(404).json({ message: 'Not found' });
     res.json(item);
   } catch (err) {
@@ -21,8 +23,7 @@ exports.getById = async (req, res, next) => {
 
 exports.create = async (req, res, next) => {
   try {
-    const payload = req.body;
-    // attach author from token if available
+    const payload = { ...req.body };
     if (req.user) payload.authorId = req.user.id;
     const created = await blogsService.create(payload);
     res.status(201).json(created);

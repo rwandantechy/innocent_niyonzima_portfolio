@@ -6,7 +6,8 @@ import Timeline from '../components/Timeline';
 import SkillsGrid from '../components/SkillsGrid';
 import CertificationCard from '../components/CertificationCard';
 import InnocentImage from '../assets/images/Innocent.png';
-import experiences from '../data/experiences';
+import experiencesFallback, { toTimelineItem } from '../data/experiences';
+import { useApp } from '../context/AppProvider';
 import certificates from '../data/certificates';
 import {
   IDENTITY,
@@ -27,6 +28,12 @@ const fallbackLogo = (label = 'NA') => {
 };
 
 export default function About(){
+  const { timelineExperience = [] } = useApp();
+  const experienceItems =
+    timelineExperience.length > 0
+      ? timelineExperience
+      : experiencesFallback.map(toTimelineItem);
+
   return (
     <section className="about-page">
       {/* Hero Section */}
@@ -210,7 +217,7 @@ export default function About(){
             <FaBrain className="section-icon" />
             <h3>Research & Experience</h3>
           </div>
-          <Timeline items={experiences} />
+          <Timeline items={experienceItems} />
         </motion.div>
 
         {/* Certifications */}

@@ -2,7 +2,8 @@ const skillsService = require('../services/skillsService');
 
 exports.getAll = async (req, res, next) => {
   try {
-    const items = await skillsService.getAll();
+    const publishedOnly = req.publicOnly === true;
+    const items = await skillsService.getAll({ publishedOnly });
     res.json(items);
   } catch (err) {
     next(err);
