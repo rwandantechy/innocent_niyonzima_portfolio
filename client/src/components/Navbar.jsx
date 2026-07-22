@@ -23,6 +23,13 @@ export default function Navbar(){
     setIsOpen(false);
   }, [location]);
 
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/projects', label: 'Projects' },
@@ -33,7 +40,7 @@ export default function Navbar(){
 
   return (
     <motion.nav 
-      className={`navbar-premium nb-shell ${scrolled ? 'navbar-scrolled' : ''}`}
+      className={`navbar-premium nb-shell ${scrolled || isOpen ? 'navbar-scrolled' : ''} ${isOpen ? 'navbar-menu-open' : ''}`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -144,51 +151,66 @@ export default function Navbar(){
             </motion.button>
           </div>
         </div>
+      </div>
 
-        <AnimatePresence>
-          {isOpen && (
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <motion.button
+              type="button"
+              className="mobile-menu-backdrop"
+              aria-label="Close menu"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={() => setIsOpen(false)}
+            />
             <motion.div 
               className="mobile-menu-premium nb-mobile-menu"
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22 }}
             >
-              <ul className="mobile-menu-list">
-                {navLinks.map((link, idx) => (
-                  <motion.li 
-                    key={link.to}
-                    initial={{ opacity: 0, x: -30 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -30 }}
-                    transition={{ delay: idx * 0.05 }}
-                  >
-                    <Link 
-                      to={link.to} 
-                      className={`mobile-menu-link ${location.pathname === link.to ? 'active' : ''}`}
+              <div className="container">
+                <ul className="mobile-menu-list">
+                  {navLinks.map((link, idx) => (
+                    <motion.li 
+                      key={link.to}
+                      initial={{ opacity: 0, y: 8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 8 }}
+                      transition={{ delay: idx * 0.04 }}
                     >
-                      <span className="mobile-link-text">{link.label}</span>
-                    </Link>
-                  </motion.li>
-                ))}
-              </ul>
+                      <Link 
+                        to={link.to} 
+                        className={`mobile-menu-link ${location.pathname === link.to ? 'active' : ''}`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <span className="mobile-link-text">{link.label}</span>
+                      </Link>
+                    </motion.li>
+                  ))}
+                </ul>
 
-              <motion.div 
-                className="mobile-menu-footer"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
-                transition={{ delay: 0.3 }}
-              >
-                <Link to="/contact" className="mobile-cta-btn" onClick={() => setIsOpen(false)}>
-                  <FaEnvelope />
-                  Contact
-                </Link>
-              </motion.div>
+                <motion.div 
+                  className="mobile-menu-footer"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 12 }}
+                  transition={{ delay: 0.2 }}
+                >
+                  <Link to="/contact" className="mobile-cta-btn" onClick={() => setIsOpen(false)}>
+                    <FaEnvelope />
+                    Contact
+                  </Link>
+                </motion.div>
+              </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.nav>
   )
 }
