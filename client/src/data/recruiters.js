@@ -2,7 +2,7 @@ import { CREDENTIALS, IMPACT_METRICS } from './metrics';
 import { CONTACT_EMAIL, SOCIAL } from '../config/env';
 
 export const RECRUITER_INFO = {
-  headline: 'Quick info for recruiters',
+  headline: 'Wanna hire me?',
   summary:
     'Software engineer who built and runs a live platform for 80,000+ users in Rwanda. I also work on cloud infrastructure, AI systems, and have studied and worked across three continents.',
   workAuthorization:

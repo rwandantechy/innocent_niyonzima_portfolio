@@ -16,7 +16,7 @@ export default function RecruiterFab() {
     >
       <Link to="/recruiters" className="recruiter-fab-btn">
         <FaBriefcase />
-        <span>For Recruiters</span>
+        <span>Wanna hire me?</span>
       </Link>
     </motion.div>
   );
