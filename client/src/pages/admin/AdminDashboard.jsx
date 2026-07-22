@@ -32,25 +32,21 @@ function percent(part, whole) {
   return Math.round((part / whole) * 100);
 }
 
-function CollectionCard({ title, to, icon: Icon, total, published, drafts, accent }) {
-  const ratio = percent(published, total);
+function CollectionCard({ title, to, icon: Icon, total, published, drafts }) {
   return (
-    <Link to={to} className="dash-collection">
-      <div className="dash-collection-top">
-        <span className={`dash-collection-icon dash-collection-icon--${accent}`}>
-          <Icon />
-        </span>
-        <FaArrowRight className="dash-collection-arrow" />
+    <Link to={to} className="dash-stat">
+      <div className="dash-stat-top">
+        <span className="dash-stat-label">{title}</span>
+        <Icon className="dash-stat-icon" />
       </div>
-      <div className="dash-collection-label">{title}</div>
-      <div className="dash-collection-value">{total}</div>
-      <div className="dash-collection-bar" aria-hidden="true">
-        <span style={{ width: `${ratio}%` }} />
+      <div className="dash-stat-value">{total}</div>
+      <div className="dash-stat-meta">
+        <span className={`dash-dot ${published > 0 ? 'is-live' : 'is-muted'}`} />
+        {total === 0 ? 'Empty' : `${published} live · ${drafts} draft${drafts === 1 ? '' : 's'}`}
       </div>
-      <div className="dash-collection-meta">
-        <span>{published} live</span>
-        <span>{drafts} draft{drafts === 1 ? '' : 's'}</span>
-      </div>
+      <span className="dash-stat-go">
+        Open <FaArrowRight />
+      </span>
     </Link>
   );
 }
@@ -129,31 +125,31 @@ export default function AdminDashboard() {
     projects.forEach((p) => {
       if (!p.published) return;
       if (!p.tech?.length) {
-        items.push({ level: 'warn', text: `"${p.title}" missing tech stack`, to: '/admin/projects' });
+        items.push({ text: `"${p.title}" missing tech stack`, to: '/admin/projects' });
       }
       if (!p.description) {
-        items.push({ level: 'warn', text: `"${p.title}" missing description`, to: '/admin/projects' });
+        items.push({ text: `"${p.title}" missing description`, to: '/admin/projects' });
       }
     });
 
     blogs.forEach((b) => {
       if (!b.published) return;
       if (!b.tags?.length) {
-        items.push({ level: 'warn', text: `"${b.title}" has no tags`, to: '/admin/blogs' });
+        items.push({ text: `"${b.title}" has no tags`, to: '/admin/blogs' });
       }
     });
 
     experience.forEach((e) => {
       if (!e.published) return;
       if (!e.bullets?.length) {
-        items.push({ level: 'warn', text: `"${e.role}" has no bullets`, to: '/admin/experience' });
+        items.push({ text: `"${e.role}" has no bullets`, to: '/admin/experience' });
       }
     });
 
     skills.forEach((s) => {
       if (!s.published) return;
       if (!s.skills?.length) {
-        items.push({ level: 'warn', text: `"${s.title}" has no skills`, to: '/admin/skills' });
+        items.push({ text: `"${s.title}" has no skills`, to: '/admin/skills' });
       }
     });
 
@@ -162,25 +158,25 @@ export default function AdminDashboard() {
 
   const recentItems = useMemo(() => {
     const list = [
-      ...projects.slice(0, 3).map((p) => ({
+      ...projects.slice(0, 2).map((p) => ({
         id: `p-${p.id}`,
         kind: 'Project',
         title: p.title,
-        status: p.published ? 'Published' : 'Draft',
+        status: p.published ? 'Live' : 'Draft',
         to: '/admin/projects',
       })),
-      ...blogs.slice(0, 3).map((b) => ({
+      ...blogs.slice(0, 2).map((b) => ({
         id: `b-${b.id}`,
         kind: 'Blog',
         title: b.title,
-        status: b.published ? 'Published' : 'Draft',
+        status: b.published ? 'Live' : 'Draft',
         to: '/admin/blogs',
       })),
       ...experience.slice(0, 2).map((e) => ({
         id: `e-${e.id}`,
-        kind: 'Experience',
+        kind: 'Role',
         title: e.role,
-        status: e.published ? 'Published' : 'Draft',
+        status: e.published ? 'Live' : 'Draft',
         to: '/admin/experience',
       })),
     ];
@@ -202,26 +198,24 @@ export default function AdminDashboard() {
     return (
       <div className="dash-loading">
         <div className="dash-loading-pulse" />
-        <p>Loading command center...</p>
+        <p>Loading dashboard…</p>
       </div>
     );
   }
 
   return (
     <div className="dash">
-      <header className="dash-header">
-        <div>
-          <p className="dash-kicker">Portfolio CMS</p>
-          <h2 className="dash-heading">Publishing command center</h2>
-          <p className="dash-lede">
-            Track drafts, live content, and gaps before recruiters see them.
-          </p>
+      <header className="dash-toolbar">
+        <div className={`dash-api ${apiOk ? 'is-up' : 'is-down'}`}>
+          <FaServer />
+          <span>{apiOk ? 'API online' : 'API offline · fallbacks'}</span>
         </div>
-        <div className="dash-header-actions">
-          <div className={`dash-api-pill ${apiOk ? 'is-up' : 'is-down'}`}>
-            <FaServer />
-            <span>{apiOk ? 'API online' : 'API offline · using fallbacks'}</span>
-          </div>
+        <div className="dash-toolbar-right">
+          {refreshedAt && (
+            <span className="dash-updated">
+              Updated {refreshedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+            </span>
+          )}
           <button
             type="button"
             className="dash-refresh"
@@ -236,91 +230,64 @@ export default function AdminDashboard() {
 
       {totalItems === 0 ? (
         <section className="dash-empty">
-          <div className="dash-empty-copy">
-            <p className="dash-kicker">Fresh workspace</p>
-            <h3>Start with one strong piece of content</h3>
-            <p>
-              The public site can still use static fallbacks. This admin stays empty until you create
-              or sync database content.
-            </p>
-            <div className="dash-empty-actions">
-              <Link to="/admin/projects" className="btn">
-                <FaPlus /> Add a project
-              </Link>
-              <Link to="/admin/blogs" className="btn btn-secondary">
-                <FaPlus /> Write a post
-              </Link>
-              <Link to="/admin/experience" className="btn btn-secondary">
-                <FaPlus /> Add experience
-              </Link>
-            </div>
+          <h3>No content yet</h3>
+          <p>
+            Create a project, post, or role to populate this dashboard. The public site can still use
+            static fallbacks.
+          </p>
+          <div className="dash-empty-actions">
+            <Link to="/admin/projects" className="btn">
+              <FaPlus /> Add a project
+            </Link>
+            <Link to="/admin/blogs" className="btn btn-secondary">
+              <FaPlus /> Write a post
+            </Link>
           </div>
         </section>
       ) : (
-        <>
-          <section className="dash-score-row">
-            <article className="dash-score">
-              <div className="dash-score-ring" style={{ '--ready': `${publishReady}` }}>
+        <div className="dash-grid">
+          <section className="dash-summary">
+            <div className="dash-ready">
+              <div className="dash-ready-ring" style={{ '--ready': publishReady }}>
                 <strong>{publishReady}%</strong>
-                <span>live</span>
               </div>
               <div>
                 <h3>Publish readiness</h3>
                 <p>
-                  {publishedItems} of {totalItems} entries are public.
-                  {healthItems.length
-                    ? ` ${healthItems.length} issue${healthItems.length === 1 ? '' : 's'} need attention.`
-                    : ' No structural warnings on published items.'}
+                  {publishedItems}/{totalItems} live
+                  {healthItems.length ? ` · ${healthItems.length} warnings` : ' · no warnings'}
                 </p>
               </div>
-            </article>
-
-            <div className="dash-quick">
-              <Link to="/admin/projects" className="dash-quick-item">
-                <FaPlus />
-                <span>New project</span>
-              </Link>
-              <Link to="/admin/blogs" className="dash-quick-item">
-                <FaPen />
-                <span>New post</span>
-              </Link>
-              <Link to="/admin/experience" className="dash-quick-item">
-                <FaBriefcase />
-                <span>Edit roles</span>
-              </Link>
-              <a href="/" target="_blank" rel="noopener noreferrer" className="dash-quick-item">
-                <FaEye />
-                <span>View site</span>
-              </a>
             </div>
+            <nav className="dash-actions" aria-label="Quick actions">
+              <Link to="/admin/projects"><FaPlus /> Project</Link>
+              <Link to="/admin/blogs"><FaPen /> Post</Link>
+              <Link to="/admin/experience"><FaBriefcase /> Role</Link>
+              <a href="/" target="_blank" rel="noopener noreferrer"><FaEye /> Site</a>
+            </nav>
           </section>
 
-          <section className="dash-collections">
-            <CollectionCard title="Projects" to="/admin/projects" icon={FaFolderOpen} accent="amber" {...counts.projects} />
-            <CollectionCard title="Writing" to="/admin/blogs" icon={FaBlog} accent="slate" {...counts.blogs} />
-            <CollectionCard title="Skills" to="/admin/skills" icon={FaTools} accent="teal" {...counts.skills} />
-            <CollectionCard title="Experience" to="/admin/experience" icon={FaBriefcase} accent="ink" {...counts.experience} />
+          <section className="dash-stats">
+            <CollectionCard title="Projects" to="/admin/projects" icon={FaFolderOpen} {...counts.projects} />
+            <CollectionCard title="Writing" to="/admin/blogs" icon={FaBlog} {...counts.blogs} />
+            <CollectionCard title="Skills" to="/admin/skills" icon={FaTools} {...counts.skills} />
+            <CollectionCard title="Experience" to="/admin/experience" icon={FaBriefcase} {...counts.experience} />
           </section>
 
-          <section className="dash-panels">
-            <article className="dash-panel">
-              <div className="dash-panel-head">
-                <h3>Content health</h3>
-                <span className="dash-panel-badge">
-                  {healthItems.length ? `${healthItems.length} warnings` : 'Clean'}
-                </span>
+          <section className="dash-side">
+            <article className="dash-box">
+              <div className="dash-box-head">
+                <h3>Health</h3>
+                <span>{healthItems.length ? `${healthItems.length}` : 'OK'}</span>
               </div>
               {healthItems.length === 0 ? (
-                <div className="dash-health-ok">
+                <div className="dash-ok">
                   <FaCheckCircle />
-                  <div>
-                    <strong>All clear</strong>
-                    <p>Published entries have the fields recruiters expect.</p>
-                  </div>
+                  <p>Published entries look complete.</p>
                 </div>
               ) : (
-                <ul className="dash-health-list">
-                  {healthItems.map((item) => (
+                <ul className="dash-warns">
+                  {healthItems.slice(0, 4).map((item) => (
                     <li key={item.text}>
                       <FaExclamationTriangle />
                       <Link to={item.to}>{item.text}</Link>
@@ -330,69 +297,49 @@ export default function AdminDashboard() {
               )}
             </article>
 
-            <article className="dash-panel">
-              <div className="dash-panel-head">
+            <article className="dash-box">
+              <div className="dash-box-head">
                 <h3>Visibility</h3>
               </div>
-              <div className="dash-visibility">
-                <div>
+              <ul className="dash-metrics">
+                <li>
                   <span>Featured projects</span>
-                  <strong>
-                    {counts.projects.featured}/{counts.projects.total}
-                  </strong>
-                  <div className="dash-mini-bar">
-                    <i style={{ width: `${percent(counts.projects.featured, counts.projects.total)}%` }} />
-                  </div>
-                </div>
-                <div>
+                  <strong>{counts.projects.featured}/{counts.projects.total}</strong>
+                </li>
+                <li>
                   <span>Featured posts</span>
-                  <strong>
-                    {counts.blogs.featured}/{counts.blogs.total}
-                  </strong>
-                  <div className="dash-mini-bar">
-                    <i style={{ width: `${percent(counts.blogs.featured, counts.blogs.total)}%` }} />
-                  </div>
-                </div>
-                <div>
+                  <strong>{counts.blogs.featured}/{counts.blogs.total}</strong>
+                </li>
+                <li>
                   <span>Experience live</span>
                   <strong>{percent(counts.experience.published, counts.experience.total)}%</strong>
-                  <div className="dash-mini-bar">
-                    <i style={{ width: `${percent(counts.experience.published, counts.experience.total)}%` }} />
-                  </div>
-                </div>
-                <div>
+                </li>
+                <li>
                   <span>Skills live</span>
                   <strong>{percent(counts.skills.published, counts.skills.total)}%</strong>
-                  <div className="dash-mini-bar">
-                    <i style={{ width: `${percent(counts.skills.published, counts.skills.total)}%` }} />
-                  </div>
-                </div>
-              </div>
-            </article>
-
-            <article className="dash-panel dash-panel--wide">
-              <div className="dash-panel-head">
-                <h3>Library snapshot</h3>
-                {refreshedAt && (
-                  <span className="dash-panel-meta">
-                    Updated {refreshedAt.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                  </span>
-                )}
-              </div>
-              <div className="dash-recent">
-                {recentItems.map((item) => (
-                  <Link key={item.id} to={item.to} className="dash-recent-row">
-                    <span className="dash-recent-kind">{item.kind}</span>
-                    <span className="dash-recent-title">{item.title}</span>
-                    <span className={`dash-recent-status ${item.status === 'Published' ? 'is-live' : ''}`}>
-                      {item.status}
-                    </span>
-                  </Link>
-                ))}
-              </div>
+                </li>
+              </ul>
             </article>
           </section>
-        </>
+
+          <section className="dash-box dash-library">
+            <div className="dash-box-head">
+              <h3>Recent</h3>
+              <span>{recentItems.length}</span>
+            </div>
+            <div className="dash-list">
+              {recentItems.map((item) => (
+                <Link key={item.id} to={item.to} className="dash-list-row">
+                  <span className="dash-list-kind">{item.kind}</span>
+                  <span className="dash-list-title">{item.title}</span>
+                  <span className={`dash-list-status ${item.status === 'Live' ? 'is-live' : ''}`}>
+                    {item.status}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
+        </div>
       )}
 
       {msg && <div className="admin-toast muted">{msg}</div>}
