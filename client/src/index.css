@@ -2364,15 +2364,16 @@ textarea {
 
 .admin-topbar-title {
   margin: 0 !important;
-  font-size: 1.35rem !important;
-  font-weight: 700 !important;
+  font-size: clamp(1.5rem, 2.4vw, 2rem) !important;
+  font-weight: 750 !important;
   color: #0f172a !important;
+  letter-spacing: -0.02em !important;
 }
 
 .admin-topbar-sub {
-  margin: 0.2rem 0 0 !important;
+  margin: 0.35rem 0 0 !important;
   color: #64748b !important;
-  font-size: 0.9rem !important;
+  font-size: 0.95rem !important;
 }
 
 .admin-page-header {
@@ -2588,7 +2589,7 @@ textarea {
 .dash {
   display: grid;
   gap: 0.85rem;
-  max-width: 960px;
+  max-width: none;
   width: 100%;
 }
 
@@ -3088,7 +3089,7 @@ textarea {
 .cms {
   display: grid;
   gap: 0.9rem;
-  max-width: 860px;
+  max-width: none;
   width: 100%;
 }
 
@@ -3617,30 +3618,38 @@ textarea {
 
 /* ============================================
    ADMIN LAYOUT STABILITY FIX
+   30% menu | 70% content
+   Right column: sticky top (~20%) + scrollable body
    ============================================ */
 .admin-shell {
   padding: 0 !important;
   min-height: 100vh !important;
+  height: 100vh !important;
+  overflow: hidden !important;
 }
 
 .admin-layout-v2 {
   display: grid !important;
-  grid-template-columns: 256px minmax(0, 1fr) !important;
+  grid-template-columns: 30% 70% !important;
   gap: 0 !important;
+  height: 100vh !important;
   min-height: 100vh !important;
   border: 0 !important;
   border-radius: 0 !important;
   padding: 0 !important;
+  overflow: hidden !important;
 }
 
 .admin-sidebar {
+  height: 100vh !important;
   min-height: 100vh !important;
   border-radius: 0 !important;
   border: 0 !important;
-  padding: 1rem 0.9rem !important;
+  padding: 1.1rem 1rem !important;
   position: sticky !important;
   top: 0 !important;
-  align-self: start !important;
+  align-self: stretch !important;
+  overflow-y: auto !important;
 }
 
 .admin-brand {
@@ -3675,23 +3684,37 @@ textarea {
 }
 
 .admin-main {
-  padding: 1.25rem 1.5rem 1.75rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100vh !important;
   min-width: 0 !important;
-  overflow: auto !important;
-}
-
-.admin-content {
-  min-width: 0;
+  padding: 0 !important;
+  overflow: hidden !important;
 }
 
 .admin-topbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 20 !important;
   display: flex !important;
   justify-content: space-between !important;
-  align-items: flex-end !important;
+  align-items: center !important;
   gap: 0.75rem !important;
-  margin-bottom: 1rem !important;
-  padding-bottom: 0.85rem !important;
-  border-bottom: 1px solid #e2e8f0;
+  flex: 0 0 20% !important;
+  min-height: 88px !important;
+  max-height: 20vh !important;
+  margin: 0 !important;
+  padding: 1.1rem 1.5rem !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  background: #f8fafc !important;
+}
+
+.admin-content {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  min-width: 0 !important;
+  overflow-y: auto !important;
+  padding: 1.15rem 1.5rem 1.75rem !important;
 }
 
 .admin-topbar-actions {
@@ -3774,19 +3797,39 @@ textarea {
 }
 
 @media (max-width: 980px) {
+  .admin-shell {
+    height: auto !important;
+    overflow: auto !important;
+  }
+
   .admin-layout-v2 {
     grid-template-columns: 1fr !important;
+    height: auto !important;
+    overflow: visible !important;
   }
 
   .admin-sidebar {
+    height: auto !important;
     min-height: unset !important;
     position: static !important;
-    border-radius: 12px !important;
-    margin: 0.9rem !important;
+    border-radius: 0 !important;
   }
 
   .admin-main {
-    padding: 0.95rem !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+  .admin-topbar {
+    flex: none !important;
+    max-height: none !important;
+    position: sticky !important;
+    top: 0 !important;
+  }
+
+  .admin-content {
+    overflow: visible !important;
+    padding: 1rem 1.1rem 1.5rem !important;
   }
 
   .admin-sidebar-nav {
