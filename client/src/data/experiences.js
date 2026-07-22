@@ -1,5 +1,17 @@
 const experiences = [
   {
+    title: 'Technical Lead (Project-Based)',
+    company: 'Niheza Solutions Ltd',
+    location: 'Kigali, Rwanda',
+    date: '2026 - Present',
+    logo: '/Profile/niheza-logo.png',
+    highlights: [
+      'Led backend and deployment work on client web projects',
+      'Supported API design, bug triage, and release planning',
+      'Built internal tools to reduce repetitive operational work',
+    ],
+  },
+  {
     title: 'Full-Stack Software Engineer',
     company: 'ITEC International',
     location: 'Kigali, Rwanda',
@@ -35,18 +47,6 @@ const experiences = [
       'Analyzed and labeled smart contract vulnerabilities to support security research and risk assessment',
       'Worked with blockchain datasets using Python and Microsoft Excel to identify patterns and generate actionable insights',
       'Collaborated with mentors and fellow externs to investigate Web3 security challenges and present technical findings',
-    ],
-  },
-  {
-    title: 'Technical Lead (Project-Based)',
-    company: 'Niheza Solutions Ltd',
-    location: 'Kigali, Rwanda',
-    date: '2026 - Present',
-    logo: '/Profile/niheza-logo.png',
-    highlights: [
-      'Led backend and deployment work on client web projects',
-      'Supported API design, bug triage, and release planning',
-      'Built internal tools to reduce repetitive operational work',
     ],
   },
   {
