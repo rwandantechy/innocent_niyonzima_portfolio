@@ -9,32 +9,46 @@ import {
   FaAward,
   FaCog,
   FaSignOutAlt,
+  FaExternalLinkAlt,
 } from 'react-icons/fa';
 
 const contentNav = [
   { to: '/admin/dashboard', label: 'Dashboard', icon: FaThLarge, end: true },
   { to: '/admin/projects', label: 'Projects', icon: FaFolderOpen },
-  { to: '/admin/blogs', label: 'Blogs', icon: FaBlog },
+  { to: '/admin/blogs', label: 'Writing', icon: FaBlog },
   { to: '/admin/skills', label: 'Skills', icon: FaTools },
   { to: '/admin/experience', label: 'Experience', icon: FaBriefcase },
   { to: '/admin/certifications', label: 'Certifications', icon: FaAward, soon: true },
   { to: '/admin/site-settings', label: 'Site Settings', icon: FaCog, soon: true },
 ];
 
-const pageTitles = {
-  '/admin/dashboard': 'Dashboard',
-  '/admin/projects': 'Projects',
-  '/admin/blogs': 'Blogs',
-  '/admin/skills': 'Skills',
-  '/admin/experience': 'Experience',
-  '/admin/certifications': 'Certifications',
-  '/admin/site-settings': 'Site Settings',
+const pageCopy = {
+  '/admin/dashboard': {
+    title: 'Dashboard',
+    sub: '',
+  },
+  '/admin/projects': {
+    title: 'Projects',
+    sub: 'Case studies and featured work',
+  },
+  '/admin/blogs': {
+    title: 'Writing',
+    sub: 'Long-form posts and drafts',
+  },
+  '/admin/skills': {
+    title: 'Skills',
+    sub: 'Skill categories shown on Resume and About',
+  },
+  '/admin/experience': {
+    title: 'Experience',
+    sub: 'Roles, concurrent flags, and display order',
+  },
 };
 
 export default function AdminLayout() {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const title = pageTitles[pathname] || 'Admin';
+  const copy = pageCopy[pathname] || { title: 'Admin', sub: '' };
 
   return (
     <section className="admin-shell admin-shell-v2">
@@ -44,12 +58,12 @@ export default function AdminLayout() {
             <div className="admin-brand-logo">IN</div>
             <div>
               <p className="admin-brand-name">Innocent</p>
-              <p className="admin-brand-role">Admin</p>
+              <p className="admin-brand-role">Content Ops</p>
             </div>
           </div>
 
           <div className="admin-sidebar-section">
-            <div className="admin-sidebar-title">Content</div>
+            <div className="admin-sidebar-title">Workspace</div>
             <nav className="admin-sidebar-nav">
               {contentNav.map(({ to, label, icon: Icon, end, soon }) => (
                 <NavLink
@@ -73,7 +87,15 @@ export default function AdminLayout() {
           </div>
 
           <div className="admin-sidebar-section admin-sidebar-section--footer">
-            <div className="admin-sidebar-title">Account</div>
+            <a
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="admin-sidebar-item"
+            >
+              <FaExternalLinkAlt />
+              <span>Open site</span>
+            </a>
             <button
               type="button"
               className="admin-sidebar-item"
@@ -88,10 +110,8 @@ export default function AdminLayout() {
         <div className="admin-main">
           <div className="admin-topbar">
             <div>
-              <h1 className="admin-topbar-title">{title}</h1>
-              {pathname === '/admin/dashboard' && (
-                <p className="admin-topbar-sub">Content overview and publishing activity</p>
-              )}
+              <h1 className="admin-topbar-title">{copy.title}</h1>
+              {copy.sub && <p className="admin-topbar-sub">{copy.sub}</p>}
             </div>
           </div>
           <Outlet />
