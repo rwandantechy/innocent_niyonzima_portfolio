@@ -5,10 +5,17 @@ import { FaGithub, FaExternalLinkAlt, FaStar, FaBookOpen } from 'react-icons/fa'
 import { useInView } from 'react-intersection-observer';
 import { getCaseStudy } from '../data/caseStudies';
 
+const PROJECT_SLUGS = {
+  '1': 'ibyapa',
+  '2': 'ai-server',
+  '3': 'yigse',
+};
+
 export default function ProjectShowcase({ project, index }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const keyPoints = [...(project.challenges || []), ...(project.results || [])].slice(0, 3);
-  const caseStudy = getCaseStudy(project.id);
+  const projectSlug = PROJECT_SLUGS[project.id] || project.id;
+  const caseStudy = getCaseStudy(projectSlug);
   const liveUrl = project.links?.live;
   const githubUrl = project.links?.github;
   const hasActions = Boolean(caseStudy || liveUrl || githubUrl);
@@ -96,7 +103,7 @@ export default function ProjectShowcase({ project, index }) {
       {hasActions && (
         <motion.div className="project-actions">
           {caseStudy && (
-            <Link to={`/projects/${project.id}`} className="btn">
+            <Link to={`/projects/${projectSlug}`} className="btn">
               <FaBookOpen />
               Case Study
             </Link>
