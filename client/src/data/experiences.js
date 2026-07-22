@@ -22,6 +22,17 @@ const experiences = [
     ],
   },
   {
+    title: 'Web3 Security Data Analytics Extern',
+    company: 'Webacy',
+    location: 'New York',
+    date: 'Aug 2024 - Oct 2024',
+    highlights: [
+      'Analyzed blockchain security data to identify smart contract vulnerabilities and risk patterns',
+      'Supported Web3 security research with data analysis on on-chain activity and threat signals',
+      'Documented findings to help prioritize high-risk contracts and improve review workflows',
+    ],
+  },
+  {
     title: 'Technical Lead (Project-Based)',
     company: 'Niheza Solutions Ltd',
     location: 'Kigali, Rwanda',
