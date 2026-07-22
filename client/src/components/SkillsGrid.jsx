@@ -1,6 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
 import { useApp } from '../context/AppProvider';
 import staticSkills from '../data/skills';
 
@@ -42,51 +40,35 @@ const logoMap = {
   'TensorFlow': 'tensorflow'
 };
 
-const SkillCategory = ({ title, skills, index }) => {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
-  
-  return (
-    <motion.div 
-      ref={ref}
-      className="skill-category"
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -2, transition: { duration: 0.2 } }}
-    >
-      <div className="skill-category-header">
-        <h3>{title}</h3>
-      </div>
-      <div className="skill-tags">
-        {skills.map((skill, idx) => {
-          const iconName = logoMap[skill] || skill.toLowerCase();
-          const iconUrl = `https://cdn.simpleicons.org/${iconName}/fd961a`;
-          
-          return (
-            <motion.div
-              key={idx} 
-              className="skill-tag-with-logo"
-              whileHover={{ scale: 1.03, y: -2 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <img 
-                src={iconUrl} 
-                alt={skill} 
-                className="skill-logo"
-                loading="lazy"
-                decoding="async"
-                onError={(e) => {
-                  e.target.style.display = 'none';
-                }}
-              />
-              <span className="skill-tag">{skill}</span>
-            </motion.div>
-          );
-        })}
-      </div>
-    </motion.div>
-  );
-};
+const SkillCategory = ({ title, skills }) => (
+  <div className="skill-category">
+    <div className="skill-category-header">
+      <h3>{title}</h3>
+    </div>
+    <div className="skill-tags">
+      {skills.map((skill) => {
+        const iconName = logoMap[skill] || skill.toLowerCase();
+        const iconUrl = `https://cdn.simpleicons.org/${iconName}/fd961a`;
+
+        return (
+          <div key={skill} className="skill-tag-with-logo">
+            <img
+              src={iconUrl}
+              alt=""
+              className="skill-logo"
+              loading="lazy"
+              decoding="async"
+              onError={(e) => {
+                e.target.style.display = 'none';
+              }}
+            />
+            <span className="skill-tag">{skill}</span>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+);
 
 export default function SkillsGrid() {
   const { skills: skillCategories = [] } = useApp();
@@ -95,7 +77,7 @@ export default function SkillsGrid() {
   return (
     <div className="skills-grid">
       {categories.map((category, idx) => (
-        <SkillCategory key={category.id || category.title || idx} {...category} index={idx} />
+        <SkillCategory key={category.id || category.title || idx} {...category} />
       ))}
     </div>
   );

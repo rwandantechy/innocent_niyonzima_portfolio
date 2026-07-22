@@ -1,6 +1,6 @@
 export const IMPACT_METRICS = [
   { value: 80000, suffix: '+', label: 'Users Served', display: '80,000+' },
-  { value: 3, suffix: '', label: 'Continents of Experience', display: '3' },
+  { value: 5, suffix: '+', label: 'Years Building Software', display: '5+' },
 ];
 
 export const CREDENTIALS = {

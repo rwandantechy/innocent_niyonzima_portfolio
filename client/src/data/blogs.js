@@ -70,11 +70,13 @@ I grew up in Rwanda. Computers caught me early, mostly because I liked making th
 
 That is how Ibyapa.com started. I was still an undergrad when I began building it. It now serves tens of thousands of learners back home, and I still help keep it online.
 
+What the About page cannot fit is the texture of that work: answering a message from a learner who could not pay, watching a payment gateway hang on a busy night, deciding whether to roll back a deploy at midnight. Those moments shaped how I write software more than any single course did.
+
 ## India
 
 In 2020 I moved to India for a Bachelor's in Computer Engineering at Marwadi University. New country, new routines, a lot of figuring things out as I went. I finished in April 2024.
 
-The courses mattered, but so did the quieter work: keeping a live product running while I was in class, sometimes across awkward time zones. That made the degree feel connected to something outside campus.
+The courses mattered, but so did the quieter work: keeping a live product running while I was in class, sometimes across awkward time zones. Some weeks I studied during the day and patched production at night. That made the degree feel connected to something outside campus.
 
 ## United States
 

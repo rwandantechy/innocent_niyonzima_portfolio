@@ -1,94 +1,55 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { FaStar } from 'react-icons/fa';
-import { useInView } from 'react-intersection-observer';
 import ProjectShowcase from '../components/ProjectShowcase';
 import { useApp } from '../context/AppProvider';
 
-export default function Projects(){
+export default function Projects() {
   const [filter, setFilter] = useState('all');
-  const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const { projects: sourceProjects = [], loadingProjects } = useApp();
-  
-  const filteredProjects = filter === 'all' 
-    ? sourceProjects 
-    : sourceProjects.filter(p => p.featured);
+
+  const filteredProjects = filter === 'all'
+    ? sourceProjects
+    : sourceProjects.filter((p) => p.featured);
 
   return (
     <section className="container page-section">
-      {/* Header Section */}
-      <motion.div 
-        ref={headerRef}
-        className="projects-header page-header"
-        initial={{ opacity: 0, y: 30 }}
-        animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.6 }}
-      >
-        <motion.h2 
-          className="gradient-text"
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          Featured Projects
-        </motion.h2>
-        <motion.p 
-          className="muted projects-subtitle"
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
+      <div className="projects-header page-header">
+        <h2 className="gradient-text">Featured Projects</h2>
+        <p className="muted projects-subtitle">
           Real projects with real users and long-form write-ups.
-        </motion.p>
+        </p>
 
-        {/* Filters */}
-        <motion.div 
-          className="project-filters-wrapper"
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
+        <div className="project-filters-wrapper">
           <div className="project-filters">
-            <motion.button 
+            <button
+              type="button"
               className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
               onClick={() => setFilter('all')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
               All Projects ({sourceProjects.length})
-            </motion.button>
-            <motion.button 
+            </button>
+            <button
+              type="button"
               className={`filter-btn ${filter === 'featured' ? 'active' : ''}`}
               onClick={() => setFilter('featured')}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
             >
-              <FaStar style={{ marginRight: 6 }} /> Featured ({sourceProjects.filter(p => p.featured).length})
-            </motion.button>
+              <FaStar style={{ marginRight: 6 }} /> Featured ({sourceProjects.filter((p) => p.featured).length})
+            </button>
           </div>
-        </motion.div>
-      </motion.div>
-      
-      {/* Projects Grid */}
-      <motion.div 
-        className="projects-showcase-grid"
-        layout
-      >
-        {loadingProjects && (<p>Loading projects...</p>)}
-        {filteredProjects.map((project, idx) => (
-          <ProjectShowcase key={project.id} project={project} index={idx} />
-        ))}
-      </motion.div>
+        </div>
+      </div>
 
-      {/* Empty State */}
+      <div className="projects-showcase-grid">
+        {loadingProjects && <p>Loading projects...</p>}
+        {filteredProjects.map((project) => (
+          <ProjectShowcase key={project.id} project={project} />
+        ))}
+      </div>
+
       {filteredProjects.length === 0 && (
-        <motion.div 
-          className="projects-empty-state"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-        >
+        <div className="projects-empty-state">
           <p className="muted">No projects found with the selected filter.</p>
-        </motion.div>
+        </div>
       )}
     </section>
   );

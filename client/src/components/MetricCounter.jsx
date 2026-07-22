@@ -8,7 +8,7 @@ function formatNumber(n) {
 
 export default function MetricCounter({ value, suffix = '', label, display, isText = false, duration = 1800 }) {
   const [count, setCount] = useState(0);
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0, rootMargin: '40px 0px' });
   const started = useRef(false);
 
   useEffect(() => {
@@ -27,7 +27,9 @@ export default function MetricCounter({ value, suffix = '', label, display, isTe
 
   const shown = isText
     ? display
-    : `${formatNumber(count)}${suffix}`;
+    : inView
+      ? `${formatNumber(count)}${suffix}`
+      : (display || `${formatNumber(value)}${suffix}`);
 
   return (
     <div ref={ref} className="metric-counter-card">

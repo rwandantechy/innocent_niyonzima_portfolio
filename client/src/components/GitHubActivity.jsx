@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import { FaGithub, FaCodeBranch, FaStar, FaBook } from 'react-icons/fa';
 import { SOCIAL } from '../config/env';
 
@@ -7,17 +6,27 @@ const GITHUB_USER = (() => {
   try {
     const url = SOCIAL.GITHUB || '';
     const match = url.match(/github\.com\/([^/]+)/);
-    return match?.[1] || 'Innocentus8';
+    return match?.[1] || 'Rwandantechy';
   } catch {
-    return 'Innocentus8';
+    return 'Rwandantechy';
   }
 })();
 
+const SHORT_SHA = (sha) => (sha ? sha.slice(0, 7) : '');
+
 const eventLabel = (event) => {
-  const repo = event.repo?.name?.replace(`${GITHUB_USER}/`, '') || 'repo';
+  const fullRepo = event.repo?.name || 'repo';
+  const repo = fullRepo.replace(`${GITHUB_USER}/`, '');
+
   switch (event.type) {
-    case 'PushEvent':
-      return `Pushed to ${repo}`;
+    case 'PushEvent': {
+      const commits = event.payload?.commits || [];
+      const first = commits[0];
+      const message = first?.message?.split('\n')[0]?.trim();
+      if (message) return `${repo}: ${message}`;
+      if (commits.length > 1) return `Pushed ${commits.length} commits to ${repo}`;
+      return `Pushed to ${repo}${first?.sha ? ` (${SHORT_SHA(first.sha)})` : ''}`;
+    }
     case 'CreateEvent':
       return `Created ${event.payload?.ref_type || 'resource'} in ${repo}`;
     case 'WatchEvent':
@@ -25,13 +34,37 @@ const eventLabel = (event) => {
     case 'ForkEvent':
       return `Forked ${repo}`;
     case 'IssuesEvent':
-      return `Issue activity in ${repo}`;
-    case 'PullRequestEvent':
-      return `PR activity in ${repo}`;
+      return `Issue ${event.payload?.action || 'update'} in ${repo}`;
+    case 'PullRequestEvent': {
+      const action = event.payload?.action || 'updated';
+      const title = event.payload?.pull_request?.title;
+      return title ? `PR ${action}: ${title}` : `PR ${action} in ${repo}`;
+    }
     default:
-      return `Activity in ${repo}`;
+      return `${event.type.replace(/Event$/, '')} in ${repo}`;
   }
 };
+
+function pickDistinctEvents(events, limit = 5) {
+  const seen = new Set();
+  const picked = [];
+
+  for (const event of events) {
+    const label = eventLabel(event);
+    if (seen.has(label)) continue;
+    seen.add(label);
+    picked.push({ ...event, _label: label });
+    if (picked.length >= limit) break;
+  }
+
+  return picked;
+}
+
+const FALLBACK_HIGHLIGHTS = [
+  { id: 'h1', _label: 'Portfolio: production SPA deploys and case studies' },
+  { id: 'h2', _label: 'Ibyapa.com: ongoing backend and infrastructure ownership' },
+  { id: 'h3', _label: 'Edge AI: containerized LLM benchmarking on Raspberry Pi' },
+];
 
 export default function GitHubActivity() {
   const [profile, setProfile] = useState(null);
@@ -44,14 +77,15 @@ export default function GitHubActivity() {
       try {
         const [profileRes, eventsRes] = await Promise.all([
           fetch(`https://api.github.com/users/${GITHUB_USER}`),
-          fetch(`https://api.github.com/users/${GITHUB_USER}/events/public?per_page=5`),
+          fetch(`https://api.github.com/users/${GITHUB_USER}/events/public?per_page=30`),
         ]);
         if (!cancelled && profileRes.ok) {
           setProfile(await profileRes.json());
         }
         if (!cancelled && eventsRes.ok) {
           const data = await eventsRes.json();
-          setEvents(Array.isArray(data) ? data.slice(0, 5) : []);
+          const list = Array.isArray(data) ? data : [];
+          setEvents(pickDistinctEvents(list, 5));
         }
       } catch {
         // GitHub API may rate-limit; section degrades gracefully
@@ -62,6 +96,8 @@ export default function GitHubActivity() {
     load();
     return () => { cancelled = true; };
   }, []);
+
+  const feed = events.length > 0 ? events : (!loading ? FALLBACK_HIGHLIGHTS : []);
 
   return (
     <section className="github-activity card">
@@ -86,18 +122,13 @@ export default function GitHubActivity() {
         </div>
       )}
 
-      {events.length > 0 && (
+      {feed.length > 0 && (
         <ul className="github-events">
-          {events.map((event) => (
-            <motion.li
-              key={`${event.id}-${event.type}`}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-            >
+          {feed.map((event) => (
+            <li key={event.id}>
               <FaStar className="github-event-icon" />
-              <span>{eventLabel(event)}</span>
-            </motion.li>
+              <span>{event._label || eventLabel(event)}</span>
+            </li>
           ))}
         </ul>
       )}

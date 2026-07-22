@@ -3,10 +3,10 @@ const experiences = [
     title: 'Technical Lead (Project-Based)',
     company: 'Niheza Solutions Ltd',
     location: 'Kigali, Rwanda',
-    date: '2026 - Present',
+    date: '2026 - Present · Contract / concurrent',
     logo: '/Profile/niheza-logo.png',
     highlights: [
-      'Led backend and deployment work on client web projects',
+      'Led backend and deployment work on client web projects alongside graduate studies',
       'Supported API design, bug triage, and release planning',
       'Built internal tools to reduce repetitive operational work',
     ],
@@ -15,7 +15,7 @@ const experiences = [
     title: 'Full-Stack Software Engineer',
     company: 'ITEC International',
     location: 'Kigali, Rwanda',
-    date: 'Jan 2024 - Mar 2026',
+    date: 'Jan 2024 - Mar 2026 · Full-time',
     logo: '/Profile/itec-logo.jpeg',
     highlights: [
       'Developed backend services and APIs for ITEC’s SaaS products supporting student management, payments, and facility management systems',
@@ -27,7 +27,7 @@ const experiences = [
     title: 'Graduate Research Assistant',
     company: 'Molecular Computing Lab, The Catholic University of America',
     location: 'Washington, DC',
-    date: 'Apr 2025 - Dec 2025',
+    date: 'Apr 2025 - Dec 2025 · Part-time (concurrent)',
     logo: 'https://legacywww.catholic.edu/assets/images/CUA-Logo-Large.png',
     highlights: [
       'Built an automated evaluation framework comparing multiple open-weight LLMs on resource-constrained environments',
@@ -40,7 +40,7 @@ const experiences = [
     title: 'Web3 Security Data Analytics Extern',
     company: 'Webacy',
     location: 'New York, NY',
-    date: 'Aug 2024 - Oct 2024',
+    date: 'Aug 2024 - Oct 2024 · Externship (concurrent)',
     logo: '/Profile/webacy.png',
     highlights: [
       'Completed a project-based externship focused on Web3 security, blockchain technologies, and data analytics',
@@ -53,7 +53,7 @@ const experiences = [
     title: 'Software Developer Intern',
     company: 'Nishkaam Innovations',
     location: 'Rajkot, India',
-    date: 'Dec 2023 - April 2024',
+    date: 'Dec 2023 - Apr 2024 · Internship',
     logo: 'https://nishkaamllp.com/assets/logo.png',
     highlights: [
       'Contributed to 3 internal tools that automated recurring reporting tasks',

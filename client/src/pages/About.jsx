@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { FaEnvelope, FaGraduationCap, FaAward, FaGlobe, FaLaptopCode, FaCode, FaBrain, FaCompass, FaLightbulb } from 'react-icons/fa';
 import { CONTACT_EMAIL, SOCIAL } from '../config/env';
-import { useInView } from 'react-intersection-observer';
 import Timeline from '../components/Timeline';
 import SkillsGrid from '../components/SkillsGrid';
 import CertificationCard from '../components/CertificationCard';
@@ -28,46 +27,23 @@ const fallbackLogo = (label = 'NA') => {
 };
 
 export default function About(){
-  const [heroRef, heroInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
   return (
     <section className="about-page">
       {/* Hero Section */}
-      <motion.div 
-        ref={heroRef}
-        className="about-hero"
-        initial={{ opacity: 0, y: 30 }}
-        animate={heroInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.6 }}
-      >
+      <div className="about-hero">
         <div className="container">
           <div className="about-hero-content">
-            <motion.div 
-              className="about-avatar-wrapper"
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={heroInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
+            <div className="about-avatar-wrapper">
               <div className="about-avatar">
                 <img src={InnocentImage} alt="Innocent Niyonzima" className="avatar-image" />
               </div>
-              <motion.div 
-                className="avatar-status"
-                initial={{ opacity: 0, x: -20 }}
-                animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-              >
+              <div className="avatar-status">
                 <span className="status-dot"></span>
                 Open to opportunities
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-            <motion.div 
-              className="about-hero-text"
-              initial={{ opacity: 0, x: 30 }}
-              animate={heroInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            >
+            <div className="about-hero-text">
               <h1 className="about-title">
                 Hi, I'm <span className="gradient-text">Innocent Niyonzima</span>
               </h1>
@@ -79,50 +55,48 @@ export default function About(){
               </p>
 
               <div className="about-contact-links">
-                <motion.a 
+                <a 
                   href={`mailto:${CONTACT_EMAIL}`}
                   className="contact-chip"
-                  whileHover={{ y: -4, scale: 1.05 }}
                 >
                   <FaEnvelope />
                   {CONTACT_EMAIL}
-                </motion.a>
-                <motion.a 
+                </a>
+                <a 
                   href={SOCIAL.LINKEDIN} 
                   target="_blank"
                   rel="noopener noreferrer"
                   className="contact-chip"
-                  whileHover={{ y: -4, scale: 1.05 }}
                 >
                   <FaGlobe />
                   LinkedIn
-                </motion.a>
-                <motion.a 
+                </a>
+                <a 
                   href={SOCIAL.GITHUB} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="contact-chip"
-                  whileHover={{ y: -4, scale: 1.05 }}
                 >
                   <FaGlobe />
                   GitHub
-                </motion.a>
+                </a>
               </div>
 
-            </motion.div>
+            </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
       {/* Main Content */}
       <div className="container about-content">
         {/* Personal Story */}
         <motion.div 
           className="card about-section"
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+          transition={{ duration: 0.45 }}
+          style={{ opacity: 1 }}
         >
           <div className="section-header">
             <FaCompass className="section-icon" />
@@ -138,10 +112,11 @@ export default function About(){
         {/* Mission */}
         <motion.div 
           className="mission-block"
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+          transition={{ duration: 0.45 }}
+          style={{ opacity: 1 }}
         >
           <FaLightbulb className="mission-icon" />
           <p className="mission-statement">{MISSION.statement}</p>
@@ -150,10 +125,11 @@ export default function About(){
         {/* Education */}
         <motion.div 
           className="card about-section"
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+          transition={{ duration: 0.45 }}
+          style={{ opacity: 1 }}
         >
           <div className="section-header">
             <FaGraduationCap className="section-icon" />
@@ -208,10 +184,11 @@ export default function About(){
         {/* Technical Skills */}
         <motion.div 
           className="card about-section"
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+          transition={{ duration: 0.45 }}
+          style={{ opacity: 1 }}
         >
           <div className="section-header">
             <FaCode className="section-icon" />
@@ -223,10 +200,11 @@ export default function About(){
         {/* Experience */}
         <motion.div 
           className="card about-section"
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+          transition={{ duration: 0.45 }}
+          style={{ opacity: 1 }}
         >
           <div className="section-header">
             <FaBrain className="section-icon" />
@@ -238,10 +216,11 @@ export default function About(){
         {/* Certifications */}
         <motion.div 
           className="card about-section"
-          initial={{ opacity: 0, y: 30 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+          transition={{ duration: 0.45 }}
+          style={{ opacity: 1 }}
         >
           <div className="section-header">
             <FaAward className="section-icon" />
@@ -262,10 +241,11 @@ export default function About(){
         <div className="about-info-grid">
           <motion.div 
             className="card about-section"
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+            transition={{ duration: 0.45 }}
+            style={{ opacity: 1 }}
           >
             <div className="section-header">
               <FaLaptopCode className="section-icon" />
@@ -280,10 +260,11 @@ export default function About(){
 
           <motion.div 
             className="card about-section"
-            initial={{ opacity: 0, y: 30 }}
+            initial={false}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+            transition={{ duration: 0.45 }}
+            style={{ opacity: 1 }}
           >
             <div className="section-header">
               <FaGlobe className="section-icon" />

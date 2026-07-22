@@ -55,9 +55,10 @@ export default function Resume() {
 
       <motion.div
         className="card about-section"
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+        style={{ opacity: 1 }}
       >
         <h2>Experience</h2>
         <Timeline items={experiences} />
@@ -65,9 +66,10 @@ export default function Resume() {
 
       <motion.div
         className="card about-section"
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+        style={{ opacity: 1 }}
       >
         <h2>Education</h2>
         <div className="resume-education">
@@ -84,9 +86,10 @@ export default function Resume() {
 
       <motion.div
         className="card about-section"
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+        style={{ opacity: 1 }}
       >
         <h2>Technical Skills</h2>
         <SkillsGrid />
@@ -94,9 +97,10 @@ export default function Resume() {
 
       <motion.div
         className="card about-section"
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+        style={{ opacity: 1 }}
       >
         <h2>Research</h2>
         <p>
@@ -106,9 +110,10 @@ export default function Resume() {
 
       <motion.div
         className="card about-section"
-        initial={{ opacity: 0, y: 20 }}
+        initial={false}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
+        style={{ opacity: 1 }}
       >
         <h2>Certifications</h2>
         <div className="certifications-grid">

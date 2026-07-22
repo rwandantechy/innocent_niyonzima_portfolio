@@ -58,7 +58,7 @@ export default function Recruiters() {
           className="card page-card"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
         >
           <h2>Key Achievements</h2>
           <ul className="recruiter-checklist">
@@ -72,7 +72,7 @@ export default function Recruiters() {
           className="card page-card"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
         >
           <h2>Technical Skills</h2>
           <div className="interest-tags">
@@ -86,7 +86,7 @@ export default function Recruiters() {
           className="card page-card recruiters-full"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15, margin: '120px 0px' }}
         >
           <h2>Work Authorization</h2>
           <p>{RECRUITER_INFO.workAuthorization}</p>

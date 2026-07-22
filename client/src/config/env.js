@@ -9,7 +9,7 @@ export const ENV = {
   API_URL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
 
   // Contact Information
-  CONTACT_EMAIL: import.meta.env.VITE_CONTACT_EMAIL || 'contact@example.com',
+  CONTACT_EMAIL: import.meta.env.VITE_CONTACT_EMAIL || 'niyinnocent2027@gmail.com',
 
   // Social Media URLs
   SOCIAL: {

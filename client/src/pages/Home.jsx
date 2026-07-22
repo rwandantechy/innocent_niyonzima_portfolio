@@ -1,7 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { FaArrowRight } from 'react-icons/fa';
-import { useInView } from 'react-intersection-observer';
 import { Link } from 'react-router-dom';
 import Hero from '../components/Hero';
 import CurrentlySection from '../components/CurrentlySection';
@@ -14,7 +12,6 @@ import { getCaseStudy } from '../data/caseStudies';
 export default function Home() {
   const { projects = [], loadingProjects } = useApp();
   const featuredProjects = projects.filter((p) => p.featured).slice(0, 3);
-  const [projectsRef, projectsInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const recentBlogs = staticBlogs.slice(0, 3);
 
   return (
@@ -29,14 +26,9 @@ export default function Home() {
 
       <section className="home-journey-section">
         <div className="container">
-          <motion.div
-            className="section-heading"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="section-heading">
             <h2>My Journey</h2>
-          </motion.div>
+          </div>
           <JourneyTimeline />
         </div>
       </section>
@@ -47,35 +39,26 @@ export default function Home() {
         </div>
       </section>
 
-      <section ref={projectsRef} className="content-section">
+      <section className="content-section">
         <div className="container">
-          <motion.div
-            className="section-heading"
-            initial={{ opacity: 0, y: 30 }}
-            animate={projectsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="section-heading">
             <h2>Featured Work</h2>
             <p className="muted">
               Production systems with real users and ongoing ownership.
             </p>
-          </motion.div>
+          </div>
 
           {loadingProjects && <p className="muted">Loading projects...</p>}
           <div className="featured-projects-preview">
-            {featuredProjects.map((project, idx) => {
+            {featuredProjects.map((project) => {
               const caseStudy = getCaseStudy(project.id);
               const metrics = caseStudy?.metrics || (
                 Array.isArray(project.metrics) ? project.metrics : []
               );
               return (
-                <motion.div
+                <div
                   key={project.id}
                   className="card featured-project-card"
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={projectsInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.98 }}
-                  transition={{ duration: 0.5, delay: idx * 0.15 }}
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
                 >
                   <h3>{project.title}</h3>
                   <p className="muted">{project.description}</p>
@@ -87,57 +70,43 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-                  {getCaseStudy(project.id) && (
+                  {caseStudy && (
                     <Link to={`/projects/${project.id}`} className="btn btn-secondary" style={{ marginTop: 16, alignSelf: 'flex-start' }}>
                       Read Case Study <FaArrowRight style={{ marginLeft: 8 }} />
                     </Link>
                   )}
-                </motion.div>
+                </div>
               );
             })}
           </div>
 
-          <motion.div
-            style={{ textAlign: 'center', marginTop: 'var(--section-spacing)' }}
-            initial={{ opacity: 0 }}
-            animate={projectsInView ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ delay: 0.6 }}
-          >
-            <Link to="/projects" className="btn">
+          <div style={{ textAlign: 'center', marginTop: 'var(--section-spacing)' }}>
+            <Link to="/projects" className="btn btn-primary">
               View All Projects
               <FaArrowRight style={{ marginLeft: 8 }} />
             </Link>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       <section className="content-section">
         <div className="container">
-          <motion.div
-            className="section-heading"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
+          <div className="section-heading">
             <h2>Latest Writing</h2>
             <p className="muted">Things I have written about building and running software.</p>
-          </motion.div>
+          </div>
           <div className="blog-grid">
-            {recentBlogs.map((post, idx) => (
-              <motion.article
+            {recentBlogs.map((post) => (
+              <article
                 key={post.id}
                 className="blog-card card"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
               >
                 <h3>{post.title}</h3>
                 <p className="muted">{post.excerpt}</p>
                 <Link to={`/blog/${post.slug}`} className="blog-link">
                   Read Article <FaArrowRight style={{ marginLeft: 8 }} />
                 </Link>
-              </motion.article>
+              </article>
             ))}
           </div>
           <div style={{ textAlign: 'center', marginTop: 'var(--section-spacing)' }}>

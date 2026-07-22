@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaGraduationCap, FaTrophy, FaBriefcase, FaDatabase, FaBolt, FaCheckCircle, FaClock, FaExternalLinkAlt } from 'react-icons/fa';
-import { useInView } from 'react-intersection-observer';
 
 const iconMap = {
   'graduation': FaGraduationCap,
@@ -40,8 +39,7 @@ const officialIssuerLogoMap = {
   'Nishkaam Innovations LLP': 'https://cdn.simpleicons.org/briefcase/fd961a'
 };
 
-export default function CertificationCard({ title, issuer, date, iconType, status, certificateUrl, index }) {
-  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
+export default function CertificationCard({ title, issuer, date, iconType, status, certificateUrl }) {
   const [showModal, setShowModal] = useState(false);
   const [iconError, setIconError] = useState(false);
   
@@ -81,11 +79,7 @@ export default function CertificationCard({ title, issuer, date, iconType, statu
   return (
     <>
       <motion.div 
-        ref={ref}
         className="certification-card"
-        initial={{ opacity: 0, x: -50 }}
-        animate={inView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-        transition={{ duration: 0.5, delay: index * 0.1 }}
         whileHover={{ y: -4, transition: { duration: 0.2 } }}
       >
         <div className="cert-icon-wrapper">
