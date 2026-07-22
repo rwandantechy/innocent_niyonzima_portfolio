@@ -1009,6 +1009,13 @@ textarea {
   min-height: 100vh;
 }
 
+.app-layout--admin {
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+}
+
 .main-content {
   flex: 1;
   position: relative;
@@ -1017,8 +1024,12 @@ textarea {
 }
 
 .main-content--admin {
-  padding-top: 0;
+  padding-top: 0 !important;
+  margin-top: 0 !important;
   width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
 }
 
 /* ============================================
@@ -3617,23 +3628,26 @@ textarea {
 }
 
 /* ============================================
-   ADMIN LAYOUT STABILITY FIX
-   30% menu | 70% content
-   Right column: sticky top (~20%) + scrollable body
+   ADMIN LAYOUT
+   20% sidebar | 80% content
+   Viewport fixed; only admin-content scrolls
    ============================================ */
 .admin-shell {
   padding: 0 !important;
-  min-height: 100vh !important;
+  margin: 0 !important;
   height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100vh !important;
+  max-height: 100dvh !important;
   overflow: hidden !important;
 }
 
 .admin-layout-v2 {
   display: grid !important;
-  grid-template-columns: 30% 70% !important;
+  grid-template-columns: 20% 80% !important;
   gap: 0 !important;
-  height: 100vh !important;
-  min-height: 100vh !important;
+  height: 100% !important;
+  min-height: 0 !important;
   border: 0 !important;
   border-radius: 0 !important;
   padding: 0 !important;
@@ -3641,15 +3655,17 @@ textarea {
 }
 
 .admin-sidebar {
-  height: 100vh !important;
-  min-height: 100vh !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
   border-radius: 0 !important;
   border: 0 !important;
-  padding: 1.1rem 1rem !important;
-  position: sticky !important;
-  top: 0 !important;
+  padding: 1.1rem 0.85rem !important;
+  position: relative !important;
+  top: auto !important;
   align-self: stretch !important;
   overflow-y: auto !important;
+  overflow-x: hidden !important;
 }
 
 .admin-brand {
@@ -3686,35 +3702,37 @@ textarea {
 .admin-main {
   display: flex !important;
   flex-direction: column !important;
-  height: 100vh !important;
   min-width: 0 !important;
+  min-height: 0 !important;
+  height: 100% !important;
   padding: 0 !important;
   overflow: hidden !important;
 }
 
 .admin-topbar {
-  position: sticky !important;
-  top: 0 !important;
-  z-index: 20 !important;
+  position: relative !important;
+  z-index: 5 !important;
   display: flex !important;
   justify-content: space-between !important;
-  align-items: center !important;
+  align-items: flex-end !important;
   gap: 0.75rem !important;
-  flex: 0 0 20% !important;
-  min-height: 88px !important;
-  max-height: 20vh !important;
+  flex: 0 0 auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
   margin: 0 !important;
-  padding: 1.1rem 1.5rem !important;
+  padding: 1.1rem 1.5rem 0.9rem !important;
   border-bottom: 1px solid #e2e8f0 !important;
   background: #f8fafc !important;
 }
 
 .admin-content {
   flex: 1 1 auto !important;
-  min-height: 0 !important;
   min-width: 0 !important;
+  min-height: 0 !important;
+  overflow-x: hidden !important;
   overflow-y: auto !important;
   padding: 1.15rem 1.5rem 1.75rem !important;
+  -webkit-overflow-scrolling: touch;
 }
 
 .admin-topbar-actions {
@@ -3797,43 +3815,55 @@ textarea {
 }
 
 @media (max-width: 980px) {
-  .admin-shell {
-    height: auto !important;
-    overflow: auto !important;
-  }
-
   .admin-layout-v2 {
     grid-template-columns: 1fr !important;
-    height: auto !important;
-    overflow: visible !important;
+    grid-template-rows: auto minmax(0, 1fr) !important;
+    height: 100% !important;
+    overflow: hidden !important;
   }
 
   .admin-sidebar {
+    display: block !important;
     height: auto !important;
-    min-height: unset !important;
-    position: static !important;
-    border-radius: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0.75rem 0.85rem 0.5rem !important;
+  }
+
+  .admin-sidebar-section--footer,
+  .admin-brand-role,
+  .admin-sidebar-title {
+    display: none !important;
+  }
+
+  .admin-brand {
+    margin-bottom: 0.55rem !important;
+  }
+
+  .admin-sidebar-nav {
+    display: flex !important;
+    gap: 0.35rem !important;
+    overflow-x: auto !important;
+  }
+
+  .admin-sidebar-item {
+    flex: 0 0 auto !important;
+    white-space: nowrap !important;
   }
 
   .admin-main {
     height: auto !important;
-    overflow: visible !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
   }
 
   .admin-topbar {
-    flex: none !important;
-    max-height: none !important;
-    position: sticky !important;
-    top: 0 !important;
+    padding: 0.85rem 1.1rem 0.75rem !important;
   }
 
   .admin-content {
-    overflow: visible !important;
+    overflow-y: auto !important;
     padding: 1rem 1.1rem 1.5rem !important;
-  }
-
-  .admin-sidebar-nav {
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 
   .admin-stats-grid,
@@ -6350,6 +6380,14 @@ section {
    ============================================ */
 .main-content {
   padding-top: calc(var(--header-offset) + env(safe-area-inset-top, 0px)) !important;
+}
+
+.main-content--admin {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  overflow: hidden !important;
 }
 
 button,

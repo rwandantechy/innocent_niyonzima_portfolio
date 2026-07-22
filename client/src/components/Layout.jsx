@@ -9,7 +9,7 @@ export default function Layout({ children }){
   const isAdminRoute = pathname.startsWith('/admin');
 
   return (
-    <div className="app-layout">
+    <div className={`app-layout ${isAdminRoute ? 'app-layout--admin' : ''}`}>
       {!isAdminRoute && <Navbar />}
       <main className={`main-content ${isAdminRoute ? 'main-content--admin' : ''}`}>
         {children}
