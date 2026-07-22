@@ -21,8 +21,18 @@ export default function Resume() {
         <p className="page-intro muted">
           {CREDENTIALS.roleLine} - {CREDENTIALS.degree}, {CREDENTIALS.school}
         </p>
-        <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginTop: 20 }}>
-          <Link to="/recruiters" className="btn">
+        <div className="resume-header-actions">
+          <a
+            href="/Innocent_Niyonzima_Resume.pdf"
+            className="btn"
+            download="Innocent_Niyonzima_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaDownload style={{ marginRight: 8 }} />
+            Download PDF
+          </a>
+          <Link to="/recruiters" className="btn btn-secondary">
             <FaBriefcase style={{ marginRight: 8 }} />
             Recruiter Summary
           </Link>

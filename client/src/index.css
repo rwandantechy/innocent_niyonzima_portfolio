@@ -5581,6 +5581,27 @@ a.btn,
 
 .resume-page > header {
   margin-bottom: 0.25rem;
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.resume-page > header .page-intro {
+  margin-inline: auto;
+}
+
+.resume-page > header .btn,
+.resume-page > header a.btn {
+  margin-inline: auto;
+}
+
+.resume-header-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+  justify-content: center;
 }
 
 .resume-page .about-section {
@@ -5597,8 +5618,10 @@ a.btn,
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
   gap: 1rem;
-  margin: 0;
-  justify-content: start;
+  margin: 0 auto;
+  justify-content: center;
+  width: 100%;
+  max-width: 480px;
 }
 
 .resume-education {
