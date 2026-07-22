@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { FaPlus, FaTrashAlt, FaTimes } from 'react-icons/fa';
+import { FaPlus, FaTrashAlt, FaTimes, FaSave } from 'react-icons/fa';
 import { useApp } from '../../context/AppProvider';
 
 function parseList(value) {
@@ -13,10 +13,12 @@ export default function ProjectsAdmin() {
   const {
     adminProjects = [],
     createProject,
+    updateProject,
     deleteProject,
     fetchAdminContent,
   } = useApp();
 
+  const [editingId, setEditingId] = useState(null);
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [tech, setTech] = useState('');
@@ -51,6 +53,7 @@ export default function ProjectsAdmin() {
   }, [adminProjects, filter]);
 
   const resetForm = () => {
+    setEditingId(null);
     setTitle('');
     setDescription('');
     setTech('');
@@ -58,28 +61,50 @@ export default function ProjectsAdmin() {
     setPublished(false);
   };
 
+  const onEdit = (project) => {
+    setEditingId(project.id);
+    setTitle(project.title || '');
+    setDescription(project.description || '');
+    setTech((project.tech || []).join(', '));
+    setFeatured(Boolean(project.featured));
+    setPublished(Boolean(project.published));
+    setComposerOpen(true);
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
     setMsg(null);
+
+    const existing = editingId
+      ? adminProjects.find((p) => p.id === editingId)
+      : null;
+
+    const payload = {
+      title: title.trim(),
+      description: description.trim(),
+      featured,
+      published,
+      tech: parseList(tech),
+      metrics: existing?.metrics || [],
+      challenges: existing?.challenges || [],
+      solutions: existing?.solutions || [],
+      results: existing?.results || [],
+      links: existing?.links || {},
+    };
+
     try {
-      await createProject({
-        title: title.trim(),
-        description: description.trim(),
-        featured,
-        published,
-        tech: parseList(tech),
-        metrics: [],
-        challenges: [],
-        solutions: [],
-        results: [],
-        links: {},
-      });
-      setMsg('Project created');
+      if (editingId) {
+        await updateProject(editingId, payload);
+        setMsg('Project updated');
+      } else {
+        await createProject(payload);
+        setMsg('Project created');
+      }
       resetForm();
       setComposerOpen(false);
     } catch (err) {
-      setMsg(err.message || 'Create failed');
+      setMsg(err.message || 'Save failed');
     } finally {
       setSaving(false);
     }
@@ -89,6 +114,10 @@ export default function ProjectsAdmin() {
     try {
       await deleteProject(id);
       setMsg('Project deleted');
+      if (editingId === id) {
+        resetForm();
+        setComposerOpen(false);
+      }
     } catch (err) {
       setMsg(err.message || 'Delete failed');
     }
@@ -120,10 +149,17 @@ export default function ProjectsAdmin() {
         <button
           type="button"
           className="cms-primary-btn"
-          onClick={() => setComposerOpen((open) => !open)}
+          onClick={() => {
+            if (composerOpen && !editingId) {
+              setComposerOpen(false);
+              return;
+            }
+            resetForm();
+            setComposerOpen(true);
+          }}
         >
-          {composerOpen ? <FaTimes /> : <FaPlus />}
-          {composerOpen ? 'Close' : 'New project'}
+          {composerOpen && !editingId ? <FaTimes /> : <FaPlus />}
+          {composerOpen && !editingId ? 'Close' : 'New project'}
         </button>
       </div>
 
@@ -131,8 +167,12 @@ export default function ProjectsAdmin() {
         <section className="cms-panel cms-composer-panel">
           <div className="cms-panel-head">
             <div>
-              <h3>New project</h3>
-              <p>Title, story, and stack. Metrics can come later.</p>
+              <h3>{editingId ? 'Edit project' : 'New project'}</h3>
+              <p>
+                {editingId
+                  ? 'Update title, story, stack, and visibility.'
+                  : 'Title, story, and stack. Metrics can come later.'}
+              </p>
             </div>
           </div>
           <form className="cms-form cms-form--grid" onSubmit={onSubmit}>
@@ -156,7 +196,7 @@ export default function ProjectsAdmin() {
                 required
               />
             </label>
-            <label className="cms-field">
+            <label className="cms-field cms-field--full">
               <span>Tech stack</span>
               <input
                 value={tech}
@@ -186,10 +226,17 @@ export default function ProjectsAdmin() {
             </div>
             <div className="cms-form-actions cms-field--full">
               <button type="submit" className="cms-submit" disabled={saving}>
-                <FaPlus />
-                {saving ? 'Saving…' : published ? 'Publish project' : 'Save draft'}
+                {editingId ? <FaSave /> : <FaPlus />}
+                {saving ? 'Saving…' : editingId ? 'Update project' : published ? 'Publish project' : 'Save draft'}
               </button>
-              <button type="button" className="cms-ghost-btn" onClick={() => { resetForm(); setComposerOpen(false); }}>
+              <button
+                type="button"
+                className="cms-ghost-btn"
+                onClick={() => {
+                  resetForm();
+                  setComposerOpen(false);
+                }}
+              >
                 Cancel
               </button>
             </div>
@@ -221,7 +268,11 @@ export default function ProjectsAdmin() {
         ) : (
           <div className="cms-table" role="list">
             {visible.map((project) => (
-              <article key={project.id} className="cms-row" role="listitem">
+              <article
+                key={project.id}
+                className={`cms-row ${editingId === project.id ? 'is-editing' : ''}`}
+                role="listitem"
+              >
                 <div className="cms-row-main">
                   <div className="cms-row-badges">
                     <span className={`cms-status ${project.published ? 'is-live' : 'is-draft'}`}>
@@ -242,14 +293,19 @@ export default function ProjectsAdmin() {
                     ))}
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className="cms-icon-btn"
-                  aria-label={`Delete ${project.title}`}
-                  onClick={() => onDelete(project.id)}
-                >
-                  <FaTrashAlt />
-                </button>
+                <div className="cms-row-actions">
+                  <button type="button" className="cms-ghost-btn" onClick={() => onEdit(project)}>
+                    Edit
+                  </button>
+                  <button
+                    type="button"
+                    className="cms-icon-btn"
+                    aria-label={`Delete ${project.title}`}
+                    onClick={() => onDelete(project.id)}
+                  >
+                    <FaTrashAlt />
+                  </button>
+                </div>
               </article>
             ))}
           </div>

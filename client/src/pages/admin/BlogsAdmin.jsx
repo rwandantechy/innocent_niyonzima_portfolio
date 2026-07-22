@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { FaPlus, FaTrashAlt, FaTimes } from 'react-icons/fa';
+import { FaPlus, FaTrashAlt, FaTimes, FaSave } from 'react-icons/fa';
 import { useApp } from '../../context/AppProvider';
 
 function parseTags(value) {
@@ -10,7 +10,15 @@ function parseTags(value) {
 }
 
 export default function BlogsAdmin() {
-  const { adminBlogs = [], createBlog, deleteBlog, fetchAdminContent } = useApp();
+  const {
+    adminBlogs = [],
+    createBlog,
+    updateBlog,
+    deleteBlog,
+    fetchAdminContent,
+  } = useApp();
+
+  const [editingId, setEditingId] = useState(null);
   const [title, setTitle] = useState('');
   const [excerpt, setExcerpt] = useState('');
   const [tags, setTags] = useState('');
@@ -43,6 +51,7 @@ export default function BlogsAdmin() {
   }, [adminBlogs, filter]);
 
   const resetForm = () => {
+    setEditingId(null);
     setTitle('');
     setExcerpt('');
     setTags('');
@@ -50,24 +59,42 @@ export default function BlogsAdmin() {
     setFeatured(false);
   };
 
+  const onEdit = (blog) => {
+    setEditingId(blog.id);
+    setTitle(blog.title || '');
+    setExcerpt(blog.excerpt || blog.content || '');
+    setTags((blog.tags || []).join(', '));
+    setPublished(Boolean(blog.published));
+    setFeatured(Boolean(blog.featured));
+    setComposerOpen(true);
+  };
+
   const onSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
     setMsg(null);
+
+    const payload = {
+      title: title.trim(),
+      excerpt: excerpt.trim(),
+      content: excerpt.trim(),
+      tags: parseTags(tags),
+      published,
+      featured,
+    };
+
     try {
-      await createBlog({
-        title: title.trim(),
-        excerpt: excerpt.trim(),
-        content: excerpt.trim(),
-        tags: parseTags(tags),
-        published,
-        featured,
-      });
-      setMsg('Post created');
+      if (editingId) {
+        await updateBlog(editingId, payload);
+        setMsg('Post updated');
+      } else {
+        await createBlog(payload);
+        setMsg('Post created');
+      }
       resetForm();
       setComposerOpen(false);
     } catch (err) {
-      setMsg(err.message || 'Create failed');
+      setMsg(err.message || 'Save failed');
     } finally {
       setSaving(false);
     }
@@ -77,6 +104,10 @@ export default function BlogsAdmin() {
     try {
       await deleteBlog(id);
       setMsg('Post deleted');
+      if (editingId === id) {
+        resetForm();
+        setComposerOpen(false);
+      }
     } catch (err) {
       setMsg(err.message || 'Delete failed');
     }
@@ -107,10 +138,17 @@ export default function BlogsAdmin() {
         <button
           type="button"
           className="cms-primary-btn"
-          onClick={() => setComposerOpen((open) => !open)}
+          onClick={() => {
+            if (composerOpen && !editingId) {
+              setComposerOpen(false);
+              return;
+            }
+            resetForm();
+            setComposerOpen(true);
+          }}
         >
-          {composerOpen ? <FaTimes /> : <FaPlus />}
-          {composerOpen ? 'Close' : 'New post'}
+          {composerOpen && !editingId ? <FaTimes /> : <FaPlus />}
+          {composerOpen && !editingId ? 'Close' : 'New post'}
         </button>
       </div>
 
@@ -118,8 +156,12 @@ export default function BlogsAdmin() {
         <section className="cms-panel cms-composer-panel">
           <div className="cms-panel-head">
             <div>
-              <h3>New post</h3>
-              <p>Write a clear headline and a short excerpt. Publish when ready.</p>
+              <h3>{editingId ? 'Edit post' : 'New post'}</h3>
+              <p>
+                {editingId
+                  ? 'Update headline, excerpt, tags, and visibility.'
+                  : 'Write a clear headline and a short excerpt. Publish when ready.'}
+              </p>
             </div>
           </div>
           <form className="cms-form cms-form--grid" onSubmit={onSubmit}>
@@ -176,10 +218,17 @@ export default function BlogsAdmin() {
             </div>
             <div className="cms-form-actions cms-field--full">
               <button type="submit" className="cms-submit" disabled={saving}>
-                <FaPlus />
-                {saving ? 'Saving…' : published ? 'Publish post' : 'Save draft'}
+                {editingId ? <FaSave /> : <FaPlus />}
+                {saving ? 'Saving…' : editingId ? 'Update post' : published ? 'Publish post' : 'Save draft'}
               </button>
-              <button type="button" className="cms-ghost-btn" onClick={() => { resetForm(); setComposerOpen(false); }}>
+              <button
+                type="button"
+                className="cms-ghost-btn"
+                onClick={() => {
+                  resetForm();
+                  setComposerOpen(false);
+                }}
+              >
                 Cancel
               </button>
             </div>
@@ -217,7 +266,11 @@ export default function BlogsAdmin() {
         ) : (
           <div className="cms-table" role="list">
             {visible.map((blog) => (
-              <article key={blog.id} className="cms-row" role="listitem">
+              <article
+                key={blog.id}
+                className={`cms-row ${editingId === blog.id ? 'is-editing' : ''}`}
+                role="listitem"
+              >
                 <div className="cms-row-main">
                   <div className="cms-row-badges">
                     <span className={`cms-status ${blog.published ? 'is-live' : 'is-draft'}`}>
@@ -242,14 +295,19 @@ export default function BlogsAdmin() {
                     )}
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className="cms-icon-btn"
-                  aria-label={`Delete ${blog.title}`}
-                  onClick={() => onDelete(blog.id)}
-                >
-                  <FaTrashAlt />
-                </button>
+                <div className="cms-row-actions">
+                  <button type="button" className="cms-ghost-btn" onClick={() => onEdit(blog)}>
+                    Edit
+                  </button>
+                  <button
+                    type="button"
+                    className="cms-icon-btn"
+                    aria-label={`Delete ${blog.title}`}
+                    onClick={() => onDelete(blog.id)}
+                  >
+                    <FaTrashAlt />
+                  </button>
+                </div>
               </article>
             ))}
           </div>
