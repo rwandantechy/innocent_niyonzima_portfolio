@@ -181,14 +181,9 @@ export default function ExperienceAdmin() {
 
   return (
     <>
-      <div className="admin-hero">
-        <div>
-          <h2 className="admin-title">Experience</h2>
-          <p className="muted admin-subtitle">
-            Manage roles shown on Resume and About. Drag to reorder. Unpublished roles stay off the public site.
-          </p>
-        </div>
-      </div>
+      <p className="muted" style={{ marginBottom: '1rem' }}>
+        Drag to reorder. Unpublished roles stay off the public site.
+      </p>
 
       <div className="admin-grid">
         <div className="card admin-card">

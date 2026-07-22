@@ -13,6 +13,9 @@ const AdminLogin = lazy(() => import('./pages/admin/AdminLogin'));
 const AdminLayout = lazy(() => import('./pages/admin/AdminLayout'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 const ExperienceAdmin = lazy(() => import('./pages/admin/ExperienceAdmin'));
+const ProjectsAdmin = lazy(() => import('./pages/admin/ProjectsAdmin'));
+const BlogsAdmin = lazy(() => import('./pages/admin/BlogsAdmin'));
+const SkillsAdmin = lazy(() => import('./pages/admin/SkillsAdmin'));
 const ProjectCaseStudy = lazy(() => import('./pages/ProjectCaseStudy'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const Now = lazy(() => import('./pages/Now'));
@@ -42,6 +45,9 @@ export default function App() {
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<Navigate to="dashboard" replace />} />
             <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="projects" element={<ProjectsAdmin />} />
+            <Route path="blogs" element={<BlogsAdmin />} />
+            <Route path="skills" element={<SkillsAdmin />} />
             <Route path="experience" element={<ExperienceAdmin />} />
           </Route>
         </Routes>

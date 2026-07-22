@@ -168,17 +168,39 @@ export default function AppProvider({ children }) {
         fetch(`${apiBase}/admin/skills`),
         fetch(`${apiBase}/admin/experience`),
       ]);
-      if (pRes.ok) setAdminProjects((await pRes.json()).map(normalizeProject));
-      if (bRes.ok) setAdminBlogs((await bRes.json()).map(normalizeBlog));
+
+      if (pRes.ok) {
+        const projects = (await pRes.json()).map(normalizeProject);
+        setAdminProjects(projects.length > 0 ? projects : staticProjectFallback);
+      } else {
+        setAdminProjects(staticProjectFallback);
+      }
+
+      if (bRes.ok) {
+        const blogs = (await bRes.json()).map(normalizeBlog);
+        setAdminBlogs(blogs.length > 0 ? blogs : staticBlogs.map(normalizeBlog));
+      } else {
+        setAdminBlogs(staticBlogs.map(normalizeBlog));
+      }
+
       if (sRes.ok) {
         const skills = (await sRes.json()).map(normalizeSkills);
         setAdminSkills(skills.length > 0 ? skills : staticSkills.map(normalizeSkills));
+      } else {
+        setAdminSkills(staticSkills.map(normalizeSkills));
       }
+
       if (eRes.ok) {
         const exp = (await eRes.json()).map(normalizeExperience);
         setAdminExperience(exp.length > 0 ? exp : staticExperience.map(normalizeExperience));
+      } else {
+        setAdminExperience(staticExperience.map(normalizeExperience));
       }
     } catch (err) {
+      setAdminProjects(staticProjectFallback);
+      setAdminBlogs(staticBlogs.map(normalizeBlog));
+      setAdminSkills(staticSkills.map(normalizeSkills));
+      setAdminExperience(staticExperience.map(normalizeExperience));
       setError(err.message);
     }
   };

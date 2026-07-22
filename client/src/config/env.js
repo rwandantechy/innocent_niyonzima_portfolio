@@ -4,9 +4,40 @@
  * This eliminates repetition and ensures consistent usage across the app
  */
 
+function isLocalHostname(hostname = '') {
+  return hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
+}
+
+function isLocalUrl(url = '') {
+  return /localhost|127\.0\.0\.1|\[::1\]/.test(url);
+}
+
+/**
+ * Resolve API base URL safely.
+ * Public HTTPS sites must never call localhost - that triggers Chrome's
+ * "Access other apps and services on this device" Local Network Access prompt.
+ * On production we prefer same-origin `/api` (empty base) and static fallbacks.
+ */
+function resolveApiUrl() {
+  const configured = import.meta.env.VITE_API_URL || '';
+
+  if (typeof window !== 'undefined') {
+    const onLocalPage = isLocalHostname(window.location.hostname);
+    if (!onLocalPage && isLocalUrl(configured)) {
+      return '';
+    }
+  }
+
+  if (configured) return configured.replace(/\/$/, '');
+
+  if (import.meta.env.DEV) return 'http://localhost:5000';
+
+  return '';
+}
+
 export const ENV = {
   // API Configuration
-  API_URL: import.meta.env.VITE_API_URL || 'http://localhost:5000',
+  API_URL: resolveApiUrl(),
 
   // Contact Information
   CONTACT_EMAIL: import.meta.env.VITE_CONTACT_EMAIL || 'niyinnocent2027@gmail.com',
