@@ -8,6 +8,11 @@ import { getCaseStudy } from '../data/caseStudies';
 export default function ProjectShowcase({ project, index }) {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const keyPoints = [...(project.challenges || []), ...(project.results || [])].slice(0, 3);
+  const caseStudy = getCaseStudy(project.id);
+  const liveUrl = project.links?.live;
+  const githubUrl = project.links?.github;
+  const hasActions = Boolean(caseStudy || liveUrl || githubUrl);
+  const metrics = (project.metrics || []).slice(0, 3);
 
   return (
     <motion.article 
@@ -17,7 +22,6 @@ export default function ProjectShowcase({ project, index }) {
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
     >
-      {/* Project Header */}
       <div className="project-showcase-header">
         <div className="project-header-content">
           <div className="project-title-content">
@@ -38,17 +42,16 @@ export default function ProjectShowcase({ project, index }) {
         <p className="project-description">{project.description}</p>
       </div>
 
-      {/* Metrics Section */}
-      {project.metrics && project.metrics.length > 0 && (
-        <div className="project-metrics-grid">
-          {project.metrics.map((metric, idx) => (
+      {metrics.length > 0 && (
+        <div className={`project-metrics-grid metrics-count-${metrics.length}`}>
+          {metrics.map((metric, idx) => (
             <motion.div 
               key={idx} 
               className="metric-card"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ delay: 0.2 + idx * 0.1 }}
-              whileHover={{ y: -4, scale: 1.05 }}
+              whileHover={{ y: -4, scale: 1.02 }}
             >
               <div className="metric-content">
                 <span className="metric-value-large gradient-text">{metric.value}</span>
@@ -59,7 +62,6 @@ export default function ProjectShowcase({ project, index }) {
         </div>
       )}
 
-      {/* Tech Stack */}
       {project.tech && project.tech.length > 0 && (
         <div className="project-tech-section">
           <h4 className="section-label">Tech Stack</h4>
@@ -71,7 +73,7 @@ export default function ProjectShowcase({ project, index }) {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
                 transition={{ delay: 0.3 + idx * 0.05 }}
-                whileHover={{ scale: 1.1, y: -2 }}
+                whileHover={{ scale: 1.05, y: -2 }}
               >
                 {tech}
               </motion.span>
@@ -91,37 +93,38 @@ export default function ProjectShowcase({ project, index }) {
         </div>
       )}
 
-      {/* Action Links */}
-      <motion.div className="project-actions">
-        {getCaseStudy(project.id) && (
-          <Link to={`/projects/${project.id}`} className="btn">
-            <FaBookOpen />
-            Case Study
-          </Link>
-        )}
-        {project.links?.github && (
-          <a
-            href={project.links.github}
-            className="btn-outline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaGithub />
-            View Code
-          </a>
-        )}
-        {project.links?.live && (
-          <a
-            href={project.links.live}
-            className="btn btn-secondary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaExternalLinkAlt />
-            Live Demo
-          </a>
-        )}
-      </motion.div>
+      {hasActions && (
+        <motion.div className="project-actions">
+          {caseStudy && (
+            <Link to={`/projects/${project.id}`} className="btn">
+              <FaBookOpen />
+              Case Study
+            </Link>
+          )}
+          {githubUrl && (
+            <a
+              href={githubUrl}
+              className="btn-outline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub />
+              View Code
+            </a>
+          )}
+          {liveUrl && (
+            <a
+              href={liveUrl}
+              className="btn btn-secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaExternalLinkAlt />
+              Live Demo
+            </a>
+          )}
+        </motion.div>
+      )}
     </motion.article>
   );
 }

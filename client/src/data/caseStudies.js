@@ -91,6 +91,44 @@ export const caseStudies = {
     ],
     screenshot: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1200&q=80',
   },
+  yigse: {
+    slug: 'yigse',
+    title: 'YIGSE NGO Website',
+    tagline: 'A maintainable public site for a non-technical team',
+    featured: false,
+    metrics: [
+      { value: 'Public', label: 'Live Site' },
+      { value: 'Static', label: 'Fast Deploys' },
+      { value: 'NGO', label: 'Client Work' },
+    ],
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Netlify'],
+    problem: `An NGO needed a clear public website that volunteers could keep updated without depending on an engineer for every content change. The site also had to stay usable on slower connections.`,
+    solution: `I delivered a lightweight static site with a simple content structure, responsive layout, and a low-friction publish workflow on Netlify.`,
+    architecture: [
+      { label: 'Visitors', detail: 'Public information and program details' },
+      { label: 'Static frontend', detail: 'HTML, CSS, and Bootstrap layout' },
+      { label: 'Netlify', detail: 'Hosting and continuous deploys' },
+    ],
+    challenges: [
+      'Reliable access on lower-bandwidth networks',
+      'Content updates by non-engineering operators',
+      'Consistent layout across phones and desktops',
+    ],
+    decisions: [
+      'Kept the stack static to reduce hosting and maintenance cost',
+      'Favored clear page structure over heavy interactive features',
+      'Optimized assets so pages stayed light on mobile networks',
+    ],
+    results: [
+      'Stable public channel for the organization',
+      'Lower day-to-day maintenance through a simple update path',
+    ],
+    lessons: [
+      'For small orgs, maintainability often beats feature depth',
+      'Static hosting is enough when the job is clear information, not complex apps',
+    ],
+    screenshot: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80',
+  },
 };
 
 export const getCaseStudy = (slug) => caseStudies[slug] || null;

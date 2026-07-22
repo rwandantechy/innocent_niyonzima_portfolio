@@ -6,6 +6,8 @@ export const detailedProjects = [
     featured: true,
     metrics: [
       { value: '80K+', label: 'Users Served' },
+      { value: '99%+', label: 'Uptime Target' },
+      { value: 'Live', label: 'Production' },
     ],
     tech: ['React', 'Node.js', 'MongoDB', 'Express', 'Redis', 'AWS'],
     challenges: [
@@ -69,7 +71,9 @@ export const detailedProjects = [
     description: 'Delivered a public-facing NGO site with low maintenance overhead and reliable content publishing for non-technical operators.',
     featured: false,
     metrics: [
-      { value: 'Public', label: 'Production Site' },
+      { value: 'Public', label: 'Live Site' },
+      { value: 'Static', label: 'Fast Deploys' },
+      { value: 'NGO', label: 'Client Work' },
     ],
     tech: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap', 'Netlify'],
     challenges: [
@@ -85,6 +89,10 @@ export const detailedProjects = [
     results: [
       'Provided a stable public information channel for the organization',
       'Reduced day-to-day maintenance burden through straightforward update patterns'
-    ]
+    ],
+    links: {
+      live: null,
+      github: null
+    }
   }
 ];

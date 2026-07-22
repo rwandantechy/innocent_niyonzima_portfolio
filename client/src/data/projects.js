@@ -7,6 +7,8 @@ const projects = [
     tags: ['React', 'Node.js', 'MongoDB', 'Express', 'NGINX', 'Cloudflare'],
     metrics: [
       { value: '80K+', label: 'Users' },
+      { value: '99%+', label: 'Uptime' },
+      { value: 'Live', label: 'Production' },
     ],
     link: 'https://ibyapa.com',
     featured: true,
@@ -20,8 +22,9 @@ const projects = [
     metrics: [
       { value: 'ARM64', label: 'Edge Runtime' },
       { value: 'Docker', label: 'Deploys' },
+      { value: 'VPN', label: 'Secure Access' },
     ],
-    link: '#',
+    link: null,
     featured: true,
   },
   {
@@ -32,8 +35,10 @@ const projects = [
     tags: ['HTML', 'CSS', 'Design', 'Branding'],
     metrics: [
       { value: 'Public', label: 'Live Site' },
+      { value: 'Static', label: 'Fast Deploys' },
+      { value: 'NGO', label: 'Client Work' },
     ],
-    link: '#',
+    link: null,
     featured: false,
   },
 ];

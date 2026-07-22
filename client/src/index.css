@@ -3150,19 +3150,63 @@ section {
    PROJECT SHOWCASE COMPONENT
    ============================================ */
 .project-showcase {
-  padding: 2.5rem;
+  padding: 2rem 2.25rem;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  height: 100%;
 }
 
 .project-showcase-header {
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 .project-header-content {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-description {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Metrics Grid — always 3 equal columns for consistent cards */
+.project-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin: 0;
+  padding: 1.15rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.metric-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.9rem 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition);
+  text-align: center;
+  min-height: 76px;
+}
+
+.metric-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
 }
 
 .project-emoji-wrapper {
@@ -3206,35 +3250,6 @@ section {
   box-shadow: var(--shadow-glow);
 }
 
-.project-description {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-/* Metrics Grid */
-.project-metrics-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1rem;
-  margin: 2rem 0;
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.metric-card {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  transition: all var(--transition);
-}
-
 .metric-card:hover {
   background: var(--color-card-hover);
   border-color: var(--color-primary);
@@ -3246,28 +3261,41 @@ section {
   flex-shrink: 0;
 }
 
-.metric-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-}
-
 .metric-value-large {
-  font-size: 1.5rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  line-height: 1;
+  line-height: 1.1;
 }
 
 .metric-label-large {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--color-muted);
+}
+
+@media (max-width: 900px) and (min-width: 769px) {
+  .project-metrics-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .metric-value-large {
+    font-size: 1.15rem;
+  }
+
+  .metric-label-large {
+    font-size: 0.65rem;
+  }
 }
 
 /* Tech Stack Section */
 .project-tech-section {
-  margin: 2rem 0;
+  margin: 0;
+}
+
+.project-summary-list {
+  margin: 0;
+  flex: 1;
 }
 
 .section-label {
@@ -3402,11 +3430,14 @@ section {
 /* Project Actions */
 .project-actions {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid var(--color-border);
+  min-height: 3.25rem;
 }
 
 .project-actions a {
@@ -3449,6 +3480,7 @@ section {
 
   .project-actions {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .project-actions a {

@@ -38,7 +38,7 @@ export default function Projects(){
           animate={headerInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Real projects with real users, payments, and long-form write-ups.
+          Real projects with real users and long-form write-ups.
         </motion.p>
 
         {/* Filters */}
