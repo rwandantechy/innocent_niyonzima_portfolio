@@ -4256,7 +4256,7 @@ section {
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: var(--grid-gap);
+  gap: 1.5rem;
 }
 
 .about-section {
@@ -4264,33 +4264,25 @@ section {
   overflow: hidden;
 }
 
-.about-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(180deg, 
-    var(--accent-primary), 
-    var(--accent-secondary)
-  );
-  border-radius: 0 4px 4px 0;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.about-section:hover::before {
-  opacity: 1;
-}
-
 .section-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
+  gap: 0.85rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
   border-bottom: 1px solid var(--border-soft);
+}
+
+.about-info-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+.about-info-grid .about-section {
+  height: 100%;
+  margin: 0;
 }
 
 .section-icon {
@@ -4391,12 +4383,6 @@ section {
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--accent-primary);
-}
-
-.about-info-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
 }
 
 .interest-tags {
@@ -4550,6 +4536,34 @@ section {
 /* ============================================
    SKILLS WITH LOGOS (CDN)
    ============================================ */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+  align-items: start;
+}
+
+.skill-category {
+  min-width: 0;
+}
+
+.skill-category-header {
+  margin-bottom: 0.75rem;
+}
+
+.skill-category-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
 .skill-tag-with-logo {
   display: inline-flex;
   align-items: center;
@@ -4562,7 +4576,7 @@ section {
   font-weight: 600;
   color: var(--color-text-secondary);
   transition: all var(--transition-fast);
-  cursor: pointer;
+  cursor: default;
 }
 
 .skill-logo {
@@ -4583,6 +4597,14 @@ section {
   transform: none;
   box-shadow: none;
 }
+
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
 /* ============================================
    CERTIFICATIONS
    ============================================ */
@@ -4987,10 +5009,11 @@ a.btn,
 
 .hero-metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--grid-gap);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
+  gap: 1rem;
   margin: 1.25rem 0 1.5rem;
   width: 100%;
+  justify-content: start;
 }
 
 .metric-counter-card {
@@ -5263,9 +5286,35 @@ a.btn,
   padding-block: var(--page-padding-y);
 }
 
+.home-currently-wrap,
+.home-journey-section,
+.content-section {
+  padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
+}
+
 .section-heading {
   text-align: center;
-  margin-bottom: var(--section-spacing);
+  margin-bottom: 1.5rem;
+}
+
+.recruiters-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.recruiters-page > header {
+  margin-bottom: 0;
+}
+
+.recruiters-page .recruiter-actions,
+.recruiters-page .hero-metrics-grid,
+.recruiters-page .recruiters-grid {
+  margin-top: 0;
+}
+
+.recruiters-page .hero-metrics-grid {
+  margin-bottom: 0;
 }
 
 .section-heading h2 {
@@ -5450,10 +5499,18 @@ a.btn,
   align-items: stretch;
 }
 
-.recruiters-grid .page-card {
+.recruiters-page .page-card {
   margin-top: 0;
   padding: 1.6rem 1.5rem;
   height: 100%;
+}
+
+.recruiters-page .recruiter-actions {
+  margin: 0;
+}
+
+.recruiters-page .recruiters-grid {
+  margin-top: 0;
 }
 
 .recruiters-grid h2 {
@@ -5516,11 +5573,32 @@ a.btn,
   }
 }
 
+.resume-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.resume-page > header {
+  margin-bottom: 0.25rem;
+}
+
+.resume-page .about-section {
+  margin: 0;
+  padding: 1.5rem 1.75rem;
+}
+
+.resume-page .about-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+}
+
 .resume-metrics {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(160px, 220px));
   gap: 1rem;
-  margin: 2rem 0;
+  margin: 0;
+  justify-content: start;
 }
 
 .resume-education {
@@ -5537,7 +5615,12 @@ a.btn,
 @media (max-width: 968px) {
   .hero-metrics-grid,
   .resume-metrics {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 100%;
+  }
+
+  .about-info-grid {
+    grid-template-columns: 1fr;
   }
 
   .journey-timeline {

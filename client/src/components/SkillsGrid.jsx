@@ -52,7 +52,7 @@ const SkillCategory = ({ title, skills, index }) => {
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ y: -8, transition: { duration: 0.2 } }}
+      whileHover={{ y: -2, transition: { duration: 0.2 } }}
     >
       <div className="skill-category-header">
         <h3>{title}</h3>
@@ -66,7 +66,7 @@ const SkillCategory = ({ title, skills, index }) => {
             <motion.div
               key={idx} 
               className="skill-tag-with-logo"
-              whileHover={{ scale: 1.1, y: -4 }}
+              whileHover={{ scale: 1.03, y: -2 }}
               transition={{ type: "spring", stiffness: 400 }}
             >
               <img 
